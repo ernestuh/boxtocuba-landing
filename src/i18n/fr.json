@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "title": "Envoyer des colis du Canada à Cuba",
+    "description": "Expédition de colis rapide, fiable et abordable du Canada vers toutes les provinces cubaines. Vols hebdomadaires. Suivi en temps réel."
+  },
+  "nav": {
+    "services": "Services",
+    "how_it_works": "Comment ça marche",
+    "destinations": "Destinations",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "client_portal": "Portail client",
+    "get_quote": "Obtenir un devis"
+  },
+  "hero": {
+    "badge": "✈️ Vols hebdomadaires vers Cuba",
+    "headline": "Envoyez de l'amour du Canada à Cuba",
+    "subtitle": "Expédition rapide, fiable et abordable du Canada vers toutes les provinces cubaines. La confiance des familles depuis 2020.",
+    "cta_primary": "Devis gratuit →",
+    "cta_secondary": "Comment ça marche",
+    "trust_1": "🇨🇦 Toutes les provinces canadiennes",
+    "trust_2": "📦 +500 familles servies",
+    "trust_3": "⭐ Service 5 étoiles"
+  },
+  "destinations_strip": {
+    "label": "✈️ Vols hebdomadaires vers :"
+  },
+  "cuba_banner": {
+    "title": "Livraison dans tout Cuba",
+    "subtitle": "De La Havane à Guantánamo — nous couvrons chaque province.",
+    "stat_1_num": "16",
+    "stat_1_label": "Provinces cubaines",
+    "stat_2_num": "+500",
+    "stat_2_label": "Familles servies",
+    "stat_3_num": "7–20",
+    "stat_3_label": "Jours ouvrables",
+    "stat_4_num": "5★",
+    "stat_4_label": "Avis clients"
+  },
+  "features": {
+    "label": "Pourquoi nous choisir",
+    "title": "Tout ce dont votre famille a besoin",
+    "subtitle": "Nous rendons l'expédition vers Cuba simple, sûre et abordable — depuis n'importe quelle province du Canada.",
+    "cards": [
+      { "icon": "🔒", "title": "Sûr et sécurisé", "desc": "Chaque colis est manipulé avec soin et entièrement suivi de la collecte à la livraison." },
+      { "icon": "📍", "title": "Suivi en temps réel", "desc": "Suivez votre envoi à chaque étape via notre portail client." },
+      { "icon": "🇨🇦", "title": "Toutes les provinces", "desc": "Nous collectons en Ontario, Québec, C.-B., Alberta et plus encore." },
+      { "icon": "💰", "title": "Tarifs abordables", "desc": "Prix compétitifs sans frais cachés. Obtenez votre devis en quelques secondes." },
+      { "icon": "✈️", "title": "Fret aérien", "desc": "Livraison rapide en 7–20 jours ouvrables par vols hebdomadaires." },
+      { "icon": "💬", "title": "Support 24/7", "desc": "Notre équipe est toujours disponible par WhatsApp, téléphone ou email." }
+    ]
+  },
+  "how_it_works": {
+    "label": "Processus",
+    "title": "Expédiez en 3 étapes simples",
+    "subtitle": "Envoyer votre colis à Cuba n'a jamais été aussi facile.",
+    "steps": [
+      { "title": "Obtenir un devis", "desc": "Entrez les détails de votre colis et votre destination. Obtenez une estimation instantanée — sans inscription." },
+      { "title": "Déposer ou planifier une collecte", "desc": "Apportez votre colis à notre bureau de Toronto ou Montréal, ou planifiez une collecte à domicile." },
+      { "title": "Livré à Cuba", "desc": "Votre colis est livré à la porte de votre famille. Suivez chaque étape via le portail." }
+    ]
+  },
+  "provinces": {
+    "label": "Couverture",
+    "title": "Les 16 provinces cubaines",
+    "subtitle": "Nous livrons partout à Cuba. Sélectionnez votre destination pour voir le tarif."
+  },
+  "quote_cta": {
+    "label": "Commencer",
+    "title": "Prêt à envoyer votre colis ?",
+    "subtitle": "Obtenez un devis instantané — sans inscription.",
+    "cta": "Calculer mon tarif →"
+  },
+  "faq": {
+    "label": "FAQ",
+    "title": "Questions fréquentes",
+    "items": [
+      { "q": "Combien de temps dure l'expédition ?", "a": "La livraison prend généralement 7 à 20 jours ouvrables selon la province de destination et la disponibilité des vols." },
+      { "q": "Quels articles puis-je envoyer ?", "a": "Vous pouvez envoyer des articles divers, vêtements, aliments, médicaments, électroniques et plus encore." },
+      { "q": "Y a-t-il une limite de poids ?", "a": "Le poids maximum par colis est de 50 kg pour les articles divers. Pour les générateurs, contactez-nous." },
+      { "q": "Comment le coût est-il calculé ?", "a": "Le coût est calculé selon le plus grand entre le poids réel et le poids volumétrique, multiplié par le tarif de la province de destination." },
+      { "q": "Puis-je suivre mon envoi ?", "a": "Oui ! Une fois votre colis traité, vous recevrez un code de suivi pour le suivre en temps réel." },
+      { "q": "Faites-vous des collectes à domicile ?", "a": "Oui, nous offrons un service de collecte. Contactez-nous par WhatsApp ou téléphone pour planifier." }
+    ]
+  },
+  "contact": {
+    "label": "Contactez-nous",
+    "title": "Nous sommes là pour vous aider",
+    "phone_label": "Téléphone",
+    "email_label": "Email",
+    "location_label": "Emplacements",
+    "location_value": "Toronto et Montréal, Canada",
+    "whatsapp_label": "WhatsApp",
+    "form": {
+      "name": "Nom complet",
+      "phone": "Téléphone",
+      "email": "Adresse email",
+      "canadian_province": "Province canadienne",
+      "cuban_destination": "Destination à Cuba",
+      "message": "Message",
+      "submit": "Envoyer le message →"
+    }
+  },
+  "footer": {
+    "tagline": "Expédition fiable de colis du Canada à Cuba. La confiance des familles depuis 2020.",
+    "quick_links": "Liens rapides",
+    "contact": "Contact",
+    "rights": "© 2026 Box to Cuba. Tous droits réservés."
+  }
+}

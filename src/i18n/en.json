@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "title": "Send Packages from Canada to Cuba",
+    "description": "Fast, reliable and affordable parcel shipping from Canada to all Cuban provinces. Weekly flights. Real-time tracking."
+  },
+  "nav": {
+    "services": "Services",
+    "how_it_works": "How it works",
+    "destinations": "Destinations",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "client_portal": "Client Portal",
+    "get_quote": "Get a Quote"
+  },
+  "hero": {
+    "badge": "✈️ Weekly flights to Cuba",
+    "headline": "Send love from Canada to Cuba",
+    "subtitle": "Fast, reliable, and affordable parcel shipping from Canada to all Cuban provinces. Trusted by families since 2020.",
+    "cta_primary": "Get a free quote →",
+    "cta_secondary": "How it works",
+    "trust_1": "🇨🇦 All Canadian provinces",
+    "trust_2": "📦 500+ families served",
+    "trust_3": "⭐ 5-star service"
+  },
+  "destinations_strip": {
+    "label": "✈️ Weekly flights to:"
+  },
+  "cuba_banner": {
+    "title": "Delivering love across all of Cuba",
+    "subtitle": "From La Habana to Guantánamo — we cover every province.",
+    "stat_1_num": "16",
+    "stat_1_label": "Cuban provinces",
+    "stat_2_num": "500+",
+    "stat_2_label": "Families served",
+    "stat_3_num": "7–20",
+    "stat_3_label": "Business days",
+    "stat_4_num": "5★",
+    "stat_4_label": "Customer rating"
+  },
+  "features": {
+    "label": "Why choose us",
+    "title": "Everything your family needs",
+    "subtitle": "We make shipping to Cuba simple, safe, and affordable — from any province in Canada.",
+    "cards": [
+      { "icon": "🔒", "title": "Safe & Secure", "desc": "Every package is handled with care and fully tracked from pickup to delivery." },
+      { "icon": "📍", "title": "Real-time Tracking", "desc": "Follow your shipment every step of the way through our client portal." },
+      { "icon": "🇨🇦", "title": "All Canadian Provinces", "desc": "We pick up from Ontario, Quebec, BC, Alberta and more." },
+      { "icon": "💰", "title": "Affordable Rates", "desc": "Competitive pricing with no hidden fees. Get your quote in seconds." },
+      { "icon": "✈️", "title": "Air Freight", "desc": "Fast delivery in 7–20 business days via weekly flights." },
+      { "icon": "💬", "title": "24/7 Support", "desc": "Our team is always available via WhatsApp, phone or email." }
+    ]
+  },
+  "how_it_works": {
+    "label": "Process",
+    "title": "Ship in 3 simple steps",
+    "subtitle": "Getting your package to Cuba has never been easier.",
+    "steps": [
+      { "title": "Get a Quote", "desc": "Enter your package details and destination. Get an instant price estimate — no registration needed." },
+      { "title": "Drop Off or Schedule Pickup", "desc": "Bring your package to our Toronto or Montreal location, or schedule a pickup at your door." },
+      { "title": "Delivered in Cuba", "desc": "Your package is delivered to your family's door. Track every step through our client portal." }
+    ]
+  },
+  "provinces": {
+    "label": "Coverage",
+    "title": "All 16 Cuban provinces",
+    "subtitle": "We deliver everywhere in Cuba. Select your destination to see the rate."
+  },
+  "quote_cta": {
+    "label": "Get started",
+    "title": "Ready to send your package?",
+    "subtitle": "Get an instant quote — no registration required.",
+    "cta": "Calculate your rate →"
+  },
+  "faq": {
+    "label": "FAQ",
+    "title": "Frequently asked questions",
+    "items": [
+      { "q": "How long does shipping take?", "a": "Delivery typically takes 7–20 business days depending on the destination province and flight availability. We operate weekly flights to Cuba." },
+      { "q": "What items can I send?", "a": "You can send miscellaneous goods, clothing, food, medicine, electronics, and more. Some items are restricted by Cuban customs regulations." },
+      { "q": "Is there a weight limit?", "a": "The maximum weight per package is 50kg for miscellaneous items. For generators and batteries, please contact us for specific limits." },
+      { "q": "How is the shipping cost calculated?", "a": "Cost is calculated based on the greater of actual weight or volumetric weight, multiplied by the rate for your destination province." },
+      { "q": "Can I track my shipment?", "a": "Yes! Once your package is processed, you'll receive a tracking code to follow your shipment through our client portal." },
+      { "q": "Do you pick up from my home?", "a": "Yes, we offer pickup service. Contact us via WhatsApp or phone to schedule a pickup at your location." }
+    ]
+  },
+  "contact": {
+    "label": "Contact us",
+    "title": "We're here to help",
+    "phone_label": "Phone",
+    "email_label": "Email",
+    "location_label": "Locations",
+    "location_value": "Toronto & Montreal, Canada",
+    "whatsapp_label": "WhatsApp",
+    "form": {
+      "name": "Full Name",
+      "phone": "Phone",
+      "email": "Email",
+      "canadian_province": "Canadian Province",
+      "cuban_destination": "Cuban Destination",
+      "message": "Message",
+      "submit": "Send message →"
+    }
+  },
+  "footer": {
+    "tagline": "Reliable parcel shipping from Canada to Cuba. Trusted by families since 2020.",
+    "quick_links": "Quick Links",
+    "contact": "Contact",
+    "rights": "© 2026 Box to Cuba. All rights reserved."
+  }
+}

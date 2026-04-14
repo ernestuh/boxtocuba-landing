@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "title": "Envía paquetes de Canadá a Cuba",
+    "description": "Envío de paquetes rápido, confiable y asequible de Canadá a todas las provincias cubanas. Vuelos semanales. Rastreo en tiempo real."
+  },
+  "nav": {
+    "services": "Servicios",
+    "how_it_works": "Cómo funciona",
+    "destinations": "Destinos",
+    "faq": "FAQ",
+    "contact": "Contacto",
+    "client_portal": "Portal de clientes",
+    "get_quote": "Cotizar envío"
+  },
+  "hero": {
+    "badge": "✈️ Vuelos semanales a Cuba",
+    "headline": "Envía amor de Canadá a Cuba",
+    "subtitle": "Envío de paquetes rápido, confiable y asequible a todas las provincias de Cuba. Con la confianza de familias desde 2020.",
+    "cta_primary": "Cotizar gratis →",
+    "cta_secondary": "Cómo funciona",
+    "trust_1": "🇨🇦 Todas las provincias canadienses",
+    "trust_2": "📦 +500 familias atendidas",
+    "trust_3": "⭐ Servicio 5 estrellas"
+  },
+  "destinations_strip": {
+    "label": "✈️ Vuelos semanales a:"
+  },
+  "cuba_banner": {
+    "title": "Llevando amor a toda Cuba",
+    "subtitle": "De La Habana a Guantánamo — cubrimos cada provincia.",
+    "stat_1_num": "16",
+    "stat_1_label": "Provincias cubanas",
+    "stat_2_num": "+500",
+    "stat_2_label": "Familias atendidas",
+    "stat_3_num": "7–20",
+    "stat_3_label": "Días hábiles",
+    "stat_4_num": "5★",
+    "stat_4_label": "Valoración clientes"
+  },
+  "features": {
+    "label": "Por qué elegirnos",
+    "title": "Todo lo que tu familia necesita",
+    "subtitle": "Hacemos el envío a Cuba simple, seguro y asequible — desde cualquier provincia de Canadá.",
+    "cards": [
+      { "icon": "🔒", "title": "Seguro y confiable", "desc": "Cada paquete es manejado con cuidado y rastreado desde la recogida hasta la entrega." },
+      { "icon": "📍", "title": "Rastreo en tiempo real", "desc": "Sigue tu envío en cada paso a través de nuestro portal de clientes." },
+      { "icon": "🇨🇦", "title": "Todas las provincias de Canadá", "desc": "Recogemos en Ontario, Quebec, BC, Alberta y más." },
+      { "icon": "💰", "title": "Tarifas asequibles", "desc": "Precios competitivos sin cargos ocultos. Obtén tu cotización en segundos." },
+      { "icon": "✈️", "title": "Carga aérea", "desc": "Entrega rápida en 7–20 días hábiles mediante vuelos semanales." },
+      { "icon": "💬", "title": "Soporte 24/7", "desc": "Nuestro equipo siempre disponible por WhatsApp, teléfono o email." }
+    ]
+  },
+  "how_it_works": {
+    "label": "Proceso",
+    "title": "Envía en 3 simples pasos",
+    "subtitle": "Enviar tu paquete a Cuba nunca fue tan fácil.",
+    "steps": [
+      { "title": "Cotiza tu envío", "desc": "Ingresa los detalles de tu paquete y destino. Obtén un precio al instante — sin registro." },
+      { "title": "Entrega o recogida a domicilio", "desc": "Trae tu paquete a nuestra ubicación en Toronto o Montreal, o programa una recogida en tu puerta." },
+      { "title": "Entregado en Cuba", "desc": "Tu paquete llega a la puerta de tu familia. Rastréalo en todo momento desde el portal." }
+    ]
+  },
+  "provinces": {
+    "label": "Cobertura",
+    "title": "Las 16 provincias de Cuba",
+    "subtitle": "Entregamos en toda Cuba. Selecciona tu destino para ver la tarifa."
+  },
+  "quote_cta": {
+    "label": "Empieza ahora",
+    "title": "¿Listo para enviar tu paquete?",
+    "subtitle": "Obtén una cotización al instante — sin registro.",
+    "cta": "Calcular mi tarifa →"
+  },
+  "faq": {
+    "label": "FAQ",
+    "title": "Preguntas frecuentes",
+    "items": [
+      { "q": "¿Cuánto tarda el envío?", "a": "La entrega suele tardar 7–20 días hábiles según la provincia de destino y la disponibilidad de vuelos. Operamos vuelos semanales a Cuba." },
+      { "q": "¿Qué artículos puedo enviar?", "a": "Puedes enviar artículos varios, ropa, alimentos, medicamentos, electrónicos y más. Algunos artículos están restringidos por la aduana cubana." },
+      { "q": "¿Hay límite de peso?", "a": "El peso máximo por paquete es de 50kg para artículos varios. Para generadores y baterías, contáctanos para límites específicos." },
+      { "q": "¿Cómo se calcula el costo?", "a": "El costo se calcula según el mayor entre el peso real y el peso volumétrico, multiplicado por la tarifa de la provincia de destino." },
+      { "q": "¿Puedo rastrear mi envío?", "a": "¡Sí! Una vez procesado tu paquete, recibirás un código de rastreo para seguirlo en tiempo real desde el portal." },
+      { "q": "¿Hacen recogida a domicilio?", "a": "Sí, ofrecemos servicio de recogida. Contáctanos por WhatsApp o teléfono para programar una recogida en tu ubicación." }
+    ]
+  },
+  "contact": {
+    "label": "Contáctanos",
+    "title": "Estamos aquí para ayudarte",
+    "phone_label": "Teléfono",
+    "email_label": "Correo",
+    "location_label": "Ubicaciones",
+    "location_value": "Toronto y Montreal, Canadá",
+    "whatsapp_label": "WhatsApp",
+    "form": {
+      "name": "Nombre completo",
+      "phone": "Teléfono",
+      "email": "Correo electrónico",
+      "canadian_province": "Provincia canadiense",
+      "cuban_destination": "Destino en Cuba",
+      "message": "Mensaje",
+      "submit": "Enviar mensaje →"
+    }
+  },
+  "footer": {
+    "tagline": "Envío confiable de paquetes de Canadá a Cuba. Con la confianza de familias desde 2020.",
+    "quick_links": "Enlaces rápidos",
+    "contact": "Contacto",
+    "rights": "© 2026 Box to Cuba. Todos los derechos reservados."
+  }
+}

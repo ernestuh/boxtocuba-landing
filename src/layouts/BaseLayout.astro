@@ -1,0 +1,80 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  lang: string;
+  title: string;
+  description: string;
+  ogImage?: string;
+}
+
+const { lang, title, description, ogImage = '/og-image.jpg' } = Astro.props;
+const canonicalURL = Astro.url.href;
+const locales = ['en', 'es', 'fr'];
+
+const localBusiness = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Box to Cuba',
+  url: 'https://boxtocuba.ca',
+  telephone: '+1-416-836-5517',
+  email: 'info@boxtocuba.ca',
+  logo: 'https://boxtocuba.ca/logo.png',
+  image: `https://boxtocuba.ca${ogImage}`,
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'CA',
+    addressLocality: 'Toronto',
+    addressRegion: 'ON',
+  },
+  areaServed: ['CA', 'CU'],
+  serviceType: 'International Parcel Shipping',
+  priceRange: '$$',
+};
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO básico -->
+    <title>{title} | Box to Cuba</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Hreflang -->
+    {locales.map((l) => (
+      <link
+        rel="alternate"
+        hreflang={l}
+        href={`https://boxtocuba.ca${l === 'en' ? '' : `/${l}`}/`}
+      />
+    ))}
+    <link rel="alternate" hreflang="x-default" href="https://boxtocuba.ca/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={`${title} | Box to Cuba`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`https://boxtocuba.ca${ogImage}`} />
+    <meta property="og:locale" content={lang} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${title} | Box to Cuba`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`https://boxtocuba.ca${ogImage}`} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(localBusiness)} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
