@@ -1,9 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { useTranslations } from '../../i18n';
+import { getCmsContent, t as ct } from '../../lib/cms';
 
-const lang = 'en';
-const t = useTranslations(lang);
+const lang = 'fr';
+const content = await getCmsContent(lang);
+const t = (key: string) => ct(content, key);
 
 const provinces = [
   'La Habana', 'Artemisa', 'Mayabeque', 'Matanzas', 'Villa Clara',
