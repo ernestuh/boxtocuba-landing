@@ -6,9 +6,10 @@ interface Props {
   title: string;
   description: string;
   ogImage?: string;
+  faqItems?: { q: string; a: string }[];
 }
 
-const { lang, title, description, ogImage = '/og-image.jpg' } = Astro.props;
+const { lang, title, description, ogImage = '/logo.png', faqItems } = Astro.props;
 const canonicalURL = Astro.url.href;
 const locales = ['en', 'es', 'fr'];
 
@@ -71,8 +72,21 @@ const localBusiness = {
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
-    <!-- JSON-LD -->
+    <!-- JSON-LD: LocalBusiness -->
     <script type="application/ld+json" set:html={JSON.stringify(localBusiness)} />
+
+    <!-- JSON-LD: FAQPage (rich snippets) -->
+    {faqItems && faqItems.length > 0 && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqItems.map((item: { q: string; a: string }) => ({
+          '@type': 'Question',
+          name: item.q,
+          acceptedAnswer: { '@type': 'Answer', text: item.a }
+        }))
+      })} />
+    )}
   </head>
   <body>
     <slot />
