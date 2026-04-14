@@ -63,7 +63,8 @@
   "provinces": {
     "label": "Couverture",
     "title": "Les 16 provinces cubaines",
-    "subtitle": "Nous livrons partout à Cuba. Sélectionnez votre destination pour voir le tarif."
+    "subtitle": "Nous livrons partout à Cuba. Sélectionnez votre destination pour voir le tarif.",
+    "price_from": "À partir de $6/lb"
   },
   "quote_cta": {
     "label": "Commencer",
@@ -87,10 +88,13 @@
     "label": "Contactez-nous",
     "title": "Nous sommes là pour vous aider",
     "phone_label": "Téléphone",
+    "phone_value": "+1 416-836-5517",
     "email_label": "Email",
+    "email_value": "info@boxtocuba.ca",
     "location_label": "Emplacements",
     "location_value": "Toronto et Montréal, Canada",
     "whatsapp_label": "WhatsApp",
+    "whatsapp_value": "+1 416-836-5517",
     "form": {
       "name": "Nom complet",
       "phone": "Téléphone",
@@ -104,7 +108,13 @@
   "footer": {
     "tagline": "Expédition fiable de colis du Canada à Cuba. La confiance des familles depuis 2020.",
     "quick_links": "Liens rapides",
+    "customs_guide": "Guide des douanes",
     "contact": "Contact",
-    "rights": "© 2026 Box to Cuba. Tous droits réservés."
+    "phone": "+1 416-836-5517",
+    "email": "info@boxtocuba.ca",
+    "location_1": "Toronto, Canada",
+    "location_2": "Montréal, Canada",
+    "rights": "© 2026 Box to Cuba. Tous droits réservés.",
+    "legal": "Politique de confidentialité · Conditions d'utilisation"
   }
 }

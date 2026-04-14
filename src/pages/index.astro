@@ -167,7 +167,7 @@ const provinces = [
           <div class="bg-white border border-gray-100 rounded-xl p-4 text-center hover:border-red-400 hover:bg-red-50 transition-all cursor-pointer group">
             <div class="text-2xl mb-1">📦</div>
             <h4 class="text-sm font-semibold text-gray-800 group-hover:text-red-500">{p}</h4>
-            <div class="text-xs text-red-500 font-bold mt-1">From $6/lb</div>
+            <div class="text-xs text-red-500 font-bold mt-1">{t('provinces.price_from')}</div>
           </div>
         ))}
       </div>
@@ -209,10 +209,10 @@ const provinces = [
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
         <div class="space-y-6">
           {[
-            ['📞', t('contact.phone_label'), '+1 416-836-5517'],
-            ['✉️', t('contact.email_label'), 'info@boxtocuba.ca'],
+            ['📞', t('contact.phone_label'), t('contact.phone_value')],
+            ['✉️', t('contact.email_label'), t('contact.email_value')],
             ['📍', t('contact.location_label'), t('contact.location_value')],
-            ['💬', t('contact.whatsapp_label'), '+1 416-836-5517'],
+            ['💬', t('contact.whatsapp_label'), t('contact.whatsapp_value')],
           ].map(([icon, label, value]) => (
             <div class="flex items-start gap-4">
               <div class="w-11 h-11 bg-red-50 rounded-xl flex items-center justify-center text-xl flex-shrink-0">{icon}</div>
@@ -260,7 +260,7 @@ const provinces = [
         <h4 class="text-sm font-bold text-gray-200 mb-4">{t('footer.quick_links')}</h4>
         <div class="space-y-2">
           <a href="https://app.boxtocuba.ca/shipping-quote" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">{t('nav.get_quote')}</a>
-          <a href="https://app.boxtocuba.ca/aduana" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">Customs Guide / Aduana</a>
+          <a href="https://app.boxtocuba.ca/aduana" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">{t('footer.customs_guide')}</a>
           <a href="https://app.boxtocuba.ca/client" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">{t('nav.client_portal')}</a>
           <a href="#faq" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">FAQ</a>
         </div>
@@ -268,16 +268,16 @@ const provinces = [
       <div>
         <h4 class="text-sm font-bold text-gray-200 mb-4">{t('footer.contact')}</h4>
         <div class="space-y-2">
-          <a href="tel:+14168365517" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">+1 416-836-5517</a>
-          <a href="mailto:info@boxtocuba.ca" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">info@boxtocuba.ca</a>
-          <span class="block text-sm text-gray-400">Toronto, Canada</span>
-          <span class="block text-sm text-gray-400">Montreal, Canada</span>
+          <a href={`tel:${t('footer.phone').replace(/\s/g,'')}`} class="block text-sm text-gray-400 hover:text-red-400 transition-colors">{t('footer.phone')}</a>
+          <a href={`mailto:${t('footer.email')}`} class="block text-sm text-gray-400 hover:text-red-400 transition-colors">{t('footer.email')}</a>
+          <span class="block text-sm text-gray-400">{t('footer.location_1')}</span>
+          <span class="block text-sm text-gray-400">{t('footer.location_2')}</span>
         </div>
       </div>
     </div>
     <div class="border-t border-gray-700 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-gray-500">
       <span>{t('footer.rights')}</span>
-      <span>Privacy Policy · Terms of Service</span>
+      <span>{t('footer.legal')}</span>
     </div>
   </footer>
 
