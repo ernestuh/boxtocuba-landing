@@ -2,7 +2,7 @@
  * Landing CMS: fetches content from Supabase settings at build time.
  * Falls back to bundled JSON translations if Supabase is unavailable or key is missing.
  */
-import { supabase } from './supabase';
+import { createClient } from '@supabase/supabase-js';
 import type { Lang } from '../i18n';
 import en from '../i18n/en.json';
 import es from '../i18n/es.json';
@@ -36,7 +36,16 @@ const SECTION_TO_KEY: Record<Section, keyof TranslationData> = {
 export async function getCmsContent(lang: Lang): Promise<TranslationData> {
   const base: TranslationData = JSON.parse(JSON.stringify(fallbacks[lang]));
 
+  // Guard: skip Supabase fetch if env vars are missing (falls back to JSON)
+  const supabaseUrl = import.meta.env.SUPABASE_URL;
+  const supabaseKey = import.meta.env.SUPABASE_SERVICE_KEY;
+  if (!supabaseUrl || !supabaseKey) {
+    console.warn('[CMS] Missing SUPABASE_URL or SUPABASE_SERVICE_KEY — using JSON fallback.');
+    return base;
+  }
+
   try {
+    const supabase = createClient(supabaseUrl, supabaseKey);
     const prefix = `LANDING_${lang.toUpperCase()}_`;
     const keys = SECTIONS.map((s) => `${prefix}${s}`);
 
