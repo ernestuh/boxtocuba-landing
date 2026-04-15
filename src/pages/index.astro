@@ -27,6 +27,7 @@ const provinces = [
         <a href="#services" class="text-gray-500 hover:text-red-500 text-sm transition-colors">{t('nav.services')}</a>
         <a href="#how-it-works" class="text-gray-500 hover:text-red-500 text-sm transition-colors">{t('nav.how_it_works')}</a>
         <a href="#destinations" class="text-gray-500 hover:text-red-500 text-sm transition-colors">{t('nav.destinations')}</a>
+        <a href="/canada-to-cuba-shipping-rates" class="text-red-500 font-semibold text-sm border-b-2 border-red-500 pb-0.5">Rates</a>
         <a href="#faq" class="text-gray-500 hover:text-red-500 text-sm transition-colors">{t('nav.faq')}</a>
         <a href="#contact" class="text-gray-500 hover:text-red-500 text-sm transition-colors">{t('nav.contact')}</a>
       </div>
@@ -171,6 +172,9 @@ const provinces = [
           </div>
         ))}
       </div>
+      <div class="mt-8 text-center">
+        <a href="/canada-to-cuba-shipping-rates" class="text-sm text-red-500 font-semibold hover:underline">See full shipping rates by province →</a>
+      </div>
     </div>
   </section>
 
@@ -250,7 +254,7 @@ const provinces = [
 
   <!-- FOOTER -->
   <footer class="bg-gray-900 text-white px-6 py-12">
-    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
       <div>
         <img src="/logo.png" alt="Box to Cuba" class="w-12 h-12 object-contain mb-3 brightness-[10]" />
         <div class="font-bold text-lg mb-2">Box to Cuba</div>
@@ -263,6 +267,14 @@ const provinces = [
           <a href="https://app.boxtocuba.ca/aduana" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">{t('footer.customs_guide')}</a>
           <a href="https://app.boxtocuba.ca/client" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">{t('nav.client_portal')}</a>
           <a href="#faq" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">FAQ</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-sm font-bold text-gray-200 mb-4">Resources</h4>
+        <div class="space-y-2">
+          <a href="/canada-to-cuba-shipping-rates" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">Shipping Rates</a>
+          <a href="/cuba-customs-guide" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">Customs Guide</a>
+          <a href="/cuba-prohibited-items" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">Prohibited Items</a>
         </div>
       </div>
       <div>

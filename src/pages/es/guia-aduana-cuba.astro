@@ -1,0 +1,289 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faqItems = [
+  { q: '¿Puedo enviar dinero en efectivo dentro del paquete?', a: 'No. El envío de efectivo dentro de paquetes está prohibido tanto por las regulaciones canadienses como cubanas. Para enviar dinero, usa un servicio de remesas autorizado.' },
+  { q: '¿Puedo enviar medicamentos sin receta?', a: 'Sí, los medicamentos de venta libre están exentos de arancel hasta USD $200 por envío, en su empaque original. Para medicamentos controlados, adjunta copia de la prescripción médica.' },
+  { q: '¿Los artículos usados pagan menos impuesto?', a: 'Generalmente sí. Los artículos claramente usados son valorados por la aduana a precio menor que los nuevos, lo que puede reducir el arancel aplicable.' },
+  { q: '¿Cuántos paquetes puede recibir una persona en Cuba?', a: 'No hay un límite oficial en el número de paquetes recibidos. Los límites aplican por artículo y por envío, no por número de envíos al año.' },
+  { q: '¿Puedo enviar paneles solares?', a: 'Los paneles solares de uso residencial están generalmente permitidos, pero sujetos a arancel según su valor declarado. Consulta con nuestro equipo antes de enviar artículos de alto valor.' },
+];
+---
+
+<BaseLayout
+  lang="es"
+  title="Guía de Aduana Cuba 2026: Qué puedes enviar desde Canadá | Box to Cuba"
+  description="Todo lo que necesitas saber sobre la aduana cubana al enviar paquetes desde Canadá. Artículos permitidos, límites y consejos para evitar retenciones."
+  faqItems={faqItems}
+>
+
+  <!-- NAVBAR -->
+  <nav class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="/es/" class="flex items-center gap-3">
+        <img src="/logo.png" alt="Box to Cuba" class="w-10 h-10 object-contain" />
+        <span class="font-bold text-gray-900 text-lg">Box to Cuba</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/es/#services" class="text-gray-500 hover:text-red-500 text-sm transition-colors">Servicios</a>
+        <a href="/es/#how-it-works" class="text-gray-500 hover:text-red-500 text-sm transition-colors">Cómo funciona</a>
+        <a href="/es/precios-envio-canada-cuba" class="text-gray-500 hover:text-red-500 text-sm transition-colors">Tarifas</a>
+        <a href="/es/#faq" class="text-gray-500 hover:text-red-500 text-sm transition-colors">FAQ</a>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="/cuba-customs-guide" class="text-xs text-gray-400 hover:text-red-500 px-2 py-1 rounded transition-colors">EN</a>
+        <a href="/fr/guide-douanes-cuba" class="text-xs text-gray-400 hover:text-red-500 px-2 py-1 rounded transition-colors">FR</a>
+        <a href="https://app.boxtocuba.ca/client" class="px-4 py-2 text-sm font-semibold border border-gray-200 rounded-lg hover:border-red-400 hover:text-red-500 transition-colors">Portal Cliente</a>
+        <a href="https://app.boxtocuba.ca/shipping-quote" class="px-4 py-2 text-sm font-semibold bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">Cotizar →</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="bg-gray-50 border-b border-gray-100 px-6 py-3">
+    <div class="max-w-5xl mx-auto text-sm text-gray-400">
+      <a href="/es/" class="hover:text-red-500 transition-colors">Inicio</a>
+      <span class="mx-2">›</span>
+      <span class="text-gray-700">Guía de Aduana Cuba</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="bg-gradient-to-br from-white to-red-50 px-6 py-16">
+    <div class="max-w-5xl mx-auto">
+      <div class="inline-flex items-center gap-2 bg-yellow-50 text-yellow-600 text-xs font-semibold px-4 py-2 rounded-full mb-5">📋 Información actualizada abril 2026</div>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
+        Guía de Aduana Cuba:<br class="hidden md:block" /> Envíos desde Canadá 2026
+      </h1>
+      <p class="text-gray-500 text-lg leading-relaxed max-w-2xl mb-8">
+        Todo lo que necesitas saber sobre límites, aranceles y artículos permitidos para enviar paquetes a Cuba desde Canadá sin sorpresas.
+      </p>
+      <div class="flex gap-3 flex-wrap">
+        <a href="#limites" class="px-6 py-3 bg-red-500 text-white font-semibold rounded-xl hover:bg-red-600 transition-colors">Ver límites →</a>
+        <a href="/es/articulos-prohibidos-cuba" class="px-6 py-3 border border-gray-200 font-semibold rounded-xl hover:border-red-400 hover:text-red-500 transition-colors">Artículos Prohibidos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WARNING -->
+  <div class="bg-yellow-50 border-y border-yellow-200 px-6 py-4">
+    <div class="max-w-5xl mx-auto flex gap-3 items-start">
+      <span class="text-xl">⚠️</span>
+      <p class="text-sm text-yellow-800"><strong>Información actualizada a abril 2026.</strong> Las regulaciones aduaneras cubanas cambian con frecuencia. Siempre verifica con nuestro equipo antes de enviar artículos sobre los que tengas dudas.</p>
+    </div>
+  </div>
+
+  <!-- HOW CUSTOMS WORKS -->
+  <section class="px-6 py-16">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-xs font-bold text-red-500 uppercase tracking-widest mb-2">Introducción</div>
+      <h2 class="text-3xl font-extrabold mb-6">¿Cómo funciona la aduana en Cuba?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <p class="text-gray-600 mb-4">Cuando un paquete llega a Cuba, pasa por inspección aduanal. La aduana cubana tiene el derecho de revisar el contenido de cualquier paquete, aplicar impuestos o retener artículos que no cumplan las regulaciones vigentes.</p>
+          <p class="text-gray-600">La buena noticia: la mayoría de los paquetes de uso personal y familiar pasan sin problemas si sigues las reglas. En Box to Cuba te ayudamos a declarar correctamente el contenido para minimizar retrasos.</p>
+        </div>
+        <div class="bg-gray-50 rounded-2xl p-6">
+          <h3 class="font-bold mb-4">Lo que revisa la aduana cubana:</h3>
+          <ul class="space-y-3 text-sm text-gray-600">
+            <li class="flex gap-2"><span class="text-red-500 font-bold">→</span> Declaración de contenido y valor</li>
+            <li class="flex gap-2"><span class="text-red-500 font-bold">→</span> Artículos prohibidos o restringidos</li>
+            <li class="flex gap-2"><span class="text-red-500 font-bold">→</span> Cantidades (uso personal vs. comercial)</li>
+            <li class="flex gap-2"><span class="text-red-500 font-bold">→</span> Cumplimiento de límites por categoría</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIMITS TABLE -->
+  <section class="bg-gray-50 px-6 py-16" id="limites">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-xs font-bold text-red-500 uppercase tracking-widest mb-2">Límites 2026</div>
+      <h2 class="text-3xl font-extrabold mb-3">¿Cuánto puedo enviar sin pagar aranceles?</h2>
+      <p class="text-gray-500 mb-8">Los límites dependen del tipo de artículo. A partir de 2026 la aduana cubana aplica las siguientes reglas para envíos por paquetería:</p>
+
+      <div class="overflow-x-auto rounded-2xl shadow-sm mb-6">
+        <table class="w-full bg-white text-sm">
+          <thead>
+            <tr class="bg-gray-700 text-white">
+              <th class="text-left px-5 py-4 font-semibold">Tipo de artículo</th>
+              <th class="text-left px-5 py-4 font-semibold">Límite exento de arancel</th>
+              <th class="text-left px-5 py-4 font-semibold">Arancel si excede</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="px-5 py-4"><strong>Alimentos, medicamentos, aseo e insumos médicos</strong></td>
+              <td class="px-5 py-4 text-green-700 font-semibold">Hasta USD $200 o 20 kg</td>
+              <td class="px-5 py-4 text-gray-500">Variable según producto</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <td class="px-5 py-4"><strong>Artículos generales</strong> (ropa, electrónicos, etc.)</td>
+              <td class="px-5 py-4 text-green-700 font-semibold">Primeros USD $30 o 3 kg</td>
+              <td class="px-5 py-4 text-orange-600 font-semibold">30% sobre el excedente (máx. USD $500)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="bg-blue-50 border-l-4 border-blue-400 rounded-xl p-5">
+        <div class="font-bold text-gray-800 mb-1">Equivalencia peso-valor</div>
+        <p class="text-sm text-gray-600">La aduana cubana usa una tabla oficial donde <strong>1 kg = USD $10</strong>. Si tu paquete pesa 5 kg, se considera un valor declarado de $50 USD para calcular aranceles.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ITEMS TABLE -->
+  <section class="px-6 py-16">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-xs font-bold text-red-500 uppercase tracking-widest mb-2">Por categoría</div>
+      <h2 class="text-3xl font-extrabold mb-8">¿Qué puedo enviar a Cuba?</h2>
+
+      <div class="overflow-x-auto rounded-2xl shadow-sm">
+        <table class="w-full bg-white text-sm">
+          <thead>
+            <tr class="bg-gray-900 text-white">
+              <th class="text-left px-5 py-4 font-semibold">Categoría</th>
+              <th class="text-left px-5 py-4 font-semibold">Límite / Condición</th>
+              <th class="text-left px-5 py-4 font-semibold hidden md:table-cell">Notas</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              ['Ropa y calzado', 'Cantidad de uso personal razonable (referencia: hasta 25 kg)', 'No para reventa comercial'],
+              ['Medicamentos', 'Exentos hasta USD $200 por envío, en empaque original', 'Sin narcóticos. Con receta para medicamentos controlados.'],
+              ['Alimentos empacados', 'Exentos junto con medicamentos y aseo hasta USD $200', 'Sellados de fábrica. Sin perecederos, carnes frescas ni lácteos frescos.'],
+              ['Electrónicos personales', '1 unidad por tipo (1 laptop, 1 tablet, 1 teléfono)', 'Uso personal demostrable. Pueden aplicar aranceles.'],
+              ['Electrodomésticos', '1 unidad por tipo', 'Sujetos a arancel según valor declarado.'],
+              ['Cosméticos y perfumes', 'Uso personal razonable', 'Sin cantidades que sugieran reventa.'],
+              ['Vitaminas y suplementos', 'Incluidos en exención hasta USD $200 de medicamentos', 'Empacados originalmente. Sin esteroides.'],
+              ['Baterías para motorinas', 'Hasta 3 unidades (gel o litio)', 'Arancel: 50 pesos cubanos por unidad.'],
+              ['Acumuladores para vehículos', '1 unidad', 'Arancel: 35 pesos cubanos.'],
+            ].map(([cat, limit, note], i) => (
+              <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                <td class="px-5 py-3 font-semibold text-gray-800">{cat}</td>
+                <td class="px-5 py-3 text-gray-600">{limit}</td>
+                <td class="px-5 py-3 text-gray-400 text-xs hidden md:table-cell">{note}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIPS -->
+  <section class="bg-gray-50 px-6 py-16">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-xs font-bold text-red-500 uppercase tracking-widest mb-2">Consejos prácticos</div>
+      <h2 class="text-3xl font-extrabold mb-8">Cómo declaramos el contenido de tu paquete</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div class="space-y-4">
+          {[
+            ['1', 'Lista detallada del contenido', 'Tipo de artículo, cantidad y valor aproximado por ítem.'],
+            ['2', 'Empaca de forma organizada', 'Artículos similares juntos, fácil de inspeccionar para evitar demoras.'],
+            ['3', 'Separa las categorías exentas', 'Alimentos, medicamentos y aseo en un bulto aparte para facilitar la exención.'],
+            ['4', 'No ocultes artículos', 'La aduana cubana usa escáner. Ocultar puede resultar en confiscación total.'],
+          ].map(([num, title, desc]) => (
+            <div class="flex gap-4">
+              <div class="w-9 h-9 rounded-full bg-red-500 text-white text-sm font-extrabold flex items-center justify-center flex-shrink-0">{num}</div>
+              <div>
+                <div class="font-semibold text-gray-800">{title}</div>
+                <p class="text-sm text-gray-500 mt-1">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div class="space-y-4">
+          <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-5">
+            <div class="font-bold text-yellow-800 mb-2">¿Qué pasa si retienen mi paquete?</div>
+            <p class="text-sm text-yellow-700">Una retención puede agregar 2–8 semanas al tiempo de entrega. En casos de artículos prohibidos, el paquete puede ser decomisado sin posibilidad de devolución.</p>
+            <p class="text-sm text-yellow-700 mt-2">En Box to Cuba te notificamos de inmediato y te asesoramos sobre los próximos pasos.</p>
+          </div>
+          <div class="bg-green-50 border border-green-200 rounded-xl p-5">
+            <div class="font-bold text-green-800 mb-2">Consejo para minimizar aranceles</div>
+            <p class="text-sm text-green-700">Retira las etiquetas de precio de artículos nuevos antes de empacar. Una declaración incorrecta puede resultar en retención o decomiso total.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="px-6 py-16" id="faq">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-xs font-bold text-red-500 uppercase tracking-widest mb-2">Preguntas frecuentes</div>
+      <h2 class="text-3xl font-extrabold mb-10">Preguntas sobre la aduana cubana</h2>
+      <div class="space-y-0">
+        {faqItems.map((item) => (
+          <details class="group border-b border-gray-200 py-5">
+            <summary class="flex justify-between items-center font-semibold cursor-pointer list-none text-gray-800 hover:text-red-500 transition-colors">
+              {item.q}
+              <span class="text-red-500 text-xl ml-4 group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <p class="text-sm text-gray-500 leading-relaxed mt-3">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-gradient-to-r from-blue-900 to-blue-700 text-white text-center py-16 px-6">
+    <h2 class="text-3xl font-extrabold mb-3">¿Tienes dudas sobre lo que puedes enviar?</h2>
+    <p class="opacity-80 mb-8 max-w-xl mx-auto">Nuestro equipo conoce las regulaciones actuales. Escríbenos por WhatsApp antes de empacar y te orientamos.</p>
+    <div class="flex gap-4 justify-center flex-wrap">
+      <a href="https://wa.me/14168365517" class="inline-block px-8 py-4 bg-green-500 text-white font-bold rounded-xl hover:bg-green-600 transition-colors text-lg">WhatsApp →</a>
+      <a href="/es/articulos-prohibidos-cuba" class="inline-block px-8 py-4 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition-colors text-lg">Ver prohibidos</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-white px-6 py-12">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <div>
+        <img src="/logo.png" alt="Box to Cuba" class="w-12 h-12 object-contain mb-3 brightness-[10]" />
+        <div class="font-bold text-lg mb-2">Box to Cuba</div>
+        <p class="text-sm text-gray-400 leading-relaxed">Enviando amor de Canadá a Cuba desde hace años.</p>
+      </div>
+      <div>
+        <h4 class="text-sm font-bold text-gray-200 mb-4">Links rápidos</h4>
+        <div class="space-y-2">
+          <a href="https://app.boxtocuba.ca/shipping-quote" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">Cotizar envío</a>
+          <a href="https://app.boxtocuba.ca/client" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">Portal Cliente</a>
+          <a href="/es/#faq" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">FAQ</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-sm font-bold text-gray-200 mb-4">Recursos</h4>
+        <div class="space-y-2">
+          <a href="/es/precios-envio-canada-cuba" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">Tarifas de Envío</a>
+          <a href="/es/guia-aduana-cuba" class="block text-sm text-red-400 font-semibold">Guía de Aduana</a>
+          <a href="/es/articulos-prohibidos-cuba" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">Artículos Prohibidos</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-sm font-bold text-gray-200 mb-4">Contacto</h4>
+        <div class="space-y-2">
+          <a href="tel:+14168365517" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">+1 (416) 836-5517</a>
+          <a href="mailto:info@boxtocuba.ca" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">info@boxtocuba.ca</a>
+          <span class="block text-sm text-gray-400">Toronto, Ontario, Canada</span>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-gray-700 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-gray-500">
+      <span>© 2026 Box to Cuba. Todos los derechos reservados.</span>
+      <span>Servicio de paquetería Canada → Cuba</span>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/14168365517" target="_blank" rel="noopener noreferrer"
+    class="fixed bottom-7 right-7 z-50 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-2xl shadow-lg hover:scale-110 transition-transform"
+    aria-label="WhatsApp">
+    💬
+  </a>
+
+</BaseLayout>

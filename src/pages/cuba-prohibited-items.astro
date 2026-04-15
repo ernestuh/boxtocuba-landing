@@ -1,0 +1,270 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const faqItems = [
+  { q: 'Can I send a Kindle or e-reader to Cuba?', a: 'Yes. E-readers are permitted as a personal electronic device. You can only send 1 unit at a time.' },
+  { q: 'Can I send second-hand clothing?', a: 'Yes, used clothing in good condition is completely allowed. Used items typically generate less customs duty than new ones.' },
+  { q: 'Can I send a solar panel?', a: 'Residential solar panels are generally permitted, subject to duty based on declared value. Check with our team before sending.' },
+  { q: 'What happens if customs finds something prohibited?', a: 'Cuban customs may confiscate the specific item or in serious cases, the entire package. There is no refund for confiscated items.' },
+  { q: 'Can I send an electric generator?', a: 'Generators are permitted but not by air for safety reasons. Contact us to explore sea or land shipping options for this type of item.' },
+];
+---
+
+<BaseLayout
+  lang="en"
+  title="Cuba Prohibited Items: What You Can't Ship from Canada | Box to Cuba"
+  description="Complete list of items that cannot be sent to Cuba in packages from Canada. Avoid delays and confiscations — check before packing."
+  faqItems={faqItems}
+>
+
+  <!-- NAVBAR -->
+  <nav class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <img src="/logo.png" alt="Box to Cuba" class="w-10 h-10 object-contain" />
+        <span class="font-bold text-gray-900 text-lg">Box to Cuba</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/#services" class="text-gray-500 hover:text-red-500 text-sm transition-colors">Services</a>
+        <a href="/#how-it-works" class="text-gray-500 hover:text-red-500 text-sm transition-colors">How it Works</a>
+        <a href="/canada-to-cuba-shipping-rates" class="text-gray-500 hover:text-red-500 text-sm transition-colors">Rates</a>
+        <a href="/#faq" class="text-gray-500 hover:text-red-500 text-sm transition-colors">FAQ</a>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="/es/articulos-prohibidos-cuba" class="text-xs text-gray-400 hover:text-red-500 px-2 py-1 rounded transition-colors">ES</a>
+        <a href="/fr/articles-interdits-cuba" class="text-xs text-gray-400 hover:text-red-500 px-2 py-1 rounded transition-colors">FR</a>
+        <a href="https://app.boxtocuba.ca/client" class="px-4 py-2 text-sm font-semibold border border-gray-200 rounded-lg hover:border-red-400 hover:text-red-500 transition-colors">Client Portal</a>
+        <a href="https://app.boxtocuba.ca/shipping-quote" class="px-4 py-2 text-sm font-semibold bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">Get Quote →</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="bg-gray-50 border-b border-gray-100 px-6 py-3">
+    <div class="max-w-5xl mx-auto text-sm text-gray-400">
+      <a href="/" class="hover:text-red-500 transition-colors">Home</a>
+      <span class="mx-2">›</span>
+      <span class="text-gray-700">Prohibited Items</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="bg-gradient-to-br from-white to-red-50 px-6 py-16">
+    <div class="max-w-5xl mx-auto">
+      <div class="inline-flex items-center gap-2 bg-red-50 text-red-500 text-xs font-semibold px-4 py-2 rounded-full mb-5">🚫 Updated list April 2026</div>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
+        Cuba Prohibited Items:<br class="hidden md:block" /> What You Can't Ship
+      </h1>
+      <p class="text-gray-500 text-lg leading-relaxed max-w-2xl mb-8">
+        Complete list of items confiscated by Cuban customs. Check before packing to avoid holds and seizures.
+      </p>
+      <div class="flex gap-3 flex-wrap">
+        <a href="#prohibited" class="px-6 py-3 bg-red-500 text-white font-semibold rounded-xl hover:bg-red-600 transition-colors">See list →</a>
+        <a href="/cuba-customs-guide" class="px-6 py-3 border border-gray-200 font-semibold rounded-xl hover:border-red-400 hover:text-red-500 transition-colors">Customs Guide</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DANGER CALLOUT -->
+  <div class="bg-red-50 border-y border-red-200 px-6 py-4">
+    <div class="max-w-5xl mx-auto flex gap-3 items-start">
+      <span class="text-xl">🚫</span>
+      <p class="text-sm text-red-800"><strong>Important:</strong> Sending prohibited items can result in total package confiscation with no possibility of recovery. If in doubt, ask us before packing.</p>
+    </div>
+  </div>
+
+  <!-- ABSOLUTELY PROHIBITED -->
+  <section class="px-6 py-16" id="prohibited">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-xs font-bold text-red-500 uppercase tracking-widest mb-2">Absolutely prohibited</div>
+      <h2 class="text-3xl font-extrabold mb-8">Completely banned items</h2>
+
+      <div class="overflow-x-auto rounded-2xl shadow-sm">
+        <table class="w-full bg-white text-sm">
+          <thead>
+            <tr class="bg-gray-900 text-white">
+              <th class="text-left px-5 py-4 font-semibold">Category</th>
+              <th class="text-left px-5 py-4 font-semibold">Specific items</th>
+              <th class="text-left px-5 py-4 font-semibold hidden md:table-cell">Reason</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              ['Weapons and related', 'Firearms, ammunition, bladed weapons, realistic replicas, pepper spray', 'Absolute legal prohibition'],
+              ['Explosives', 'Fireworks, pyrotechnics, gunpowder, detonators', 'Hazard, legal prohibition'],
+              ['Illegal drugs', 'Controlled substances, non-prescribed narcotics, chemical precursors, psychotropics', 'Absolute legal prohibition'],
+              ['Obscene or subversive material', 'Pornography, material deemed subversive by Cuban government', 'Cuban legislation'],
+              ['Cash', 'Bills in any currency, coins', 'International postal regulation'],
+              ['Hazardous materials', 'Acids, corrosive chemicals, radioactive materials, blood products', 'Air safety and health'],
+              ['Live animals', 'Any live animal', 'Health regulations and CITES'],
+              ['Plants and seeds', 'Live plants, seeds without phytosanitary certificate', 'Agricultural quarantine'],
+              ['E-cigarettes', 'Vapes, e-cigarettes, vaping devices of any kind', 'Confiscated immediately upon arrival without exception'],
+              ['Unauthorized communications equipment', 'Walkie-talkies, standalone GPS, satellite phones, transceiver radios', 'Cuban legislation. Require prior authorization from authorities.'],
+              ['Drones', 'Drones of any type and size', 'Prohibited. May be returned upon departure after paying a fee.'],
+            ].map(([cat, items, reason], i) => (
+              <tr class={i % 2 === 0 ? 'bg-white' : 'bg-red-50/30'}>
+                <td class="px-5 py-3 font-semibold text-gray-800">{cat}</td>
+                <td class="px-5 py-3 text-gray-600">{items}</td>
+                <td class="px-5 py-3 text-red-500 text-xs hidden md:table-cell">{reason}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESTRICTED -->
+  <section class="bg-gray-50 px-6 py-16">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-xs font-bold text-yellow-600 uppercase tracking-widest mb-2">Grey zone</div>
+      <h2 class="text-3xl font-extrabold mb-3">Items with important restrictions</h2>
+      <p class="text-gray-500 mb-8">These items may be sent under specific conditions but are frequently held if limits are exceeded:</p>
+
+      <div class="overflow-x-auto rounded-2xl shadow-sm">
+        <table class="w-full bg-white text-sm">
+          <thead>
+            <tr class="bg-gray-700 text-white">
+              <th class="text-left px-5 py-4 font-semibold">Item</th>
+              <th class="text-left px-5 py-4 font-semibold">Limit / Condition</th>
+              <th class="text-left px-5 py-4 font-semibold hidden md:table-cell">Tip</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              ['Motorina batteries (gel or lithium)', 'Up to 3 units. Duty: 50 Cuban pesos each.', 'Lithium restriction is from airlines (cargo safety), not Cuban customs.'],
+              ['Vehicle accumulator', '1 unit. Duty: 35 Cuban pesos.', '—'],
+              ['Fresh meat and cold cuts', 'Prohibited fresh', 'Factory-sealed canned and processed meats may pass in small quantities.'],
+              ['Fresh dairy', 'Prohibited', 'Sealed powdered milk is permitted.'],
+              ['Controlled medications', 'Only with official medical prescription', 'Attach copy of prescription. No narcotics.'],
+              ['Routers and wireless networking equipment', 'Restricted', 'High probability of being held. Check before sending.'],
+            ].map(([item, limit, tip], i) => (
+              <tr class={i % 2 === 0 ? 'bg-white' : 'bg-yellow-50/30'}>
+                <td class="px-5 py-3 font-semibold text-gray-800">{item}</td>
+                <td class="px-5 py-3 text-gray-600">{limit}</td>
+                <td class="px-5 py-3 text-gray-400 text-xs hidden md:table-cell">{tip}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IS ALLOWED -->
+  <section class="px-6 py-16">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-xs font-bold text-green-600 uppercase tracking-widest mb-2">What IS allowed</div>
+      <h2 class="text-3xl font-extrabold mb-3">Items people think are prohibited but CAN be sent</h2>
+      <p class="text-gray-500 mb-8">Within reasonable personal-use limits:</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {[
+          { icon: '💊', title: 'OTC medications', items: ['Ibuprofen, acetaminophen, common antibiotics', 'Vitamins and multivitamins', 'Contraceptives (personal use)', 'Exempt up to USD $200 in original packaging'] },
+          { icon: '📱', title: 'Personal electronics', items: ['1 cell phone', '1 laptop or tablet', 'Accessories: chargers, headphones', 'USB drives, external hard drives'] },
+          { icon: '🍝', title: 'Packaged food', items: ['Sealed powdered milk', 'Factory-sealed canned goods', 'Instant soups, cereals', 'Chocolate, coffee (packaged)'] },
+          { icon: '🧴', title: 'Hygiene and personal care', items: ['Shampoo, soap, creams', 'Makeup and cosmetics', 'Diapers and baby items', 'Household cleaning products'] },
+          { icon: '⚡', title: 'Permitted batteries', items: ['Up to 3 batteries for electric motorinas', '1 vehicle accumulator', 'Internal batteries in personal electronics'] },
+          { icon: '🛐', title: 'Religious items', items: ['Bibles, rosaries, religious figures', 'Worship items in personal-use quantities', 'Religious educational material'] },
+        ].map((cat) => (
+          <div class="bg-white border border-green-100 rounded-2xl p-6 shadow-sm">
+            <div class="text-2xl mb-3">{cat.icon}</div>
+            <h3 class="font-bold text-gray-800 mb-3">{cat.title}</h3>
+            <ul class="space-y-1.5">
+              {cat.items.map((item) => (
+                <li class="text-sm text-gray-500 flex gap-2"><span class="text-green-500 font-bold flex-shrink-0">✓</span>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-gray-50 px-6 py-16" id="faq">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-xs font-bold text-red-500 uppercase tracking-widest mb-2">FAQ</div>
+      <h2 class="text-3xl font-extrabold mb-10">Frequently asked questions</h2>
+      <div class="space-y-0">
+        {faqItems.map((item) => (
+          <details class="group border-b border-gray-200 py-5">
+            <summary class="flex justify-between items-center font-semibold cursor-pointer list-none text-gray-800 hover:text-red-500 transition-colors">
+              {item.q}
+              <span class="text-red-500 text-xl ml-4 group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <p class="text-sm text-gray-500 leading-relaxed mt-3">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- GENERAL RULE -->
+  <div class="bg-blue-50 border-y border-blue-200 px-6 py-6">
+    <div class="max-w-5xl mx-auto flex gap-3 items-start">
+      <span class="text-2xl">💡</span>
+      <div>
+        <div class="font-bold text-blue-900 mb-1">General rule</div>
+        <p class="text-sm text-blue-800">If the item is for personal use and you're sending it in quantities that clearly correspond to a family (not a store), it will most likely pass without problems. Issues arise with large quantities that suggest commercial resale.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section class="bg-gradient-to-r from-blue-900 to-blue-700 text-white text-center py-16 px-6">
+    <h2 class="text-3xl font-extrabold mb-3">Ready to pack? We'll help you.</h2>
+    <p class="opacity-80 mb-8 max-w-xl mx-auto">Tell us what you want to send and we'll tell you if it's possible — before you spend time packing.</p>
+    <div class="flex gap-4 justify-center flex-wrap">
+      <a href="https://wa.me/14168365517" class="inline-block px-8 py-4 bg-green-500 text-white font-bold rounded-xl hover:bg-green-600 transition-colors text-lg">WhatsApp →</a>
+      <a href="https://app.boxtocuba.ca/shipping-quote" class="inline-block px-8 py-4 bg-red-500 text-white font-bold rounded-xl hover:bg-red-600 transition-colors text-lg">Get a Quote</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-white px-6 py-12">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <div>
+        <img src="/logo.png" alt="Box to Cuba" class="w-12 h-12 object-contain mb-3 brightness-[10]" />
+        <div class="font-bold text-lg mb-2">Box to Cuba</div>
+        <p class="text-sm text-gray-400 leading-relaxed">Sending love from Canada to Cuba.</p>
+      </div>
+      <div>
+        <h4 class="text-sm font-bold text-gray-200 mb-4">Quick links</h4>
+        <div class="space-y-2">
+          <a href="https://app.boxtocuba.ca/shipping-quote" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">Get a Quote</a>
+          <a href="https://app.boxtocuba.ca/client" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">Client Portal</a>
+          <a href="/#faq" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">FAQ</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-sm font-bold text-gray-200 mb-4">Resources</h4>
+        <div class="space-y-2">
+          <a href="/canada-to-cuba-shipping-rates" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">Shipping Rates</a>
+          <a href="/cuba-customs-guide" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">Customs Guide</a>
+          <a href="/cuba-prohibited-items" class="block text-sm text-red-400 font-semibold">Prohibited Items</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-sm font-bold text-gray-200 mb-4">Contact</h4>
+        <div class="space-y-2">
+          <a href="tel:+14168365517" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">+1 (416) 836-5517</a>
+          <a href="mailto:info@boxtocuba.ca" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">info@boxtocuba.ca</a>
+          <span class="block text-sm text-gray-400">Toronto, Ontario, Canada</span>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-gray-700 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-gray-500">
+      <span>© 2026 Box to Cuba. All rights reserved.</span>
+      <span>Package shipping service Canada → Cuba</span>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/14168365517" target="_blank" rel="noopener noreferrer"
+    class="fixed bottom-7 right-7 z-50 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-2xl shadow-lg hover:scale-110 transition-transform"
+    aria-label="WhatsApp">
+    💬
+  </a>
+
+</BaseLayout>

@@ -1,0 +1,192 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faqItems = [
+  { q: 'Les prix sont-ils en dollars canadiens ou américains?', a: 'Tous nos prix sont en dollars canadiens (CAD). Nous acceptons le paiement en espèces et par virement Interac (e-Transfer).' },
+  { q: 'Puis-je envoyer plusieurs colis à différentes destinations à Cuba?', a: 'Oui. Chaque colis peut avoir un destinataire différent. Chaque colis est coté selon son poids et sa province de destination.' },
+  { q: 'Y a-t-il des réductions pour les gros volumes?', a: 'Oui, nous offrons des tarifs spéciaux pour les clients fréquents et les envois en gros volume. Contactez-nous pour discuter d\'un plan personnalisé.' },
+  { q: 'Le prix inclut-il la livraison à Cuba?', a: 'Oui, la livraison à Cuba est incluse dans le tarif. La méthode (porte-à-porte ou point de retrait) dépend de la province. Notre équipe vous le confirmera lors de la prise en charge.' },
+  { q: 'Quand dois-je payer?', a: 'Le paiement s\'effectue lors du dépôt ou de la programmation de la collecte de votre colis. Aucun paiement anticipé en ligne requis.' },
+];
+
+const provinces = [
+  { name: 'La Habana', price: 'Dès $6/lb', time: '7–12 jours ouvrables', note: 'Vols les plus fréquents' },
+  { name: 'Artemisa', price: 'Dès $6/lb', time: '7–14 jours ouvrables', note: '—' },
+  { name: 'Mayabeque', price: 'Dès $6/lb', time: '7–14 jours ouvrables', note: '—' },
+  { name: 'Matanzas', price: 'Dès $6.50/lb', time: '10–15 jours ouvrables', note: 'Inclut Varadero' },
+  { name: 'Villa Clara', price: 'Dès $6.50/lb', time: '10–15 jours ouvrables', note: '—' },
+  { name: 'Cienfuegos', price: 'Dès $7/lb', time: '10–16 jours ouvrables', note: '—' },
+  { name: 'Sancti Spíritus', price: 'Dès $7/lb', time: '10–16 jours ouvrables', note: '—' },
+  { name: 'Ciego de Ávila', price: 'Dès $7/lb', time: '12–17 jours ouvrables', note: '—' },
+  { name: 'Camagüey', price: 'Dès $7.50/lb', time: '12–17 jours ouvrables', note: '—' },
+  { name: 'Las Tunas', price: 'Dès $7.50/lb', time: '12–18 jours ouvrables', note: '—' },
+  { name: 'Holguín', price: 'Dès $7.50/lb', time: '12–18 jours ouvrables', note: '—' },
+  { name: 'Granma', price: 'Dès $8/lb', time: '14–20 jours ouvrables', note: '—' },
+  { name: 'Santiago de Cuba', price: 'Dès $8/lb', time: '14–20 jours ouvrables', note: '2e plus grande ville' },
+  { name: 'Guantánamo', price: 'Dès $8/lb', time: '14–20 jours ouvrables', note: '—' },
+  { name: 'Pinar del Río', price: 'Dès $6.50/lb', time: '10–15 jours ouvrables', note: '—' },
+  { name: 'Isla de la Juventud', price: 'Sur demande', time: 'Variable', note: 'Transport spécial requis' },
+];
+---
+
+<BaseLayout
+  lang="fr"
+  title="Tarifs d'Envoi Canada-Cuba 2026 | Box to Cuba"
+  description="Tarifs d'envoi vers toutes les provinces cubaines depuis le Canada. Sans frais cachés. Dès $6/lb. Obtenez votre devis en quelques secondes."
+  faqItems={faqItems}
+>
+
+  <!-- NAVBAR -->
+  <nav class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="/fr/" class="flex items-center gap-3">
+        <img src="/logo.png" alt="Box to Cuba" class="w-10 h-10 object-contain" />
+        <span class="font-bold text-gray-900 text-lg">Box to Cuba</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/fr/#services" class="text-gray-500 hover:text-red-500 text-sm transition-colors">Services</a>
+        <a href="/fr/#how-it-works" class="text-gray-500 hover:text-red-500 text-sm transition-colors">Comment ça marche</a>
+        <a href="/fr/tarifs-envoi-canada-cuba" class="text-red-500 font-semibold text-sm border-b-2 border-red-500 pb-0.5">Tarifs</a>
+        <a href="/fr/#faq" class="text-gray-500 hover:text-red-500 text-sm transition-colors">FAQ</a>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="/canada-to-cuba-shipping-rates" class="text-xs text-gray-400 hover:text-red-500 px-2 py-1 rounded transition-colors">EN</a>
+        <a href="/es/precios-envio-canada-cuba" class="text-xs text-gray-400 hover:text-red-500 px-2 py-1 rounded transition-colors">ES</a>
+        <a href="https://app.boxtocuba.ca/client" class="px-4 py-2 text-sm font-semibold border border-gray-200 rounded-lg hover:border-red-400 hover:text-red-500 transition-colors">Espace Client</a>
+        <a href="https://app.boxtocuba.ca/shipping-quote" class="px-4 py-2 text-sm font-semibold bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">Devis →</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="bg-gray-50 border-b border-gray-100 px-6 py-3">
+    <div class="max-w-5xl mx-auto text-sm text-gray-400">
+      <a href="/fr/" class="hover:text-red-500 transition-colors">Accueil</a>
+      <span class="mx-2">›</span>
+      <span class="text-gray-700">Tarifs d'envoi</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="bg-gradient-to-br from-white to-red-50 px-6 py-16">
+    <div class="max-w-5xl mx-auto">
+      <div class="inline-flex items-center gap-2 bg-red-50 text-red-500 text-xs font-semibold px-4 py-2 rounded-full mb-5">📊 Tarifs mis à jour 2026</div>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
+        Tarifs d'Envoi<br class="hidden md:block" /> Canada vers Cuba
+      </h1>
+      <p class="text-gray-500 text-lg leading-relaxed max-w-2xl mb-8">
+        Tarifs clairs par province cubaine — sans frais cachés. Le prix par livre inclut le fret aérien et la livraison à Cuba (porte-à-porte ou point de retrait selon la province). La collecte au Canada n'est pas incluse.
+      </p>
+      <div class="flex gap-3 flex-wrap">
+        <a href="https://app.boxtocuba.ca/shipping-quote" class="px-6 py-3 bg-red-500 text-white font-semibold rounded-xl hover:bg-red-600 transition-colors">Calculer mon envoi →</a>
+        <a href="https://wa.me/14168365517" class="px-6 py-3 border border-gray-200 font-semibold rounded-xl hover:border-red-400 hover:text-red-500 transition-colors">WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICE TABLE -->
+  <section class="bg-gray-50 px-6 py-16" id="tarifs">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-xs font-bold text-red-500 uppercase tracking-widest mb-2">Tableau des tarifs</div>
+      <h2 class="text-3xl font-extrabold mb-3">Tarifs par province cubaine</h2>
+      <p class="text-gray-500 mb-8">Prix en dollars canadiens (CAD). Susceptibles de modification sans préavis.</p>
+
+      <div class="overflow-x-auto rounded-2xl shadow-sm">
+        <table class="w-full bg-white text-sm">
+          <thead>
+            <tr class="bg-gray-900 text-white">
+              <th class="text-left px-5 py-4 font-semibold">Province</th>
+              <th class="text-left px-5 py-4 font-semibold">Prix par livre</th>
+              <th class="text-left px-5 py-4 font-semibold">Délai estimé</th>
+              <th class="text-left px-5 py-4 font-semibold hidden md:table-cell">Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            {provinces.map((p, i) => (
+              <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                <td class="px-5 py-3 font-semibold text-gray-800">{p.name}</td>
+                <td class="px-5 py-3 font-bold text-red-500">{p.price}</td>
+                <td class="px-5 py-3 text-gray-600">{p.time}</td>
+                <td class="px-5 py-3 text-gray-400 text-xs hidden md:table-cell">{p.note}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-gray-400 mt-3">* Livraison incluse (porte-à-porte ou point de retrait selon la province). Collecte au Canada non incluse — disponible dans le GTA moyennant des frais, hors GTA via votre propre service de messagerie vers notre adresse à Toronto.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="px-6 py-16" id="faq">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-xs font-bold text-red-500 uppercase tracking-widest mb-2">FAQ</div>
+      <h2 class="text-3xl font-extrabold mb-10">Questions fréquentes sur les tarifs</h2>
+      <div class="space-y-0">
+        {faqItems.map((item) => (
+          <details class="group border-b border-gray-200 py-5">
+            <summary class="flex justify-between items-center font-semibold cursor-pointer list-none text-gray-800 hover:text-red-500 transition-colors">
+              {item.q}
+              <span class="text-red-500 text-xl ml-4 group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <p class="text-sm text-gray-500 leading-relaxed mt-3">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-gradient-to-r from-blue-900 to-blue-700 text-white text-center py-16 px-6">
+    <h2 class="text-3xl font-extrabold mb-3">Obtenez votre devis exact</h2>
+    <p class="opacity-80 mb-8 max-w-xl mx-auto">Entrez le poids, les dimensions et la destination de votre colis pour voir le prix final instantanément — sans inscription.</p>
+    <a href="https://app.boxtocuba.ca/shipping-quote" class="inline-block px-8 py-4 bg-red-500 text-white font-bold rounded-xl hover:bg-red-600 transition-colors text-lg">Calculer maintenant →</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-white px-6 py-12">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <div>
+        <img src="/logo.png" alt="Box to Cuba" class="w-12 h-12 object-contain mb-3 brightness-[10]" />
+        <div class="font-bold text-lg mb-2">Box to Cuba</div>
+        <p class="text-sm text-gray-400 leading-relaxed">Envoyer de l'amour du Canada à Cuba.</p>
+      </div>
+      <div>
+        <h4 class="text-sm font-bold text-gray-200 mb-4">Liens rapides</h4>
+        <div class="space-y-2">
+          <a href="https://app.boxtocuba.ca/shipping-quote" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">Obtenir un devis</a>
+          <a href="https://app.boxtocuba.ca/client" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">Espace Client</a>
+          <a href="/fr/#faq" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">FAQ</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-sm font-bold text-gray-200 mb-4">Ressources</h4>
+        <div class="space-y-2">
+          <a href="/fr/tarifs-envoi-canada-cuba" class="block text-sm text-red-400 font-semibold">Tarifs d'envoi</a>
+          <a href="/fr/guide-douanes-cuba" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">Guide Douanes</a>
+          <a href="/fr/articles-interdits-cuba" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">Articles Interdits</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-sm font-bold text-gray-200 mb-4">Contact</h4>
+        <div class="space-y-2">
+          <a href="tel:+14168365517" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">+1 (416) 836-5517</a>
+          <a href="mailto:info@boxtocuba.ca" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">info@boxtocuba.ca</a>
+          <span class="block text-sm text-gray-400">Toronto, Ontario, Canada</span>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-gray-700 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-gray-500">
+      <span>© 2026 Box to Cuba. Tous droits réservés.</span>
+      <span>Service de colis Canada → Cuba</span>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/14168365517" target="_blank" rel="noopener noreferrer"
+    class="fixed bottom-7 right-7 z-50 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-2xl shadow-lg hover:scale-110 transition-transform"
+    aria-label="WhatsApp">
+    💬
+  </a>
+
+</BaseLayout>

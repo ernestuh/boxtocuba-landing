@@ -57,7 +57,7 @@
     "steps": [
       { "title": "Cotiza tu envío", "desc": "Ingresa los detalles de tu paquete y destino. Obtén un precio al instante — sin registro." },
       { "title": "Entrega o recogida a domicilio", "desc": "Trae tu paquete a nuestra ubicación en Toronto o Montreal, o programa una recogida en tu puerta." },
-      { "title": "Entregado en Cuba", "desc": "Tu paquete llega a la puerta de tu familia. Rastréalo en todo momento desde el portal." }
+      { "title": "Entregado en Cuba", "desc": "Tu paquete llega a tu familia en Cuba — puerta a puerta o en un punto de recogida cercano, según la provincia. Rastréalo en todo momento desde el portal." }
     ]
   },
   "provinces": {

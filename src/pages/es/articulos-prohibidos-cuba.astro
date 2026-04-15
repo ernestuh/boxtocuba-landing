@@ -1,0 +1,270 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faqItems = [
+  { q: '¿Puedo enviar un kindle o e-reader a Cuba?', a: 'Sí. Los lectores de libros electrónicos están permitidos como electrónico personal. Solo puedes enviar 1 unidad a la vez.' },
+  { q: '¿Puedo enviar ropa de segunda mano?', a: 'Sí, la ropa usada en buen estado está completamente permitida. Los artículos usados suelen generar menos aranceles aduaneros que los nuevos.' },
+  { q: '¿Puedo enviar un panel solar?', a: 'Los paneles solares de uso residencial están generalmente permitidos, sujetos a arancel según su valor declarado. Consulta con nuestro equipo antes de enviar.' },
+  { q: '¿Qué pasa si la aduana encuentra algo prohibido?', a: 'La aduana cubana puede confiscar el artículo específico o en casos graves, el paquete completo. No hay reembolso por artículos decomisados.' },
+  { q: '¿Puedo enviar un generador eléctrico?', a: 'Los generadores están permitidos pero no en aviones por razones de seguridad. Contáctanos para explorar opciones de envío marítimo o terrestre.' },
+];
+---
+
+<BaseLayout
+  lang="es"
+  title="Artículos Prohibidos para Envíos a Cuba desde Canadá | Box to Cuba"
+  description="Lista completa de artículos que no puedes enviar a Cuba en paquetes desde Canadá. Evita retrasos y decomisos — consulta antes de empacar."
+  faqItems={faqItems}
+>
+
+  <!-- NAVBAR -->
+  <nav class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="/es/" class="flex items-center gap-3">
+        <img src="/logo.png" alt="Box to Cuba" class="w-10 h-10 object-contain" />
+        <span class="font-bold text-gray-900 text-lg">Box to Cuba</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/es/#services" class="text-gray-500 hover:text-red-500 text-sm transition-colors">Servicios</a>
+        <a href="/es/#how-it-works" class="text-gray-500 hover:text-red-500 text-sm transition-colors">Cómo funciona</a>
+        <a href="/es/precios-envio-canada-cuba" class="text-gray-500 hover:text-red-500 text-sm transition-colors">Tarifas</a>
+        <a href="/es/#faq" class="text-gray-500 hover:text-red-500 text-sm transition-colors">FAQ</a>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="/cuba-prohibited-items" class="text-xs text-gray-400 hover:text-red-500 px-2 py-1 rounded transition-colors">EN</a>
+        <a href="/fr/articles-interdits-cuba" class="text-xs text-gray-400 hover:text-red-500 px-2 py-1 rounded transition-colors">FR</a>
+        <a href="https://app.boxtocuba.ca/client" class="px-4 py-2 text-sm font-semibold border border-gray-200 rounded-lg hover:border-red-400 hover:text-red-500 transition-colors">Portal Cliente</a>
+        <a href="https://app.boxtocuba.ca/shipping-quote" class="px-4 py-2 text-sm font-semibold bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">Cotizar →</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="bg-gray-50 border-b border-gray-100 px-6 py-3">
+    <div class="max-w-5xl mx-auto text-sm text-gray-400">
+      <a href="/es/" class="hover:text-red-500 transition-colors">Inicio</a>
+      <span class="mx-2">›</span>
+      <span class="text-gray-700">Artículos Prohibidos</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="bg-gradient-to-br from-white to-red-50 px-6 py-16">
+    <div class="max-w-5xl mx-auto">
+      <div class="inline-flex items-center gap-2 bg-red-50 text-red-500 text-xs font-semibold px-4 py-2 rounded-full mb-5">🚫 Lista actualizada abril 2026</div>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
+        Artículos Prohibidos:<br class="hidden md:block" /> Qué No Puedes Enviar a Cuba
+      </h1>
+      <p class="text-gray-500 text-lg leading-relaxed max-w-2xl mb-8">
+        Lista completa de artículos confiscados por la aduana cubana. Consulta antes de empacar para evitar retenciones y decomisos.
+      </p>
+      <div class="flex gap-3 flex-wrap">
+        <a href="#prohibidos" class="px-6 py-3 bg-red-500 text-white font-semibold rounded-xl hover:bg-red-600 transition-colors">Ver lista →</a>
+        <a href="/es/guia-aduana-cuba" class="px-6 py-3 border border-gray-200 font-semibold rounded-xl hover:border-red-400 hover:text-red-500 transition-colors">Guía de Aduana</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DANGER CALLOUT -->
+  <div class="bg-red-50 border-y border-red-200 px-6 py-4">
+    <div class="max-w-5xl mx-auto flex gap-3 items-start">
+      <span class="text-xl">🚫</span>
+      <p class="text-sm text-red-800"><strong>Importante:</strong> Enviar artículos prohibidos puede resultar en la confiscación total del paquete sin posibilidad de recuperación. Si tienes dudas, consulta con nosotros antes de empacar.</p>
+    </div>
+  </div>
+
+  <!-- ABSOLUTELY PROHIBITED -->
+  <section class="px-6 py-16" id="prohibidos">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-xs font-bold text-red-500 uppercase tracking-widest mb-2">Prohibidos absolutamente</div>
+      <h2 class="text-3xl font-extrabold mb-8">Artículos completamente prohibidos</h2>
+
+      <div class="overflow-x-auto rounded-2xl shadow-sm">
+        <table class="w-full bg-white text-sm">
+          <thead>
+            <tr class="bg-gray-900 text-white">
+              <th class="text-left px-5 py-4 font-semibold">Categoría</th>
+              <th class="text-left px-5 py-4 font-semibold">Artículos específicos</th>
+              <th class="text-left px-5 py-4 font-semibold hidden md:table-cell">Razón</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              ['Armas y afines', 'Armas de fuego, municiones, armas blancas, réplicas realistas, gas pimienta', 'Prohibición legal absoluta'],
+              ['Explosivos', 'Fuegos artificiales, pirotecnia, pólvora, detonadores', 'Peligro, prohibición legal'],
+              ['Drogas ilegales', 'Sustancias controladas, narcóticos no prescritos, precursores químicos, psicotrópicos', 'Prohibición legal absoluta'],
+              ['Material obsceno o subversivo', 'Pornografía, material que el gobierno cubano considere subversivo', 'Legislación cubana'],
+              ['Dinero en efectivo', 'Billetes en cualquier moneda, monedas', 'Regulación postal internacional'],
+              ['Materiales peligrosos', 'Ácidos, químicos corrosivos, materiales radioactivos, hemoderivados', 'Seguridad aérea y sanitaria'],
+              ['Animales vivos', 'Cualquier animal vivo', 'Regulaciones sanitarias y CITES'],
+              ['Plantas y semillas', 'Plantas vivas, semillas sin certificado fitosanitario', 'Cuarentena agrícola'],
+              ['Cigarrillos electrónicos', 'Vapeadores, e-cigarettes, dispositivos de vapeo en general', 'Confiscados inmediatamente sin excepción'],
+              ['Equipos de comunicación no autorizados', 'Walkie-talkies, GPS independientes, teléfonos satelitales, radios transceptoras', 'Legislación cubana. Requieren autorización previa.'],
+              ['Drones', 'Drones de cualquier tipo y tamaño', 'Prohibidos. Pueden ser devueltos previo pago de tarifa.'],
+            ].map(([cat, items, reason], i) => (
+              <tr class={i % 2 === 0 ? 'bg-white' : 'bg-red-50/30'}>
+                <td class="px-5 py-3 font-semibold text-gray-800">{cat}</td>
+                <td class="px-5 py-3 text-gray-600">{items}</td>
+                <td class="px-5 py-3 text-red-500 text-xs hidden md:table-cell">{reason}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESTRICTED -->
+  <section class="bg-gray-50 px-6 py-16">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-xs font-bold text-yellow-600 uppercase tracking-widest mb-2">Zona gris</div>
+      <h2 class="text-3xl font-extrabold mb-3">Artículos con restricciones importantes</h2>
+      <p class="text-gray-500 mb-8">Estos artículos pueden enviarse bajo condiciones específicas, pero son frecuentemente retenidos si se exceden los límites:</p>
+
+      <div class="overflow-x-auto rounded-2xl shadow-sm">
+        <table class="w-full bg-white text-sm">
+          <thead>
+            <tr class="bg-gray-700 text-white">
+              <th class="text-left px-5 py-4 font-semibold">Artículo</th>
+              <th class="text-left px-5 py-4 font-semibold">Límite / Condición</th>
+              <th class="text-left px-5 py-4 font-semibold hidden md:table-cell">Consejo</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              ['Baterías para motorinas (gel o litio)', 'Hasta 3 unidades. Arancel: 50 pesos c/u.', 'La restricción de litio es de las aerolíneas, no de aduana cubana.'],
+              ['Acumulador para vehículo', '1 unidad. Arancel: 35 pesos.', '—'],
+              ['Carne y embutidos frescos', 'Prohibidos frescos', 'Enlatados y procesados sellados de fábrica pueden pasar en cantidades pequeñas.'],
+              ['Lácteos frescos', 'Prohibidos', 'Leche en polvo sellada está permitida.'],
+              ['Medicamentos controlados', 'Solo con prescripción médica oficial', 'Adjunta copia de receta. Sin narcóticos.'],
+              ['Routers y equipos de red inalámbrica', 'Restringidos', 'Alta probabilidad de retención. Consultar antes de enviar.'],
+            ].map(([item, limit, tip], i) => (
+              <tr class={i % 2 === 0 ? 'bg-white' : 'bg-yellow-50/30'}>
+                <td class="px-5 py-3 font-semibold text-gray-800">{item}</td>
+                <td class="px-5 py-3 text-gray-600">{limit}</td>
+                <td class="px-5 py-3 text-gray-400 text-xs hidden md:table-cell">{tip}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IS ALLOWED -->
+  <section class="px-6 py-16">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-xs font-bold text-green-600 uppercase tracking-widest mb-2">Lo que sí está permitido</div>
+      <h2 class="text-3xl font-extrabold mb-3">Artículos que la gente cree que están prohibidos pero SÍ se pueden enviar</h2>
+      <p class="text-gray-500 mb-8">Con límites razonables de uso personal:</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {[
+          { icon: '💊', title: 'Medicamentos OTC', items: ['Ibuprofeno, paracetamol, antibióticos comunes', 'Vitaminas y multivitamínicos', 'Anticonceptivos (uso personal)', 'Exentos hasta USD $200 en empaque original'] },
+          { icon: '📱', title: 'Electrónicos personales', items: ['1 teléfono celular', '1 laptop o tablet', 'Accesorios: cargadores, audífonos', 'Memoria USB, discos duros externos'] },
+          { icon: '🍝', title: 'Alimentos empacados', items: ['Leche en polvo sellada', 'Enlatados sellados de fábrica', 'Sopas instantáneas, cereales', 'Chocolate, café (empacado)'] },
+          { icon: '🧴', title: 'Higiene y cuidado', items: ['Shampoo, jabón, cremas', 'Maquillaje y cosméticos', 'Pañales y artículos para bebé', 'Productos de limpieza doméstica'] },
+          { icon: '⚡', title: 'Baterías permitidas', items: ['Hasta 3 baterías para motorinas eléctricas', '1 acumulador para vehículo automotor', 'Baterías internas en electrónicos personales'] },
+          { icon: '🛐', title: 'Artículos religiosos', items: ['Biblias, rosarios, figuras religiosas', 'Artículos de culto en cantidades de uso personal', 'Material educativo religioso'] },
+        ].map((cat) => (
+          <div class="bg-white border border-green-100 rounded-2xl p-6 shadow-sm">
+            <div class="text-2xl mb-3">{cat.icon}</div>
+            <h3 class="font-bold text-gray-800 mb-3">{cat.title}</h3>
+            <ul class="space-y-1.5">
+              {cat.items.map((item) => (
+                <li class="text-sm text-gray-500 flex gap-2"><span class="text-green-500 font-bold flex-shrink-0">✓</span>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-gray-50 px-6 py-16" id="faq">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-xs font-bold text-red-500 uppercase tracking-widest mb-2">Preguntas frecuentes</div>
+      <h2 class="text-3xl font-extrabold mb-10">Preguntas frecuentes</h2>
+      <div class="space-y-0">
+        {faqItems.map((item) => (
+          <details class="group border-b border-gray-200 py-5">
+            <summary class="flex justify-between items-center font-semibold cursor-pointer list-none text-gray-800 hover:text-red-500 transition-colors">
+              {item.q}
+              <span class="text-red-500 text-xl ml-4 group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <p class="text-sm text-gray-500 leading-relaxed mt-3">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- GENERAL RULE -->
+  <div class="bg-blue-50 border-y border-blue-200 px-6 py-6">
+    <div class="max-w-5xl mx-auto flex gap-3 items-start">
+      <span class="text-2xl">💡</span>
+      <div>
+        <div class="font-bold text-blue-900 mb-1">Regla general</div>
+        <p class="text-sm text-blue-800">Si el artículo es de uso personal y lo envías en cantidades que claramente corresponden a una familia (no a una tienda), lo más probable es que pase sin problemas. El problema surge con cantidades grandes que sugieren reventa comercial.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section class="bg-gradient-to-r from-blue-900 to-blue-700 text-white text-center py-16 px-6">
+    <h2 class="text-3xl font-extrabold mb-3">¿Lista para empacar? Nosotros te ayudamos.</h2>
+    <p class="opacity-80 mb-8 max-w-xl mx-auto">Cuéntanos qué quieres enviar y te decimos si es posible — antes de que gastes tiempo empacando.</p>
+    <div class="flex gap-4 justify-center flex-wrap">
+      <a href="https://wa.me/14168365517" class="inline-block px-8 py-4 bg-green-500 text-white font-bold rounded-xl hover:bg-green-600 transition-colors text-lg">WhatsApp →</a>
+      <a href="https://app.boxtocuba.ca/shipping-quote" class="inline-block px-8 py-4 bg-red-500 text-white font-bold rounded-xl hover:bg-red-600 transition-colors text-lg">Cotizar envío</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-white px-6 py-12">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <div>
+        <img src="/logo.png" alt="Box to Cuba" class="w-12 h-12 object-contain mb-3 brightness-[10]" />
+        <div class="font-bold text-lg mb-2">Box to Cuba</div>
+        <p class="text-sm text-gray-400 leading-relaxed">Enviando amor de Canadá a Cuba desde hace años.</p>
+      </div>
+      <div>
+        <h4 class="text-sm font-bold text-gray-200 mb-4">Links rápidos</h4>
+        <div class="space-y-2">
+          <a href="https://app.boxtocuba.ca/shipping-quote" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">Cotizar envío</a>
+          <a href="https://app.boxtocuba.ca/client" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">Portal Cliente</a>
+          <a href="/es/#faq" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">FAQ</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-sm font-bold text-gray-200 mb-4">Recursos</h4>
+        <div class="space-y-2">
+          <a href="/es/precios-envio-canada-cuba" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">Tarifas de Envío</a>
+          <a href="/es/guia-aduana-cuba" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">Guía de Aduana</a>
+          <a href="/es/articulos-prohibidos-cuba" class="block text-sm text-red-400 font-semibold">Artículos Prohibidos</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-sm font-bold text-gray-200 mb-4">Contacto</h4>
+        <div class="space-y-2">
+          <a href="tel:+14168365517" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">+1 (416) 836-5517</a>
+          <a href="mailto:info@boxtocuba.ca" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">info@boxtocuba.ca</a>
+          <span class="block text-sm text-gray-400">Toronto, Ontario, Canada</span>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-gray-700 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-gray-500">
+      <span>© 2026 Box to Cuba. Todos los derechos reservados.</span>
+      <span>Servicio de paquetería Canada → Cuba</span>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/14168365517" target="_blank" rel="noopener noreferrer"
+    class="fixed bottom-7 right-7 z-50 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-2xl shadow-lg hover:scale-110 transition-transform"
+    aria-label="WhatsApp">
+    💬
+  </a>
+
+</BaseLayout>

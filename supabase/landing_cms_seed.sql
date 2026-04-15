@@ -53,7 +53,7 @@ INSERT INTO settings (key, value, description) VALUES
   "steps": [
     { "title": "Get a Quote", "desc": "Enter your package details and destination. Get an instant price estimate — no registration needed." },
     { "title": "Drop Off or Schedule Pickup", "desc": "Bring your package to our Toronto or Montreal location, or schedule a pickup at your door." },
-    { "title": "Delivered in Cuba", "desc": "Your package is delivered to your family's door. Track every step through our client portal." }
+    { "title": "Delivered in Cuba", "desc": "Your package is delivered to your family in Cuba — door-to-door or at a nearby pickup point, depending on the province. Track every step through our client portal." }
   ]
 }$$, 'Landing page EN - how it works section'),
 
@@ -138,7 +138,7 @@ INSERT INTO settings (key, value, description) VALUES
   "steps": [
     { "title": "Cotiza tu envío", "desc": "Ingresa los detalles de tu paquete y destino. Obtén un precio al instante — sin registro." },
     { "title": "Entrega o recogida a domicilio", "desc": "Trae tu paquete a nuestra ubicación en Toronto o Montreal, o programa una recogida en tu puerta." },
-    { "title": "Entregado en Cuba", "desc": "Tu paquete llega a la puerta de tu familia. Rastréalo en todo momento desde el portal." }
+    { "title": "Entregado en Cuba", "desc": "Tu paquete llega a tu familia en Cuba — puerta a puerta o en un punto de recogida cercano, según la provincia. Rastréalo en todo momento desde el portal." }
   ]
 }$$, 'Landing page ES - how it works section'),
 
@@ -223,7 +223,7 @@ INSERT INTO settings (key, value, description) VALUES
   "steps": [
     { "title": "Obtenir un devis", "desc": "Entrez les détails de votre colis et votre destination. Obtenez une estimation instantanée — sans inscription." },
     { "title": "Déposer ou planifier une collecte", "desc": "Apportez votre colis à notre bureau de Toronto ou Montréal, ou planifiez une collecte à domicile." },
-    { "title": "Livré à Cuba", "desc": "Votre colis est livré à la porte de votre famille. Suivez chaque étape via le portail." }
+    { "title": "Livré à Cuba", "desc": "Votre colis est livré à votre famille à Cuba — porte-à-porte ou en point de retrait, selon la province. Suivez chaque étape via le portail." }
   ]
 }$$, 'Landing page FR - how it works section'),
 
