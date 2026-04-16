@@ -48,6 +48,7 @@ const DEFAULT_LANG_LINKS: Record<string, LangLink[]> = {
 const l = LABELS[lang];
 const ratesUrl = RATES[lang];
 const ll = langLinks ?? DEFAULT_LANG_LINKS[lang];
+const quoteUrl = `https://app.boxtocuba.ca/shipping-quote${lang !== 'en' ? `?lang=${lang}` : ''}`;
 ---
 
 <nav class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
@@ -79,7 +80,7 @@ const ll = langLinks ?? DEFAULT_LANG_LINKS[lang];
           {l.portal}
         </a>
       )}
-      <a href="https://app.boxtocuba.ca/shipping-quote"
+      <a href={quoteUrl}
         class="px-3 py-2 md:px-4 text-sm font-semibold bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">
         {l.quote} →
       </a>
