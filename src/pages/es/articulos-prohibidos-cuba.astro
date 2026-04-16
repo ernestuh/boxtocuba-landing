@@ -9,6 +9,13 @@ const faqItems = [
   { q: '¿Qué pasa si la aduana encuentra algo prohibido?', a: 'La aduana cubana puede confiscar el artículo específico o en casos graves, el paquete completo. No hay reembolso por artículos decomisados.' },
   { q: '¿Puedo enviar un generador eléctrico?', a: 'Los generadores están permitidos pero no en aviones por razones de seguridad. Contáctanos para explorar opciones de envío marítimo o terrestre.' },
 ];
+
+const alternates = [
+  { hreflang: 'en', href: 'https://boxtocuba.ca/cuba-prohibited-items/' },
+  { hreflang: 'es', href: 'https://boxtocuba.ca/es/articulos-prohibidos-cuba/' },
+  { hreflang: 'fr', href: 'https://boxtocuba.ca/fr/articles-interdits-cuba/' },
+  { hreflang: 'x-default', href: 'https://boxtocuba.ca/cuba-prohibited-items/' },
+];
 ---
 
 <BaseLayout
@@ -16,6 +23,7 @@ const faqItems = [
   title="Artículos Prohibidos para Envíos a Cuba desde Canadá | Box to Cuba"
   description="Lista completa de artículos que no puedes enviar a Cuba en paquetes desde Canadá. Evita retrasos y decomisos — consulta antes de empacar."
   faqItems={faqItems}
+  alternates={alternates}
 >
 
   <Navbar lang="es" />

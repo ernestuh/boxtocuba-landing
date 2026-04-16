@@ -9,6 +9,13 @@ const faqItems = [
   { q: '¿Cuántos paquetes puede recibir una persona en Cuba?', a: 'No hay un límite oficial en el número de paquetes recibidos. Los límites aplican por artículo y por envío, no por número de envíos al año.' },
   { q: '¿Puedo enviar paneles solares?', a: 'Los paneles solares de uso residencial están generalmente permitidos, pero sujetos a arancel según su valor declarado. Consulta con nuestro equipo antes de enviar artículos de alto valor.' },
 ];
+
+const alternates = [
+  { hreflang: 'en', href: 'https://boxtocuba.ca/cuba-customs-guide/' },
+  { hreflang: 'es', href: 'https://boxtocuba.ca/es/guia-aduana-cuba/' },
+  { hreflang: 'fr', href: 'https://boxtocuba.ca/fr/guide-douanes-cuba/' },
+  { hreflang: 'x-default', href: 'https://boxtocuba.ca/cuba-customs-guide/' },
+];
 ---
 
 <BaseLayout
@@ -16,6 +23,7 @@ const faqItems = [
   title="Guía de Aduana Cuba 2026: Qué puedes enviar desde Canadá | Box to Cuba"
   description="Todo lo que necesitas saber sobre la aduana cubana al enviar paquetes desde Canadá. Artículos permitidos, límites y consejos para evitar retenciones."
   faqItems={faqItems}
+  alternates={alternates}
 >
 
   <Navbar lang="es" />

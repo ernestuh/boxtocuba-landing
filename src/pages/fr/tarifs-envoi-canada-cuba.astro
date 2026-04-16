@@ -24,6 +24,13 @@ const provinces = provinceData.map((p) => ({
 const hasCapitalOnly  = notice.enabled && notice.capital_only.length > 0;
 const hasPickupHavana = notice.enabled && notice.pickup_havana.length > 0;
 const hasPickupSantiago = notice.enabled && notice.pickup_santiago.length > 0;
+
+const alternates = [
+  { hreflang: 'en', href: 'https://boxtocuba.ca/canada-to-cuba-shipping-rates/' },
+  { hreflang: 'es', href: 'https://boxtocuba.ca/es/precios-envio-canada-cuba/' },
+  { hreflang: 'fr', href: 'https://boxtocuba.ca/fr/tarifs-envoi-canada-cuba/' },
+  { hreflang: 'x-default', href: 'https://boxtocuba.ca/canada-to-cuba-shipping-rates/' },
+];
 ---
 
 <BaseLayout
@@ -31,6 +38,7 @@ const hasPickupSantiago = notice.enabled && notice.pickup_santiago.length > 0;
   title="Tarifs d'Envoi Canada-Cuba 2026 | Box to Cuba"
   description="Tarifs d'envoi vers toutes les provinces cubaines depuis le Canada. Sans frais cachés. Dès $75 CAD. Obtenez votre devis en quelques secondes."
   faqItems={faqItems}
+  alternates={alternates}
 >
 
   <Navbar lang="fr" />

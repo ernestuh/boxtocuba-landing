@@ -9,6 +9,13 @@ const faqItems = [
   { q: 'What happens if customs finds something prohibited?', a: 'Cuban customs may confiscate the specific item or in serious cases, the entire package. There is no refund for confiscated items.' },
   { q: 'Can I send an electric generator?', a: 'Generators are permitted but not by air for safety reasons. Contact us to explore sea or land shipping options for this type of item.' },
 ];
+
+const alternates = [
+  { hreflang: 'en', href: 'https://boxtocuba.ca/cuba-prohibited-items/' },
+  { hreflang: 'es', href: 'https://boxtocuba.ca/es/articulos-prohibidos-cuba/' },
+  { hreflang: 'fr', href: 'https://boxtocuba.ca/fr/articles-interdits-cuba/' },
+  { hreflang: 'x-default', href: 'https://boxtocuba.ca/cuba-prohibited-items/' },
+];
 ---
 
 <BaseLayout
@@ -16,6 +23,7 @@ const faqItems = [
   title="Cuba Prohibited Items: What You Can't Ship from Canada | Box to Cuba"
   description="Complete list of items that cannot be sent to Cuba in packages from Canada. Avoid delays and confiscations — check before packing."
   faqItems={faqItems}
+  alternates={alternates}
 >
 
   <Navbar lang="en" />

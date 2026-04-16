@@ -9,6 +9,13 @@ const faqItems = [
   { q: 'Que se passe-t-il si la douane trouve quelque chose de prohibé?', a: 'Les douanes cubaines peuvent confisquer l\'article spécifique ou dans les cas graves, l\'ensemble du colis. Aucun remboursement pour les articles confisqués.' },
   { q: 'Puis-je envoyer un générateur électrique?', a: 'Les générateurs sont autorisés mais pas par avion pour des raisons de sécurité. Contactez-nous pour explorer les options d\'envoi maritime ou terrestre.' },
 ];
+
+const alternates = [
+  { hreflang: 'en', href: 'https://boxtocuba.ca/cuba-prohibited-items/' },
+  { hreflang: 'es', href: 'https://boxtocuba.ca/es/articulos-prohibidos-cuba/' },
+  { hreflang: 'fr', href: 'https://boxtocuba.ca/fr/articles-interdits-cuba/' },
+  { hreflang: 'x-default', href: 'https://boxtocuba.ca/cuba-prohibited-items/' },
+];
 ---
 
 <BaseLayout
@@ -16,6 +23,7 @@ const faqItems = [
   title="Articles Interdits pour Envois à Cuba depuis le Canada | Box to Cuba"
   description="Liste complète des articles que vous ne pouvez pas envoyer à Cuba dans des colis depuis le Canada. Évitez les retenues et confiscations — vérifiez avant d'emballer."
   faqItems={faqItems}
+  alternates={alternates}
 >
 
   <Navbar lang="fr" />

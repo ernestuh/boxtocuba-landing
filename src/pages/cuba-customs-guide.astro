@@ -9,6 +9,13 @@ const faqItems = [
   { q: 'How many packages can a person receive in Cuba?', a: 'There is no official limit on the number of packages received. Limits apply per item and per shipment, not per number of shipments per year.' },
   { q: 'Can I send solar panels?', a: 'Residential solar panels are generally permitted but subject to duty based on declared value. Check with our team before sending high-value items.' },
 ];
+
+const alternates = [
+  { hreflang: 'en', href: 'https://boxtocuba.ca/cuba-customs-guide/' },
+  { hreflang: 'es', href: 'https://boxtocuba.ca/es/guia-aduana-cuba/' },
+  { hreflang: 'fr', href: 'https://boxtocuba.ca/fr/guide-douanes-cuba/' },
+  { hreflang: 'x-default', href: 'https://boxtocuba.ca/cuba-customs-guide/' },
+];
 ---
 
 <BaseLayout
@@ -16,6 +23,7 @@ const faqItems = [
   title="Cuba Customs Guide 2026: What You Can Send from Canada | Box to Cuba"
   description="Everything you need to know about Cuban customs when sending packages from Canada. Allowed items, limits and tips to avoid holds."
   faqItems={faqItems}
+  alternates={alternates}
 >
 
   <Navbar lang="en" />

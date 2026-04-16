@@ -9,6 +9,13 @@ const faqItems = [
   { q: 'Combien de colis une personne peut-elle recevoir à Cuba?', a: 'Il n\'y a pas de limite officielle au nombre de colis reçus. Les limites s\'appliquent par article et par envoi, pas par nombre d\'envois par an.' },
   { q: 'Puis-je envoyer des panneaux solaires?', a: 'Les panneaux solaires résidentiels sont généralement autorisés, mais soumis à des droits selon la valeur déclarée. Vérifiez avec notre équipe avant d\'envoyer des articles de grande valeur.' },
 ];
+
+const alternates = [
+  { hreflang: 'en', href: 'https://boxtocuba.ca/cuba-customs-guide/' },
+  { hreflang: 'es', href: 'https://boxtocuba.ca/es/guia-aduana-cuba/' },
+  { hreflang: 'fr', href: 'https://boxtocuba.ca/fr/guide-douanes-cuba/' },
+  { hreflang: 'x-default', href: 'https://boxtocuba.ca/cuba-customs-guide/' },
+];
 ---
 
 <BaseLayout
@@ -16,6 +23,7 @@ const faqItems = [
   title="Guide Douanes Cuba 2026 : Ce que vous pouvez envoyer du Canada | Box to Cuba"
   description="Tout ce que vous devez savoir sur les douanes cubaines pour envoyer des colis depuis le Canada. Articles autorisés, limites et conseils pour éviter les retenues."
   faqItems={faqItems}
+  alternates={alternates}
 >
 
   <Navbar lang="fr" />
