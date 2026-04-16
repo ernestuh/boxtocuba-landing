@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Form Proposal — Box to Cuba</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f1f5f9; }
+    select, input, textarea {
+      width: 100%; border: 1px solid #e5e7eb; border-radius: 8px;
+      padding: 8px 12px; font-size: 14px; outline: none;
+      transition: border-color .15s;
+    }
+    select:focus, input:focus, textarea:focus { border-color: #ef4444; }
+    label { display: block; font-size: 11px; font-weight: 700; color: #9ca3af; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+    .required::after { content: ' *'; color: #ef4444; }
+    .field { margin-bottom: 0; }
+    .section-title {
+      font-size: 11px; font-weight: 700; color: #ef4444;
+      text-transform: uppercase; letter-spacing: .08em;
+      margin-bottom: 12px; padding-bottom: 8px;
+      border-bottom: 1px solid #fee2e2;
+    }
+    .city-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+    .chip {
+      font-size: 11px; padding: 3px 10px; border-radius: 99px;
+      background: #f3f4f6; border: 1px solid #e5e7eb;
+      cursor: pointer; color: #374151; transition: all .15s;
+    }
+    .chip:hover, .chip.active { background: #fef2f2; border-color: #fca5a5; color: #dc2626; }
+    .error-msg { font-size: 11px; color: #dc2626; margin-top: 3px; }
+    .validation-note { font-size: 11px; color: #9ca3af; margin-top: 4px; }
+  </style>
+</head>
+<body class="p-6">
+<div class="max-w-6xl mx-auto">
+
+  <div class="mb-8">
+    <h1 class="text-2xl font-bold text-gray-900 mb-1">Contact Form — Propuesta</h1>
+    <p class="text-gray-500 text-sm">Vista previa del formulario funcional con todos los campos</p>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+    <!-- FORM PREVIEW -->
+    <div class="bg-white rounded-2xl shadow-sm p-8">
+      <h2 class="text-xl font-bold text-gray-900 mb-6">Get in touch</h2>
+
+      <!-- PERSONAL INFO -->
+      <div class="mb-6">
+        <div class="section-title">Your information</div>
+        <div class="grid grid-cols-1 gap-3">
+          <div class="field">
+            <label class="required">Full name</label>
+            <input type="text" placeholder="John Doe" />
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="field">
+              <label>Email</label>
+              <input type="email" placeholder="john@email.com" />
+              <div class="validation-note">Email or phone required</div>
+            </div>
+            <div class="field">
+              <label>Phone</label>
+              <input type="tel" placeholder="+1 416 836 5517" />
+              <div class="validation-note">Email or phone required</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SHIPPING FROM -->
+      <div class="mb-6">
+        <div class="section-title">📦 Shipping from (Canada)</div>
+        <div class="grid grid-cols-1 gap-3">
+          <div class="field">
+            <label class="required">Province</label>
+            <select onchange="updateCanadaCities(this.value)">
+              <option value="">Select province...</option>
+              <option value="ON">Ontario</option>
+              <option value="QC">Quebec</option>
+              <option value="BC">British Columbia</option>
+              <option value="AB">Alberta</option>
+              <option value="MB">Manitoba</option>
+              <option value="SK">Saskatchewan</option>
+              <option value="NS">Nova Scotia</option>
+              <option value="NB">New Brunswick</option>
+              <option value="NL">Newfoundland & Labrador</option>
+              <option value="PE">Prince Edward Island</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="required">City</label>
+            <input type="text" id="canada-city" placeholder="Type your city..." />
+            <div class="city-chips" id="canada-chips"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SHIPPING TO -->
+      <div class="mb-6">
+        <div class="section-title">🇨🇺 Shipping to (Cuba)</div>
+        <div class="grid grid-cols-1 gap-3">
+          <div class="field">
+            <label class="required">Province</label>
+            <select onchange="updateCubaCities(this.value)">
+              <option value="">Select province...</option>
+              <option value="la-habana">La Habana</option>
+              <option value="artemisa">Artemisa</option>
+              <option value="mayabeque">Mayabeque</option>
+              <option value="pinar-del-rio">Pinar del Río</option>
+              <option value="isla-de-la-juventud">Isla de la Juventud</option>
+              <option value="matanzas">Matanzas</option>
+              <option value="villa-clara">Villa Clara</option>
+              <option value="cienfuegos">Cienfuegos</option>
+              <option value="sancti-spiritus">Sancti Spíritus</option>
+              <option value="ciego-de-avila">Ciego de Ávila</option>
+              <option value="camaguey">Camagüey</option>
+              <option value="las-tunas">Las Tunas</option>
+              <option value="holguin">Holguín</option>
+              <option value="granma">Granma</option>
+              <option value="santiago-de-cuba">Santiago de Cuba</option>
+              <option value="guantanamo">Guantánamo</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="required">City / Municipality</label>
+            <input type="text" id="cuba-city" placeholder="Type city or municipality..." />
+            <div class="city-chips" id="cuba-chips"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PACKAGE -->
+      <div class="mb-6">
+        <div class="section-title">⚖️ Package details</div>
+        <div class="field">
+          <label class="required">Estimated weight (lbs)</label>
+          <input type="number" placeholder="e.g. 25" min="1" max="500" />
+          <div class="validation-note">Approximate weight is fine — we'll confirm before shipment</div>
+        </div>
+      </div>
+
+      <!-- MESSAGE -->
+      <div class="mb-6">
+        <div class="field">
+          <label>Message / Additional details</label>
+          <textarea rows="3" placeholder="Type of items, special instructions, questions..."></textarea>
+        </div>
+      </div>
+
+      <!-- SUBMIT -->
+      <button class="w-full py-3 bg-red-500 text-white font-semibold rounded-xl hover:bg-red-600 transition-colors text-sm">
+        Send message →
+      </button>
+      <p class="text-xs text-gray-400 text-center mt-3">We typically reply within a few hours</p>
+    </div>
+
+    <!-- RIGHT PANEL: ANNOTATIONS -->
+    <div class="space-y-5">
+
+      <!-- SUCCESS STATE -->
+      <div class="bg-white rounded-2xl shadow-sm p-6">
+        <div class="text-xs font-bold text-gray-400 uppercase mb-3">Estado: éxito</div>
+        <div class="bg-green-50 border border-green-200 rounded-xl p-5 text-center">
+          <div class="text-3xl mb-2">✅</div>
+          <div class="font-bold text-green-800 mb-1">Message sent!</div>
+          <div class="text-sm text-green-600">We'll get back to you at <strong>john@email.com</strong> within a few hours.</div>
+        </div>
+      </div>
+
+      <!-- ERROR STATE -->
+      <div class="bg-white rounded-2xl shadow-sm p-6">
+        <div class="text-xs font-bold text-gray-400 uppercase mb-3">Estado: error de validación</div>
+        <div class="space-y-3">
+          <div>
+            <label class="required">Email</label>
+            <input type="email" value="" style="border-color: #ef4444;" placeholder="john@email.com" />
+            <div class="error-msg">Please provide an email or phone number</div>
+          </div>
+          <div>
+            <label class="required">Province (Cuba)</label>
+            <select style="border-color: #ef4444;"><option>Select province...</option></select>
+            <div class="error-msg">This field is required</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EMAIL PREVIEW -->
+      <div class="bg-white rounded-2xl shadow-sm p-6">
+        <div class="text-xs font-bold text-gray-400 uppercase mb-3">Email que recibes en info@boxtocuba.ca</div>
+        <div class="bg-gray-50 rounded-xl p-4 font-mono text-xs space-y-1 text-gray-700">
+          <div class="font-bold text-gray-900 mb-2">📬 New contact — boxtocuba.ca</div>
+          <div><span class="text-gray-400">Name:</span>     John Doe</div>
+          <div><span class="text-gray-400">Email:</span>    john@email.com</div>
+          <div><span class="text-gray-400">Phone:</span>    +1 514 555 1234</div>
+          <div class="border-t border-gray-200 my-2"></div>
+          <div><span class="text-gray-400">From:</span>     Montreal, Quebec, Canada</div>
+          <div><span class="text-gray-400">To:</span>       Santiago de Cuba, Cuba</div>
+          <div><span class="text-gray-400">City:</span>     Vista Alegre</div>
+          <div><span class="text-gray-400">Weight:</span>   35 lbs</div>
+          <div class="border-t border-gray-200 my-2"></div>
+          <div><span class="text-gray-400">Message:</span></div>
+          <div class="text-gray-600 italic">"Quiero enviar ropa y medicamentos para mi familia. ¿Cuánto demora?"</div>
+          <div class="border-t border-gray-200 mt-2 pt-2">
+            <span class="text-gray-400">Lang:</span> ES · <span class="text-gray-400">Sent:</span> Apr 15, 2026 11:32pm
+          </div>
+        </div>
+      </div>
+
+      <!-- CITIES LOGIC -->
+      <div class="bg-white rounded-2xl shadow-sm p-6">
+        <div class="text-xs font-bold text-gray-400 uppercase mb-3">Lógica de ciudades (chips)</div>
+        <div class="space-y-4 text-sm text-gray-600">
+          <div>
+            <div class="font-semibold text-gray-800 mb-2">🇨🇦 Ontario seleccionado:</div>
+            <div class="city-chips">
+              <span class="chip active">Toronto</span>
+              <span class="chip">Mississauga</span>
+              <span class="chip">Brampton</span>
+              <span class="chip">Ottawa</span>
+              <span class="chip">Hamilton</span>
+              <span class="chip">London</span>
+              <span class="chip">Windsor</span>
+            </div>
+            <div class="text-xs text-gray-400 mt-2">Click rellena el input · o escribe tu ciudad libremente</div>
+          </div>
+          <div>
+            <div class="font-semibold text-gray-800 mb-2">🇨🇺 La Habana seleccionada:</div>
+            <div class="city-chips">
+              <span class="chip">Habana Vieja</span>
+              <span class="chip">Vedado</span>
+              <span class="chip">Miramar</span>
+              <span class="chip">Centro Habana</span>
+              <span class="chip">Cerro</span>
+              <span class="chip">10 de Octubre</span>
+            </div>
+            <div class="text-xs text-gray-400 mt-2">Click rellena el input · o escribe el municipio libremente</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FIELDS SUMMARY -->
+      <div class="bg-white rounded-2xl shadow-sm p-6">
+        <div class="text-xs font-bold text-gray-400 uppercase mb-3">Resumen de campos y validación</div>
+        <table class="w-full text-xs">
+          <thead>
+            <tr class="text-left text-gray-400 border-b border-gray-100">
+              <th class="pb-2">Campo</th>
+              <th class="pb-2">Tipo</th>
+              <th class="pb-2">Req.</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-50 text-gray-700">
+            <tr><td class="py-1.5">Full name</td><td>text</td><td>✅</td></tr>
+            <tr><td class="py-1.5">Email</td><td>email</td><td>uno de los 2</td></tr>
+            <tr><td class="py-1.5">Phone</td><td>tel</td><td>uno de los 2</td></tr>
+            <tr><td class="py-1.5">Canadian province</td><td>select</td><td>✅</td></tr>
+            <tr><td class="py-1.5">Canadian city</td><td>text + chips</td><td>✅</td></tr>
+            <tr><td class="py-1.5">Cuban province</td><td>select</td><td>✅</td></tr>
+            <tr><td class="py-1.5">Cuban city / municipality</td><td>text + chips</td><td>✅</td></tr>
+            <tr><td class="py-1.5">Weight (lbs)</td><td>number</td><td>✅</td></tr>
+            <tr><td class="py-1.5">Message</td><td>textarea</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+const canadaCities = {
+  ON: ['Toronto', 'Mississauga', 'Brampton', 'Ottawa', 'Hamilton', 'London', 'Windsor'],
+  QC: ['Montreal', 'Quebec City', 'Laval', 'Gatineau', 'Longueuil', 'Sherbrooke'],
+  BC: ['Vancouver', 'Surrey', 'Burnaby', 'Richmond', 'Victoria', 'Kelowna'],
+  AB: ['Calgary', 'Edmonton', 'Red Deer', 'Lethbridge'],
+  MB: ['Winnipeg', 'Brandon'],
+  SK: ['Saskatoon', 'Regina'],
+  NS: ['Halifax', 'Sydney'],
+  NB: ['Moncton', 'Saint John', 'Fredericton'],
+  NL: ["St. John's"],
+  PE: ['Charlottetown'],
+  other: [],
+};
+
+const cubaCities = {
+  'la-habana': ['Habana Vieja', 'Vedado', 'Miramar', 'Centro Habana', 'Cerro', '10 de Octubre', 'Playa', 'Marianao'],
+  'artemisa': ['Artemisa', 'Güira de Melena', 'Alquízar', 'Caimito', 'San Antonio de los Baños'],
+  'mayabeque': ['San José de las Lajas', 'Güines', 'Bejucal', 'Jaruco', 'Santa Cruz del Norte'],
+  'pinar-del-rio': ['Pinar del Río', 'Consolación del Sur', 'San Cristóbal', 'Viñales'],
+  'isla-de-la-juventud': ['Nueva Gerona'],
+  'matanzas': ['Matanzas', 'Cárdenas', 'Varadero', 'Colón', 'Jovellanos'],
+  'villa-clara': ['Santa Clara', 'Sagua la Grande', 'Caibarién', 'Placetas'],
+  'cienfuegos': ['Cienfuegos', 'Palmira', 'Cruces', 'Rodas'],
+  'sancti-spiritus': ['Sancti Spíritus', 'Trinidad', 'Fomento', 'Cabaiguán'],
+  'ciego-de-avila': ['Ciego de Ávila', 'Morón', 'Chambas'],
+  'camaguey': ['Camagüey', 'Florida', 'Guáimaro', 'Nuevitas'],
+  'las-tunas': ['Las Tunas', 'Puerto Padre', 'Jobabo'],
+  'holguin': ['Holguín', 'Bayamo', 'Moa', 'Banes', 'Gibara'],
+  'granma': ['Bayamo', 'Manzanillo', 'Niquero', 'Media Luna'],
+  'santiago-de-cuba': ['Santiago de Cuba', 'Palma Soriano', 'Contramaestre', 'San Luis'],
+  'guantanamo': ['Guantánamo', 'Baracoa', 'Caimanera'],
+};
+
+function renderChips(containerId, inputId, cities) {
+  const container = document.getElementById(containerId);
+  const input = document.getElementById(inputId);
+  container.innerHTML = '';
+  cities.forEach(city => {
+    const chip = document.createElement('span');
+    chip.className = 'chip';
+    chip.textContent = city;
+    chip.onclick = () => {
+      input.value = city;
+      container.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+    };
+    container.appendChild(chip);
+  });
+}
+
+function updateCanadaCities(province) {
+  renderChips('canada-chips', 'canada-city', canadaCities[province] || []);
+  document.getElementById('canada-city').value = '';
+}
+
+function updateCubaCities(province) {
+  renderChips('cuba-chips', 'cuba-city', cubaCities[province] || []);
+  document.getElementById('cuba-city').value = '';
+}
+</script>
+</body>
+</html>

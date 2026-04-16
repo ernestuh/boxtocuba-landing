@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Province Page Proposal — La Habana | Box to Cuba</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    details[open] summary .plus { transform: rotate(45deg); }
+    .plus { transition: transform 0.2s; display: inline-block; }
+
+    /* Province card hover */
+    .province-card:hover { border-color: #ef4444; transform: translateY(-2px); }
+    .province-card { transition: all 0.15s; }
+
+    /* Smooth FAQ */
+    details summary { list-style: none; }
+    details summary::-webkit-details-marker { display: none; }
+
+    /* Tooltip annotation */
+    .annotation {
+      position: relative;
+      outline: 2px dashed #f59e0b;
+      outline-offset: 4px;
+    }
+    .annotation::after {
+      content: attr(data-note);
+      position: absolute;
+      top: -28px;
+      left: 0;
+      background: #f59e0b;
+      color: #1c1917;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+      z-index: 100;
+      font-family: monospace;
+      letter-spacing: 0.03em;
+      pointer-events: none;
+    }
+
+    /* Pill for popular items */
+    .item-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 9999px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #374151;
+    }
+    .item-pill:hover { border-color: #ef4444; color: #ef4444; }
+  </style>
+</head>
+<body class="bg-white text-gray-900 font-sans antialiased">
+
+<!-- ─── LEGEND BAR ──────────────────────────────────────────────── -->
+<div class="bg-amber-50 border-b-2 border-amber-400 px-6 py-3 flex items-center gap-4 text-sm sticky top-0 z-[200]">
+  <span class="font-bold text-amber-700">📐 Proposal — Province page</span>
+  <span class="text-amber-600">Example: La Habana (EN) · Dynamic template → 48 URLs generated at build time</span>
+  <span class="ml-auto">
+    <span class="inline-block w-3 h-3 rounded-sm border-2 border-dashed border-amber-500 mr-1"></span>
+    <span class="text-amber-700 text-xs font-mono">Annotated sections</span>
+  </span>
+</div>
+
+<!-- ─── NAVBAR ──────────────────────────────────────────────────── -->
+<nav class="sticky top-[49px] z-50 bg-white border-b border-gray-200 shadow-sm">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-3">
+      <div class="w-10 h-10 bg-red-500 rounded-lg flex items-center justify-center text-white font-bold text-sm">B2C</div>
+      <span class="font-bold text-gray-900 text-lg">Box to Cuba</span>
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#" class="text-gray-500 hover:text-red-500 text-sm transition-colors">Services</a>
+      <a href="#" class="text-gray-500 hover:text-red-500 text-sm transition-colors">How it Works</a>
+      <a href="#" class="text-red-500 font-semibold text-sm border-b-2 border-red-500 pb-0.5">Provinces</a>
+      <a href="#" class="text-gray-500 hover:text-red-500 text-sm transition-colors">Rates</a>
+      <a href="#" class="text-gray-500 hover:text-red-500 text-sm transition-colors">FAQ</a>
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="text-xs text-gray-400 px-2">ES</span>
+      <span class="text-xs text-gray-400 px-2">FR</span>
+      <a href="#" class="px-4 py-2 text-sm font-semibold border border-gray-200 rounded-lg hover:border-red-400 hover:text-red-500 transition-colors">Client Portal</a>
+      <a href="#" class="px-4 py-2 text-sm font-semibold bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">Get Quote →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── BREADCRUMB ──────────────────────────────────────────────── -->
+<div class="bg-gray-50 border-b border-gray-100 px-6 py-3 annotation" data-note="Breadcrumb + hreflang switcher">
+  <div class="max-w-5xl mx-auto flex items-center justify-between">
+    <div class="text-sm text-gray-400">
+      <a href="#" class="hover:text-red-500 transition-colors">Home</a>
+      <span class="mx-2">›</span>
+      <a href="/proposal-provinces-option-c.html" class="hover:text-red-500 transition-colors">All Provinces</a>
+      <span class="mx-2">›</span>
+      <span class="text-gray-700 font-medium">La Habana</span>
+    </div>
+    <div class="flex gap-3 text-xs text-gray-400">
+      <span class="font-semibold text-red-500">EN</span>
+      <a href="#" class="hover:text-red-500">ES</a>
+      <a href="#" class="hover:text-red-500">FR</a>
+    </div>
+  </div>
+</div>
+
+<!-- ─── HERO ────────────────────────────────────────────────────── -->
+<section class="bg-gradient-to-br from-white to-red-50 px-6 py-16 annotation" data-note="HERO — H1 with province name (dynamic)">
+  <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+    <div>
+      <div class="inline-flex items-center gap-2 bg-red-50 text-red-500 text-xs font-semibold px-4 py-2 rounded-full mb-5">
+        ✈️ Weekly flights to La Habana
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
+        Send Packages to<br/><span class="text-red-500">La Habana</span><br/>from Canada
+      </h1>
+      <p class="text-gray-500 text-lg leading-relaxed mb-8">
+        Door-to-door or pickup point delivery across all municipalities of La Habana. Weekly flights from Toronto and Montreal. Starting from <strong class="text-gray-800">$6 CAD/lb</strong>.
+      </p>
+      <div class="flex gap-3 flex-wrap">
+        <a href="#" class="px-6 py-3 bg-red-500 text-white font-semibold rounded-xl hover:bg-red-600 transition-colors">Get quote for La Habana →</a>
+        <a href="#" class="px-6 py-3 border border-gray-200 font-semibold rounded-xl hover:border-green-500 hover:text-green-600 transition-colors">💬 WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- Stats card -->
+    <div class="bg-white rounded-3xl shadow-lg border border-gray-100 p-8">
+      <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-5">La Habana at a glance</div>
+      <div class="grid grid-cols-2 gap-6">
+        <div>
+          <div class="text-3xl font-extrabold text-red-500">$6<span class="text-lg">/lb</span></div>
+          <div class="text-xs text-gray-400 mt-1">Starting price (CAD)</div>
+        </div>
+        <div>
+          <div class="text-3xl font-extrabold text-gray-900">7–12</div>
+          <div class="text-xs text-gray-400 mt-1">Business days</div>
+        </div>
+        <div>
+          <div class="text-3xl font-extrabold text-gray-900">✈️</div>
+          <div class="text-xs text-gray-400 mt-1">Weekly flights</div>
+        </div>
+        <div>
+          <div class="text-3xl font-extrabold text-gray-900">🚪</div>
+          <div class="text-xs text-gray-400 mt-1">Door-to-door or pickup point</div>
+        </div>
+      </div>
+      <div class="mt-6 pt-5 border-t border-gray-100 text-xs text-gray-400 leading-relaxed">
+        Most frequent flight schedule — highest priority for La Habana shipments.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── HIGHLIGHT STRIP ─────────────────────────────────────────── -->
+<section class="border-y border-gray-100 px-6 py-6 bg-white annotation" data-note="3-stat strip — quick scannable trust signals">
+  <div class="max-w-5xl mx-auto grid grid-cols-3 gap-4">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center text-lg">💰</div>
+      <div>
+        <div class="font-bold text-gray-900">From $6 CAD/lb</div>
+        <div class="text-xs text-gray-400">No hidden fees</div>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-lg">⏱</div>
+      <div>
+        <div class="font-bold text-gray-900">7–12 days</div>
+        <div class="text-xs text-gray-400">Business days</div>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center text-lg">📍</div>
+      <div>
+        <div class="font-bold text-gray-900">Real-time tracking</div>
+        <div class="text-xs text-gray-400">Client portal included</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PRICING TABLE ───────────────────────────────────────────── -->
+<section class="bg-gray-50 px-6 py-16 annotation" data-note="Pricing table — weight tiers for this province only">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-xs font-bold text-red-500 uppercase tracking-widest mb-2">Rates for La Habana</div>
+    <h2 class="text-3xl font-extrabold mb-2">Shipping rates to La Habana</h2>
+    <p class="text-gray-500 mb-8">Prices in Canadian dollars (CAD). Rate is based on whichever is greater: actual weight or volumetric weight.</p>
+
+    <div class="overflow-x-auto rounded-2xl shadow-sm">
+      <table class="w-full bg-white text-sm">
+        <thead>
+          <tr class="bg-gray-900 text-white">
+            <th class="text-left px-5 py-4 font-semibold">Weight (lbs)</th>
+            <th class="text-left px-5 py-4 font-semibold">Rate</th>
+            <th class="text-left px-5 py-4 font-semibold">Example total</th>
+            <th class="text-left px-5 py-4 font-semibold hidden md:table-cell">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white">
+            <td class="px-5 py-3 text-gray-600">0.5 – 10 lbs</td>
+            <td class="px-5 py-3 font-bold text-red-500">$75.00 CAD flat</td>
+            <td class="px-5 py-3 text-gray-600">$75.00</td>
+            <td class="px-5 py-3 text-gray-400 text-xs hidden md:table-cell">Fixed price regardless of weight</td>
+          </tr>
+          <tr class="bg-gray-50">
+            <td class="px-5 py-3 text-gray-600">10.01 – 44 lbs</td>
+            <td class="px-5 py-3 font-bold text-red-500">$6.50 CAD/lb</td>
+            <td class="px-5 py-3 text-gray-600">20 lbs → $130.00</td>
+            <td class="px-5 py-3 text-gray-400 text-xs hidden md:table-cell">Per pound rate</td>
+          </tr>
+          <tr class="bg-white">
+            <td class="px-5 py-3 text-gray-600">44.01+ lbs</td>
+            <td class="px-5 py-3 font-bold text-red-500">$6.00 CAD/lb</td>
+            <td class="px-5 py-3 text-gray-600">50 lbs → $300.00</td>
+            <td class="px-5 py-3 text-gray-400 text-xs hidden md:table-cell">Best rate for heavy boxes</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="bg-blue-50 border-l-4 border-blue-400 rounded-xl p-5 mt-6 text-sm text-gray-600">
+      <strong>Volumetric weight formula:</strong> Length × Width × Height (cm) ÷ 139 = volumetric kg.
+      We charge the greater of actual vs. volumetric. Pack compactly to optimize cost.
+    </div>
+
+    <p class="text-xs text-gray-400 mt-3">
+      * Rate includes air freight and delivery in Cuba (door-to-door or pickup point depending on municipality).
+      Canada pickup available in GTA only for a fee. Outside GTA: ship via courier to our Toronto location.
+    </p>
+  </div>
+</section>
+
+<!-- ─── MUNICIPALITIES ──────────────────────────────────────────── -->
+<section class="px-6 py-16 annotation" data-note="Municipalities grid — local SEO keywords, generated from data file">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-xs font-bold text-red-500 uppercase tracking-widest mb-2">Delivery coverage</div>
+    <h2 class="text-3xl font-extrabold mb-3">Municipalities we serve in La Habana</h2>
+    <p class="text-gray-500 mb-8">We deliver to all 15 municipalities of the province of La Habana. Door-to-door or pickup point — confirmed at booking.</p>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+      {[
+        'Habana Vieja', 'Centro Habana', 'Vedado / Plaza', 'Cerro', 'Diez de Octubre',
+        'Boyeros', 'Arroyo Naranjo', 'Cotorro', 'San Miguel', 'Regla',
+        'Guanabacoa', 'La Lisa', 'Marianao', 'Playa', 'Habana del Este'
+      ].map(m => `
+        <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:10px 14px;font-size:13px;font-weight:500;color:#374151;text-align:center;"
+             onmouseover="this.style.borderColor='#ef4444';this.style.color='#ef4444'"
+             onmouseout="this.style.borderColor='#e5e7eb';this.style.color='#374151'">
+          ${m}
+        </div>
+      `).join('')}
+    </div>
+  </div>
+</section>
+
+<!-- ─── POPULAR ITEMS ───────────────────────────────────────────── -->
+<section class="bg-gray-50 px-6 py-16 annotation" data-note="Popular items — topical relevance for search">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-xs font-bold text-red-500 uppercase tracking-widest mb-2">What people send</div>
+    <h2 class="text-3xl font-extrabold mb-3">Most popular items shipped to La Habana</h2>
+    <p class="text-gray-500 mb-8">These are the categories most frequently shipped by families sending packages from Canada to La Habana.</p>
+
+    <div class="flex flex-wrap gap-3">
+      <span class="item-pill" onmouseover="this.style.borderColor='#ef4444';this.style.color='#ef4444'" onmouseout="this.style.borderColor='#e5e7eb';this.style.color='#374151'">💊 Medicine &amp; vitamins</span>
+      <span class="item-pill" onmouseover="this.style.borderColor='#ef4444';this.style.color='#ef4444'" onmouseout="this.style.borderColor='#e5e7eb';this.style.color='#374151'">👕 Clothing</span>
+      <span class="item-pill" onmouseover="this.style.borderColor='#ef4444';this.style.color='#ef4444'" onmouseout="this.style.borderColor='#e5e7eb';this.style.color='#374151'">📱 Electronics</span>
+      <span class="item-pill" onmouseover="this.style.borderColor='#ef4444';this.style.color='#ef4444'" onmouseout="this.style.borderColor='#e5e7eb';this.style.color='#374151'">🥫 Non-perishable food</span>
+      <span class="item-pill" onmouseover="this.style.borderColor='#ef4444';this.style.color='#ef4444'" onmouseout="this.style.borderColor='#e5e7eb';this.style.color='#374151'">🧴 Hygiene products</span>
+      <span class="item-pill" onmouseover="this.style.borderColor='#ef4444';this.style.color='#ef4444'" onmouseout="this.style.borderColor='#e5e7eb';this.style.color='#374151'">🔧 Tools &amp; hardware</span>
+      <span class="item-pill" onmouseover="this.style.borderColor='#ef4444';this.style.color='#ef4444'" onmouseout="this.style.borderColor='#e5e7eb';this.style.color='#374151'">👶 Baby products</span>
+      <span class="item-pill" onmouseover="this.style.borderColor='#ef4444';this.style.color='#ef4444'" onmouseout="this.style.borderColor='#e5e7eb';this.style.color='#374151'">🎁 Gifts &amp; toys</span>
+      <span class="item-pill" onmouseover="this.style.borderColor='#ef4444';this.style.color='#ef4444'" onmouseout="this.style.borderColor='#e5e7eb';this.style.color='#374151'">🏠 Household supplies</span>
+    </div>
+
+    <p class="text-xs text-gray-400 mt-6">
+      Some items may be restricted by Cuban customs. <a href="/cuba-prohibited-items" class="text-red-500 hover:underline">See our prohibited items guide →</a>
+    </p>
+  </div>
+</section>
+
+<!-- ─── HOW IT WORKS (mini) ─────────────────────────────────────── -->
+<section class="px-6 py-16 annotation" data-note="Mini how-it-works — 3 steps, lightweight version">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-xs font-bold text-red-500 uppercase tracking-widest mb-2">Process</div>
+    <h2 class="text-3xl font-extrabold mb-10">How to ship to La Habana</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="flex gap-4">
+        <div class="w-10 h-10 rounded-full bg-red-500 text-white font-extrabold flex items-center justify-center shrink-0 text-lg">1</div>
+        <div>
+          <h3 class="font-bold mb-1">Get a quote</h3>
+          <p class="text-sm text-gray-500">Enter weight, dimensions and La Habana as destination. Instant price — no registration.</p>
+        </div>
+      </div>
+      <div class="flex gap-4">
+        <div class="w-10 h-10 rounded-full bg-red-500 text-white font-extrabold flex items-center justify-center shrink-0 text-lg">2</div>
+        <div>
+          <h3 class="font-bold mb-1">Drop off or schedule pickup</h3>
+          <p class="text-sm text-gray-500">Bring to our Toronto or Montreal location, or schedule GTA pickup. Outside GTA: send via courier to Toronto.</p>
+        </div>
+      </div>
+      <div class="flex gap-4">
+        <div class="w-10 h-10 rounded-full bg-red-500 text-white font-extrabold flex items-center justify-center shrink-0 text-lg">3</div>
+        <div>
+          <h3 class="font-bold mb-1">Delivered in La Habana</h3>
+          <p class="text-sm text-gray-500">Door-to-door or pickup point, depending on municipality. Track every step via our client portal.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ─────────────────────────────────────────────────────── -->
+<section class="bg-gray-50 px-6 py-16 annotation" data-note="Province-specific FAQ → FAQPage JSON-LD for rich snippets">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-xs font-bold text-red-500 uppercase tracking-widest mb-2">FAQ</div>
+    <h2 class="text-3xl font-extrabold mb-10">Questions about shipping to La Habana</h2>
+    <div class="space-y-0">
+
+      <details class="group border-b border-gray-200 py-5">
+        <summary class="flex justify-between items-center font-semibold cursor-pointer list-none text-gray-800 hover:text-red-500 transition-colors">
+          How long does it take to ship a package to La Habana?
+          <span class="text-red-500 text-xl ml-4 plus">+</span>
+        </summary>
+        <p class="text-sm text-gray-500 leading-relaxed mt-3">Delivery to La Habana typically takes 7–12 business days from pickup. La Habana has the most frequent flight schedule — packages are prioritized on the next available flight after processing.</p>
+      </details>
+
+      <details class="group border-b border-gray-200 py-5">
+        <summary class="flex justify-between items-center font-semibold cursor-pointer list-none text-gray-800 hover:text-red-500 transition-colors">
+          Do you deliver door-to-door in La Habana?
+          <span class="text-red-500 text-xl ml-4 plus">+</span>
+        </summary>
+        <p class="text-sm text-gray-500 leading-relaxed mt-3">Delivery options depend on the specific municipality within La Habana. For most areas we offer door-to-door delivery; for some we use a nearby pickup point. Our team will confirm the delivery method at the time of booking.</p>
+      </details>
+
+      <details class="group border-b border-gray-200 py-5">
+        <summary class="flex justify-between items-center font-semibold cursor-pointer list-none text-gray-800 hover:text-red-500 transition-colors">
+          What is the cheapest way to ship to La Habana from Canada?
+          <span class="text-red-500 text-xl ml-4 plus">+</span>
+        </summary>
+        <p class="text-sm text-gray-500 leading-relaxed mt-3">La Habana has our lowest starting rate — from $6/lb CAD — and benefits from the most frequent flight schedule, which means faster processing. The most cost-effective approach is to maximize the weight per box: packing densely reduces volumetric weight charges.</p>
+      </details>
+
+      <details class="group border-b border-gray-200 py-5">
+        <summary class="flex justify-between items-center font-semibold cursor-pointer list-none text-gray-800 hover:text-red-500 transition-colors">
+          Can I send medicine to La Habana?
+          <span class="text-red-500 text-xl ml-4 plus">+</span>
+        </summary>
+        <p class="text-sm text-gray-500 leading-relaxed mt-3">Yes. Medications in original packaging, up to USD $200 in value, are exempt from Cuban customs duty. Please do not remove medications from their original containers. Contact us if you're unsure about a specific medication.</p>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA FINAL ────────────────────────────────────────────────── -->
+<section class="bg-gradient-to-r from-blue-900 to-blue-700 text-white text-center py-16 px-6 annotation" data-note="CTA — province-specific copy">
+  <div class="max-w-xl mx-auto">
+    <div class="inline-block bg-white/10 text-white text-xs font-bold px-4 py-2 rounded-full mb-5">📦 Ready to ship to La Habana?</div>
+    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Send your package today</h2>
+    <p class="opacity-80 mb-8 text-lg">Get an instant quote for La Habana — no registration needed.</p>
+    <div class="flex gap-4 justify-center flex-wrap">
+      <a href="#" class="inline-block px-8 py-4 bg-red-500 text-white font-bold rounded-xl hover:bg-red-600 transition-colors text-lg">Calculate my rate →</a>
+      <a href="#" class="inline-block px-8 py-4 bg-white/10 text-white font-bold rounded-xl hover:bg-white/20 transition-colors text-lg">💬 WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── RELATED PROVINCES ────────────────────────────────────────── -->
+<section class="px-6 py-14 border-t border-gray-100 annotation" data-note="Related provinces — internal links for crawlability + UX">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-xs font-bold text-red-500 uppercase tracking-widest mb-4">Also shipping to</div>
+    <h2 class="text-xl font-bold mb-6 text-gray-800">Other Cuban provinces</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+      <a href="#" class="province-card flex items-center justify-between bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm shadow-sm">
+        <span class="font-medium text-gray-700">Artemisa</span>
+        <span class="text-red-500 text-xs font-bold">$6/lb →</span>
+      </a>
+      <a href="#" class="province-card flex items-center justify-between bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm shadow-sm">
+        <span class="font-medium text-gray-700">Mayabeque</span>
+        <span class="text-red-500 text-xs font-bold">$6/lb →</span>
+      </a>
+      <a href="#" class="province-card flex items-center justify-between bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm shadow-sm">
+        <span class="font-medium text-gray-700">Matanzas</span>
+        <span class="text-red-500 text-xs font-bold">$6.50 CAD/lb →</span>
+      </a>
+      <a href="#" class="province-card flex items-center justify-between bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm shadow-sm">
+        <span class="font-medium text-gray-700">Villa Clara</span>
+        <span class="text-red-500 text-xs font-bold">$6.50 CAD/lb →</span>
+      </a>
+      <a href="#" class="province-card flex items-center justify-between bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm shadow-sm">
+        <span class="font-medium text-gray-700">Holguín</span>
+        <span class="text-red-500 text-xs font-bold">$7.50/lb →</span>
+      </a>
+      <a href="#" class="province-card flex items-center justify-between bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm shadow-sm">
+        <span class="font-medium text-gray-700">Santiago de Cuba</span>
+        <span class="text-red-500 text-xs font-bold">$8/lb →</span>
+      </a>
+      <a href="#" class="province-card flex items-center justify-between bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm shadow-sm">
+        <span class="font-medium text-gray-700">Camagüey</span>
+        <span class="text-red-500 text-xs font-bold">$7.50/lb →</span>
+      </a>
+      <a href="/proposal-provinces-option-c.html" class="province-card flex items-center justify-between bg-white border border-gray-100 rounded-xl px-4 py-3 text-sm shadow-sm">
+        <span class="font-medium text-gray-700">View all 16 →</span>
+        <span class="text-gray-400 text-xs">provinces</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ───────────────────────────────────────────────────── -->
+<footer class="bg-gray-900 text-white px-6 py-12">
+  <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+    <div>
+      <div class="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center text-white font-bold mb-3">B2C</div>
+      <div class="font-bold text-lg mb-2">Box to Cuba</div>
+      <p class="text-sm text-gray-400 leading-relaxed">Reliable parcel shipping from Canada to Cuba. Trusted by families since 2020.</p>
+    </div>
+    <div>
+      <h4 class="text-sm font-bold text-gray-200 mb-4">Quick Links</h4>
+      <div class="space-y-2">
+        <a href="#" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">Get a Quote</a>
+        <a href="#" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">Client Portal</a>
+        <a href="#" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">FAQ</a>
+      </div>
+    </div>
+    <div>
+      <h4 class="text-sm font-bold text-gray-200 mb-4">Resources</h4>
+      <div class="space-y-2">
+        <a href="#" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">Shipping Rates</a>
+        <a href="#" class="block text-sm text-red-400 font-semibold">All Provinces</a>
+        <a href="#" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">Customs Guide</a>
+        <a href="#" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">Prohibited Items</a>
+      </div>
+    </div>
+    <div>
+      <h4 class="text-sm font-bold text-gray-200 mb-4">Contact</h4>
+      <div class="space-y-2">
+        <a href="tel:+14168365517" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">+1 (416) 836-5517</a>
+        <a href="mailto:info@boxtocuba.ca" class="block text-sm text-gray-400 hover:text-red-400 transition-colors">info@boxtocuba.ca</a>
+        <span class="block text-sm text-gray-400">Toronto · Montreal, Canada</span>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-gray-700 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-gray-500">
+    <span>© 2026 Box to Cuba. All rights reserved.</span>
+    <span>Privacy Policy · Terms of Service</span>
+  </div>
+</footer>
+
+<!-- WhatsApp float -->
+<a href="https://wa.me/14168365517" target="_blank"
+  style="position:fixed;bottom:28px;right:28px;z-index:999;width:56px;height:56px;background:#22c55e;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 4px 20px rgba(0,0,0,0.2);text-decoration:none;"
+  onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+  💬
+</a>
+
+<!-- FAQ toggle script -->
+<script>
+  document.querySelectorAll('details').forEach(d => {
+    d.addEventListener('toggle', () => {
+      const plus = d.querySelector('.plus');
+      if (plus) plus.style.transform = d.open ? 'rotate(45deg)' : 'rotate(0)';
+    });
+  });
+</script>
+
+</body>
+</html>

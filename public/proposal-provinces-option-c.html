@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proposal — Option C | Box to Cuba</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .province-card { transition: all 0.15s; }
+    .province-card:hover { border-color: #ef4444; background: #fff1f2; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(239,68,68,0.1); }
+    .province-card:hover .card-arrow { opacity: 1; transform: translateX(3px); }
+    .card-arrow { opacity: 0; transition: all 0.15s; }
+
+    .annotation {
+      position: relative;
+      outline: 2px dashed #f59e0b;
+      outline-offset: 6px;
+    }
+    .annotation::after {
+      content: attr(data-note);
+      position: absolute;
+      top: -26px; left: 0;
+      background: #f59e0b;
+      color: #1c1917;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+      z-index: 100;
+      font-family: monospace;
+      pointer-events: none;
+    }
+
+    .tbl-row:hover td { background: #fff1f2; }
+    .tbl-row:hover .prov-link { color: #ef4444; }
+    .tbl-row:hover .prov-arrow { opacity: 1; }
+    .prov-arrow { opacity: 0; transition: opacity 0.15s; }
+    .prov-link { transition: color 0.15s; }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans antialiased">
+
+<!-- TOP BAR -->
+<div class="bg-amber-50 border-b-2 border-amber-400 px-6 py-3 flex items-center gap-4 text-sm sticky top-0 z-[200]">
+  <span class="font-bold text-amber-700">📐 Option C — Province pages integration</span>
+  <div class="flex gap-4 ml-2 text-amber-700">
+    <a href="#entry-1" class="hover:underline font-semibold">Entry 1 → Homepage cards</a>
+    <span class="text-amber-300">·</span>
+    <a href="#entry-2" class="hover:underline font-semibold">Entry 2 → Rates table</a>
+  </div>
+  <span class="ml-auto text-xs text-amber-600">No new navbar item · 2 natural entry points</span>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- ENTRY 1 — HOMEPAGE PROVINCES SECTION                  -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div id="entry-1" class="bg-white pt-10 pb-2">
+  <div class="max-w-5xl mx-auto px-6 mb-6">
+    <div class="flex items-center gap-3">
+      <span class="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">Entry point 1</span>
+      <span class="font-bold text-gray-800">Homepage — existing provinces section</span>
+      <span class="text-gray-400 text-sm">Cards become links · Real price per province · "Destinations" navbar unchanged</span>
+    </div>
+  </div>
+
+  <!-- Simulated navbar (greyed, for context) -->
+  <nav class="bg-white border-b border-gray-100 px-6 h-14 flex items-center justify-between opacity-40 mb-0">
+    <div class="flex items-center gap-2">
+      <div class="w-8 h-8 bg-red-500 rounded-lg flex items-center justify-center text-white font-bold text-xs">B2C</div>
+      <span class="font-bold text-gray-900 text-sm">Box to Cuba</span>
+    </div>
+    <div class="flex items-center gap-6 text-sm">
+      <span class="text-gray-400">Services</span>
+      <span class="text-gray-400">How it Works</span>
+      <span class="text-gray-900 font-semibold">Destinations</span>
+      <span class="text-red-500 font-semibold border-b-2 border-red-500 pb-0.5">Rates</span>
+      <span class="text-gray-400">FAQ</span>
+      <span class="text-gray-400">Contact</span>
+    </div>
+    <div class="text-xs text-gray-300">ES · FR</div>
+  </nav>
+
+  <!-- BEFORE / AFTER side by side -->
+  <div class="max-w-6xl mx-auto px-6 py-10 grid md:grid-cols-2 gap-8 items-start">
+
+    <!-- BEFORE -->
+    <div class="opacity-50">
+      <div class="text-center mb-4">
+        <span class="inline-block bg-gray-400 text-white text-xs font-bold px-3 py-1 rounded-full">BEFORE</span>
+        <p class="text-xs text-gray-400 mt-1">div · no link · same price all</p>
+      </div>
+      <div class="bg-gray-50 rounded-2xl p-6">
+        <div class="text-center mb-4">
+          <div class="text-xs font-bold text-red-400 uppercase tracking-widest mb-1">Coverage</div>
+          <h2 class="text-xl font-extrabold">All 16 Cuban provinces</h2>
+          <p class="text-gray-400 text-xs mt-1">We deliver everywhere in Cuba.</p>
+        </div>
+        <div class="grid grid-cols-4 gap-2">
+          {['La Habana','Artemisa','Mayabeque','Matanzas','Villa Clara','Cienfuegos','Sancti Spíritus','Ciego de Ávila','Camagüey','Las Tunas','Holguín','Granma','Santiago de Cuba','Guantánamo','Pinar del Río','Isla de la Juventud'].map(p => `
+            <div style="background:#fff;border:1px solid #f3f4f6;border-radius:10px;padding:10px 6px;text-align:center;">
+              <div style="font-size:16px;margin-bottom:2px;">📦</div>
+              <div style="font-size:10px;font-weight:600;color:#374151;">${p}</div>
+              <div style="font-size:10px;color:#ef4444;font-weight:700;margin-top:2px;">From $6/lb</div>
+            </div>
+          `).join('')}
+        </div>
+        <div class="mt-4 text-center text-xs text-red-400 font-semibold">See full shipping rates by province →</div>
+      </div>
+    </div>
+
+    <!-- AFTER -->
+    <div>
+      <div class="text-center mb-4">
+        <span class="inline-block bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">AFTER (proposed)</span>
+        <p class="text-xs text-gray-400 mt-1">a[href] · real price · hover reveals arrow</p>
+      </div>
+      <div class="bg-gray-50 rounded-2xl p-6 annotation" data-note="Each card → /provinces/[slug]">
+        <div class="text-center mb-4">
+          <div class="text-xs font-bold text-red-500 uppercase tracking-widest mb-1">Coverage</div>
+          <h2 class="text-xl font-extrabold">All 16 Cuban provinces</h2>
+          <p class="text-gray-400 text-xs mt-1">Click any province to see rates and delivery details.</p>
+        </div>
+        <div class="grid grid-cols-4 gap-2">
+          <!-- $6 group -->
+          <a href="/proposal-province.html" class="province-card block bg-white border border-gray-100 rounded-xl p-2.5 text-center no-underline">
+            <div class="text-base mb-0.5">📦</div>
+            <div class="text-xs font-semibold text-gray-800 leading-tight">La Habana</div>
+            <div class="text-xs text-red-500 font-bold mt-0.5">$6 CAD/lb</div>
+            <div class="card-arrow text-xs text-red-400">→</div>
+          </a>
+          <a href="/provinces/artemisa" class="province-card block bg-white border border-gray-100 rounded-xl p-2.5 text-center no-underline">
+            <div class="text-base mb-0.5">📦</div>
+            <div class="text-xs font-semibold text-gray-800 leading-tight">Artemisa</div>
+            <div class="text-xs text-red-500 font-bold mt-0.5">$6 CAD/lb</div>
+            <div class="card-arrow text-xs text-red-400">→</div>
+          </a>
+          <a href="/provinces/mayabeque" class="province-card block bg-white border border-gray-100 rounded-xl p-2.5 text-center no-underline">
+            <div class="text-base mb-0.5">📦</div>
+            <div class="text-xs font-semibold text-gray-800 leading-tight">Mayabeque</div>
+            <div class="text-xs text-red-500 font-bold mt-0.5">$6 CAD/lb</div>
+            <div class="card-arrow text-xs text-red-400">→</div>
+          </a>
+          <a href="/provinces/pinar-del-rio" class="province-card block bg-white border border-gray-100 rounded-xl p-2.5 text-center no-underline">
+            <div class="text-base mb-0.5">📦</div>
+            <div class="text-xs font-semibold text-gray-800 leading-tight">Pinar del Río</div>
+            <div class="text-xs text-red-500 font-bold mt-0.5">$6 CAD/lb</div>
+            <div class="card-arrow text-xs text-red-400">→</div>
+          </a>
+          <!-- $6.50 -->
+          <a href="/provinces/matanzas" class="province-card block bg-white border border-gray-100 rounded-xl p-2.5 text-center no-underline">
+            <div class="text-base mb-0.5">📦</div>
+            <div class="text-xs font-semibold text-gray-800 leading-tight">Matanzas</div>
+            <div class="text-xs text-red-500 font-bold mt-0.5">$6.50 CAD/lb</div>
+            <div class="card-arrow text-xs text-red-400">→</div>
+          </a>
+          <!-- $6.85 group -->
+          <a href="/provinces/villa-clara" class="province-card block bg-white border border-gray-100 rounded-xl p-2.5 text-center no-underline">
+            <div class="text-base mb-0.5">📦</div>
+            <div class="text-xs font-semibold text-gray-800 leading-tight">Villa Clara</div>
+            <div class="text-xs text-red-500 font-bold mt-0.5">$6.85 CAD/lb</div>
+            <div class="card-arrow text-xs text-red-400">→</div>
+          </a>
+          <a href="/provinces/cienfuegos" class="province-card block bg-white border border-gray-100 rounded-xl p-2.5 text-center no-underline">
+            <div class="text-base mb-0.5">📦</div>
+            <div class="text-xs font-semibold text-gray-800 leading-tight">Cienfuegos</div>
+            <div class="text-xs text-red-500 font-bold mt-0.5">$6.85 CAD/lb</div>
+            <div class="card-arrow text-xs text-red-400">→</div>
+          </a>
+          <a href="/provinces/sancti-spiritus" class="province-card block bg-white border border-gray-100 rounded-xl p-2.5 text-center no-underline">
+            <div class="text-base mb-0.5">📦</div>
+            <div class="text-xs font-semibold text-gray-800 leading-tight">Sancti Spíritus</div>
+            <div class="text-xs text-red-500 font-bold mt-0.5">$6.85 CAD/lb</div>
+            <div class="card-arrow text-xs text-red-400">→</div>
+          </a>
+          <a href="/provinces/ciego-de-avila" class="province-card block bg-white border border-gray-100 rounded-xl p-2.5 text-center no-underline">
+            <div class="text-base mb-0.5">📦</div>
+            <div class="text-xs font-semibold text-gray-800 leading-tight">Ciego de Ávila</div>
+            <div class="text-xs text-red-500 font-bold mt-0.5">$6.85 CAD/lb</div>
+            <div class="card-arrow text-xs text-red-400">→</div>
+          </a>
+          <a href="/provinces/camaguey" class="province-card block bg-white border border-gray-100 rounded-xl p-2.5 text-center no-underline">
+            <div class="text-base mb-0.5">📦</div>
+            <div class="text-xs font-semibold text-gray-800 leading-tight">Camagüey</div>
+            <div class="text-xs text-red-500 font-bold mt-0.5">$6.85 CAD/lb</div>
+            <div class="card-arrow text-xs text-red-400">→</div>
+          </a>
+          <a href="/provinces/las-tunas" class="province-card block bg-white border border-gray-100 rounded-xl p-2.5 text-center no-underline">
+            <div class="text-base mb-0.5">📦</div>
+            <div class="text-xs font-semibold text-gray-800 leading-tight">Las Tunas</div>
+            <div class="text-xs text-red-500 font-bold mt-0.5">$6.85 CAD/lb</div>
+            <div class="card-arrow text-xs text-red-400">→</div>
+          </a>
+          <a href="/provinces/holguin" class="province-card block bg-white border border-gray-100 rounded-xl p-2.5 text-center no-underline">
+            <div class="text-base mb-0.5">📦</div>
+            <div class="text-xs font-semibold text-gray-800 leading-tight">Holguín</div>
+            <div class="text-xs text-red-500 font-bold mt-0.5">$6.85 CAD/lb</div>
+            <div class="card-arrow text-xs text-red-400">→</div>
+          </a>
+          <a href="/provinces/granma" class="province-card block bg-white border border-gray-100 rounded-xl p-2.5 text-center no-underline">
+            <div class="text-base mb-0.5">📦</div>
+            <div class="text-xs font-semibold text-gray-800 leading-tight">Granma</div>
+            <div class="text-xs text-red-500 font-bold mt-0.5">$6.85 CAD/lb</div>
+            <div class="card-arrow text-xs text-red-400">→</div>
+          </a>
+          <a href="/provinces/santiago-de-cuba" class="province-card block bg-white border border-gray-100 rounded-xl p-2.5 text-center no-underline">
+            <div class="text-base mb-0.5">📦</div>
+            <div class="text-xs font-semibold text-gray-800 leading-tight">Santiago de Cuba</div>
+            <div class="text-xs text-red-500 font-bold mt-0.5">$6.85 CAD/lb</div>
+            <div class="card-arrow text-xs text-red-400">→</div>
+          </a>
+          <a href="/provinces/guantanamo" class="province-card block bg-white border border-gray-100 rounded-xl p-2.5 text-center no-underline">
+            <div class="text-base mb-0.5">📦</div>
+            <div class="text-xs font-semibold text-gray-800 leading-tight">Guantánamo</div>
+            <div class="text-xs text-red-500 font-bold mt-0.5">$6.85 CAD/lb</div>
+            <div class="card-arrow text-xs text-red-400">→</div>
+          </a>
+          <a href="/provinces/isla-de-la-juventud" class="province-card block bg-white border border-gray-100 rounded-xl p-2.5 text-center no-underline">
+            <div class="text-base mb-0.5">📦</div>
+            <div class="text-xs font-semibold text-gray-800 leading-tight">Isla de la Juventud</div>
+            <div class="text-xs text-red-500 font-bold mt-0.5">$6 CAD/lb</div>
+            <div class="card-arrow text-xs text-red-400">→</div>
+          </a>
+        </div>
+        <!-- links below grid unchanged -->
+        <div class="mt-4 flex items-center justify-center gap-6">
+          <a href="/canada-to-cuba-shipping-rates" class="text-xs text-red-500 font-semibold hover:underline">See full shipping rates →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- What changes in code -->
+  <div class="max-w-6xl mx-auto px-6 pb-8">
+    <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 text-sm text-gray-600">
+      <span class="font-bold text-gray-800">What changes in code:</span>
+      Line 167–173 of <code class="bg-gray-200 px-1 rounded">index.astro</code> — replace <code class="bg-gray-200 px-1 rounded">&lt;div class="...cursor-pointer"&gt;</code> with <code class="bg-gray-200 px-1 rounded">&lt;a href="/provinces/{slug}"&gt;</code> · Add per-province price from data file · Same change in ES and FR homepages.
+    </div>
+  </div>
+</div>
+
+<!-- DIVIDER -->
+<div class="flex items-center gap-4 px-8 py-6">
+  <div class="flex-1 border-t-2 border-dashed border-amber-300"></div>
+  <span class="text-amber-600 font-bold text-sm">+ combined with</span>
+  <div class="flex-1 border-t-2 border-dashed border-amber-300"></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- ENTRY 2 — RATES PAGE TABLE                            -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div id="entry-2" class="bg-white pb-10">
+  <div class="max-w-5xl mx-auto px-6 pt-8 mb-6">
+    <div class="flex items-center gap-3">
+      <span class="bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full">Entry point 2</span>
+      <span class="font-bold text-gray-800">Rates page — province table</span>
+      <span class="text-gray-400 text-sm">Province name becomes a link · "View details" appears on hover · No layout change</span>
+    </div>
+  </div>
+
+  <div class="max-w-5xl mx-auto px-6">
+
+    <!-- Side by side: before / after table -->
+    <div class="grid md:grid-cols-2 gap-8">
+
+      <!-- BEFORE -->
+      <div class="opacity-50">
+        <div class="text-center mb-3">
+          <span class="inline-block bg-gray-400 text-white text-xs font-bold px-3 py-1 rounded-full">BEFORE</span>
+          <p class="text-xs text-gray-400 mt-1">Province is plain text</p>
+        </div>
+        <div class="overflow-hidden rounded-xl shadow-sm border border-gray-100">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-gray-900 text-white">
+                <th class="text-left px-4 py-3 font-semibold">Province</th>
+                <th class="text-left px-4 py-3 font-semibold">Rate</th>
+                <th class="text-left px-4 py-3 font-semibold">Est. time</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bg-white border-b border-gray-50"><td class="px-4 py-2.5 font-semibold text-gray-800">La Habana</td><td class="px-4 py-2.5 font-bold text-red-500">From $6 CAD/lb</td><td class="px-4 py-2.5 text-gray-500 text-xs">7–12 days</td></tr>
+              <tr class="bg-gray-50 border-b border-gray-100"><td class="px-4 py-2.5 font-semibold text-gray-800">Artemisa</td><td class="px-4 py-2.5 font-bold text-red-500">From $6 CAD/lb</td><td class="px-4 py-2.5 text-gray-500 text-xs">7–14 days</td></tr>
+              <tr class="bg-white border-b border-gray-50"><td class="px-4 py-2.5 font-semibold text-gray-800">Mayabeque</td><td class="px-4 py-2.5 font-bold text-red-500">From $6 CAD/lb</td><td class="px-4 py-2.5 text-gray-500 text-xs">7–14 days</td></tr>
+              <tr class="bg-gray-50 border-b border-gray-100"><td class="px-4 py-2.5 font-semibold text-gray-800">Matanzas</td><td class="px-4 py-2.5 font-bold text-red-500">From $6.50 CAD/lb</td><td class="px-4 py-2.5 text-gray-500 text-xs">10–15 days</td></tr>
+              <tr class="bg-white border-b border-gray-50"><td class="px-4 py-2.5 font-semibold text-gray-800">Villa Clara</td><td class="px-4 py-2.5 font-bold text-red-500">From $6.85 CAD/lb</td><td class="px-4 py-2.5 text-gray-500 text-xs">10–15 days</td></tr>
+              <tr class="bg-gray-50"><td class="px-4 py-2.5 text-gray-400 text-xs italic" colspan="3">… 11 more provinces</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- AFTER -->
+      <div>
+        <div class="text-center mb-3">
+          <span class="inline-block bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">AFTER (proposed)</span>
+          <p class="text-xs text-gray-400 mt-1">Province name is a link · hover reveals "details →"</p>
+        </div>
+        <div class="overflow-hidden rounded-xl shadow-sm annotation" data-note="Province name → /provinces/[slug]">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-gray-900 text-white">
+                <th class="text-left px-4 py-3 font-semibold">Province</th>
+                <th class="text-left px-4 py-3 font-semibold">Rate</th>
+                <th class="text-left px-4 py-3 font-semibold">Est. time</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="tbl-row bg-white border-b border-gray-50 cursor-pointer">
+                <td class="px-4 py-2.5">
+                  <a href="/proposal-province.html" class="prov-link font-semibold text-gray-800 hover:text-red-500 no-underline flex items-center gap-2">
+                    La Habana
+                    <span class="prov-arrow text-xs text-red-400 font-bold">details →</span>
+                  </a>
+                </td>
+                <td class="px-4 py-2.5 font-bold text-red-500">From $6 CAD/lb</td>
+                <td class="px-4 py-2.5 text-gray-500 text-xs">7–12 days</td>
+              </tr>
+              <tr class="tbl-row bg-gray-50 border-b border-gray-100 cursor-pointer">
+                <td class="px-4 py-2.5">
+                  <a href="/provinces/artemisa" class="prov-link font-semibold text-gray-800 no-underline flex items-center gap-2">
+                    Artemisa
+                    <span class="prov-arrow text-xs text-red-400 font-bold">details →</span>
+                  </a>
+                </td>
+                <td class="px-4 py-2.5 font-bold text-red-500">From $6 CAD/lb</td>
+                <td class="px-4 py-2.5 text-gray-500 text-xs">7–14 days</td>
+              </tr>
+              <tr class="tbl-row bg-white border-b border-gray-50 cursor-pointer">
+                <td class="px-4 py-2.5">
+                  <a href="/provinces/mayabeque" class="prov-link font-semibold text-gray-800 no-underline flex items-center gap-2">
+                    Mayabeque
+                    <span class="prov-arrow text-xs text-red-400 font-bold">details →</span>
+                  </a>
+                </td>
+                <td class="px-4 py-2.5 font-bold text-red-500">From $6 CAD/lb</td>
+                <td class="px-4 py-2.5 text-gray-500 text-xs">7–14 days</td>
+              </tr>
+              <tr class="tbl-row bg-gray-50 border-b border-gray-100 cursor-pointer">
+                <td class="px-4 py-2.5">
+                  <a href="/provinces/matanzas" class="prov-link font-semibold text-gray-800 no-underline flex items-center gap-2">
+                    Matanzas
+                    <span class="prov-arrow text-xs text-red-400 font-bold">details →</span>
+                  </a>
+                </td>
+                <td class="px-4 py-2.5 font-bold text-red-500">From $6.50 CAD/lb</td>
+                <td class="px-4 py-2.5 text-gray-500 text-xs">10–15 days</td>
+              </tr>
+              <tr class="tbl-row bg-white border-b border-gray-50 cursor-pointer">
+                <td class="px-4 py-2.5">
+                  <a href="/provinces/villa-clara" class="prov-link font-semibold text-gray-800 no-underline flex items-center gap-2">
+                    Villa Clara
+                    <span class="prov-arrow text-xs text-red-400 font-bold">details →</span>
+                  </a>
+                </td>
+                <td class="px-4 py-2.5 font-bold text-red-500">From $6.85 CAD/lb</td>
+                <td class="px-4 py-2.5 text-gray-500 text-xs">10–15 days</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="px-4 py-2.5 text-gray-400 text-xs italic" colspan="3">… 11 more provinces (same pattern)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- What changes in code -->
+    <div class="mt-6 bg-gray-50 border border-gray-200 rounded-xl p-4 text-sm text-gray-600">
+      <span class="font-bold text-gray-800">What changes in code:</span>
+      In <code class="bg-gray-200 px-1 rounded">canada-to-cuba-shipping-rates.astro</code> (and ES/FR equivalents) — add a <code class="bg-gray-200 px-1 rounded">slug</code> field to each province in the data array · Replace <code class="bg-gray-200 px-1 rounded">{p.name}</code> in the table cell with <code class="bg-gray-200 px-1 rounded">&lt;a href="/provinces/{p.slug}"&gt;{p.name}&lt;/a&gt;</code>.
+    </div>
+  </div>
+</div>
+
+<!-- FLOW SUMMARY -->
+<div class="bg-gray-900 text-white px-6 py-10">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-xs font-bold text-red-400 uppercase tracking-widest mb-4">Full user flow — Option C</div>
+    <div class="flex flex-col md:flex-row items-center gap-4 text-sm text-center">
+      <div class="bg-gray-800 rounded-xl px-5 py-4 flex-1">
+        <div class="text-lg mb-1">🏠</div>
+        <div class="font-bold">Homepage</div>
+        <div class="text-gray-400 text-xs mt-1">User scrolls to Destinations · sees province cards</div>
+      </div>
+      <div class="text-red-500 font-bold text-xl hidden md:block">→</div>
+      <div class="bg-red-900/40 border border-red-500/30 rounded-xl px-5 py-4 flex-1">
+        <div class="text-lg mb-1">📦</div>
+        <div class="font-bold text-red-300">clicks province card</div>
+        <div class="text-gray-400 text-xs mt-1">Entry point 1</div>
+      </div>
+      <div class="text-red-500 font-bold text-xl hidden md:block">→</div>
+      <div class="bg-gray-800 rounded-xl px-5 py-4 flex-1 row-span-2">
+        <div class="text-lg mb-1">📄</div>
+        <div class="font-bold text-green-300">/provinces/la-habana</div>
+        <div class="text-gray-400 text-xs mt-1">Province detail page · rates, municipalities, FAQ, CTA</div>
+      </div>
+      <div class="text-gray-600 font-bold text-xl hidden md:block">·</div>
+      <div class="text-gray-500 text-xs hidden md:block">OR</div>
+      <div class="text-gray-600 font-bold text-xl hidden md:block">·</div>
+    </div>
+    <div class="flex flex-col md:flex-row items-center gap-4 text-sm text-center mt-4">
+      <div class="bg-gray-800 rounded-xl px-5 py-4 flex-1">
+        <div class="text-lg mb-1">📊</div>
+        <div class="font-bold">Rates page</div>
+        <div class="text-gray-400 text-xs mt-1">User compares rates across provinces</div>
+      </div>
+      <div class="text-blue-500 font-bold text-xl hidden md:block">→</div>
+      <div class="bg-blue-900/40 border border-blue-500/30 rounded-xl px-5 py-4 flex-1">
+        <div class="text-lg mb-1">🔗</div>
+        <div class="font-bold text-blue-300">clicks province name</div>
+        <div class="text-gray-400 text-xs mt-1">Entry point 2</div>
+      </div>
+      <div class="text-blue-500 font-bold text-xl hidden md:block">→</div>
+      <div class="bg-gray-800 rounded-xl px-5 py-4 flex-1">
+        <div class="text-lg mb-1">📄</div>
+        <div class="font-bold text-green-300">/provinces/la-habana</div>
+        <div class="text-gray-400 text-xs mt-1">Same province detail page</div>
+      </div>
+    </div>
+    <div class="mt-6 text-center text-xs text-gray-400">
+      No new navbar item · No new index page · Navbar "Destinations" still works as-is · Footer Resources column can optionally add links to highest-traffic provinces
+    </div>
+  </div>
+</div>
+
+<!-- WhatsApp float -->
+<a href="#" style="position:fixed;bottom:28px;right:28px;z-index:999;width:56px;height:56px;background:#22c55e;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 4px 20px rgba(0,0,0,0.2);text-decoration:none;">💬</a>
+
+</body>
+</html>

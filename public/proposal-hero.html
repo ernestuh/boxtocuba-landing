@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hero Proposal — Box to Cuba</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #f1f5f9; }
+    .card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+    .label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #64748b; padding: 8px 14px; background: #f8fafc; border-bottom: 1px solid #e2e8f0; }
+  </style>
+</head>
+<body class="p-8 space-y-12">
+
+  <div class="max-w-5xl mx-auto">
+    <h1 class="text-2xl font-bold text-gray-900 mb-1">Hero Section — Propuesta de cambios</h1>
+    <p class="text-gray-500 text-sm mb-10">Imagen y badge flotante</p>
+
+    <!-- SIDE BY SIDE -->
+    <div class="grid grid-cols-2 gap-6 mb-12">
+
+      <!-- BEFORE -->
+      <div class="card">
+        <div class="label">❌ ANTES — imagen actual + badge con logo</div>
+        <div class="p-6 bg-white">
+          <div class="relative flex-shrink-0">
+            <img
+              src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=600&q=80&auto=format&fit=crop"
+              alt="before"
+              class="w-full h-64 object-cover rounded-2xl shadow-xl"
+            />
+            <!-- Badge actual -->
+            <div class="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-white rounded-full px-5 py-2.5 flex items-center gap-3 shadow-lg whitespace-nowrap">
+              <img src="/logo.png" alt="" class="w-8 h-8 object-contain" onerror="this.style.display='none'" />
+              <!-- si logo no carga, queda vacío -->
+              <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-xs text-gray-400 font-bold">B</div>
+              <span class="text-sm font-bold text-gray-900">Box to Cuba — Trusted shipping</span>
+            </div>
+          </div>
+          <div class="mt-10 text-xs text-gray-400 text-center">Imagen: cajas/paquetes genéricos • Badge: logo + texto estático</div>
+        </div>
+      </div>
+
+      <!-- AFTER — OPTION A: cargo plane in flight -->
+      <div class="card border-2 border-red-400">
+        <div class="label" style="background:#fef2f2; color:#dc2626; border-color:#fecaca;">✅ PROPUESTA — cargo aéreo + badge con stats</div>
+        <div class="p-6 bg-white">
+          <div class="relative flex-shrink-0">
+            <img
+              src="/hero-cargo.jpg"
+              alt="Air freight cargo plane"
+              class="w-full h-64 object-cover rounded-2xl shadow-xl"
+            />
+            <!-- Badge nuevo -->
+            <div class="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-white rounded-2xl px-5 py-2.5 flex items-center gap-4 shadow-lg whitespace-nowrap">
+              <div class="flex items-center gap-1.5">
+                <span class="text-lg">✈️</span>
+                <div>
+                  <div class="text-xs font-bold text-gray-900 leading-none">Weekly flights</div>
+                  <div class="text-[10px] text-gray-400">Canada → Cuba</div>
+                </div>
+              </div>
+              <div class="w-px h-8 bg-gray-200"></div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-lg">📦</span>
+                <div>
+                  <div class="text-xs font-bold text-gray-900 leading-none">500+ families</div>
+                  <div class="text-[10px] text-gray-400">since 2020</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-10 text-xs text-red-400 text-center font-medium">Imagen: avión de carga real • Badge: stats concretos, sin logo problemático</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- IMAGE OPTIONS -->
+    <h2 class="text-lg font-bold text-gray-800 mb-4">Opciones de imagen — air freight (cargo real)</h2>
+    <div class="grid grid-cols-3 gap-4 mb-12">
+
+      <div class="card">
+        <div class="label">Opción A — Avión en tarmac ⭐ recomendada</div>
+        <img src="https://source.unsplash.com/diefojaZNdg/600x400" class="w-full h-44 object-cover" />
+        <div class="p-3 text-xs text-gray-500">Gran jetliner en aeropuerto. Escala real, sensación de operación seria.</div>
+      </div>
+
+      <div class="card">
+        <div class="label">Opción B — Cargo despegando</div>
+        <img src="https://source.unsplash.com/N7UCWDu5NEQ/600x400" class="w-full h-44 object-cover" />
+        <div class="p-3 text-xs text-gray-500">Avión de carga real despegando. Dinámico, evoca la ruta semanal Canada→Cuba.</div>
+      </div>
+
+      <div class="card">
+        <div class="label">Opción C — Descarga aérea</div>
+        <img src="https://source.unsplash.com/Woev36hRtIQ/600x400" class="w-full h-44 object-cover" />
+        <div class="p-3 text-xs text-gray-500">Avión soltando carga. Muy literal al servicio de envío.</div>
+      </div>
+
+    </div>
+
+    <!-- BADGE OPTIONS -->
+    <h2 class="text-lg font-bold text-gray-800 mb-4">Opciones de badge flotante</h2>
+    <div class="grid grid-cols-2 gap-4">
+
+      <div class="card p-6">
+        <div class="text-xs font-bold text-gray-400 uppercase mb-4">Opción 1 — Stats (recomendada)</div>
+        <div class="flex justify-center">
+          <div class="bg-white rounded-2xl px-5 py-2.5 flex items-center gap-4 shadow-xl border border-gray-100 whitespace-nowrap">
+            <div class="flex items-center gap-1.5">
+              <span class="text-xl">✈️</span>
+              <div>
+                <div class="text-xs font-bold text-gray-900 leading-none">Weekly flights</div>
+                <div class="text-[10px] text-gray-400">Canada → Cuba</div>
+              </div>
+            </div>
+            <div class="w-px h-8 bg-gray-200"></div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-xl">📦</span>
+              <div>
+                <div class="text-xs font-bold text-gray-900 leading-none">500+ families</div>
+                <div class="text-[10px] text-gray-400">served since 2020</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="text-xs text-gray-400 mt-4 text-center">Dos métricas concretas. Rectángulo en vez de pill (más espacio, no se corta).</p>
+      </div>
+
+      <div class="card p-6">
+        <div class="text-xs font-bold text-gray-400 uppercase mb-4">Opción 2 — Rating</div>
+        <div class="flex justify-center">
+          <div class="bg-white rounded-full px-5 py-3 flex items-center gap-3 shadow-xl border border-gray-100 whitespace-nowrap">
+            <div class="flex gap-0.5 text-yellow-400 text-base">★★★★★</div>
+            <div class="w-px h-6 bg-gray-200"></div>
+            <span class="text-sm font-bold text-gray-900">Trusted by 500+ families</span>
+          </div>
+        </div>
+        <p class="text-xs text-gray-400 mt-4 text-center">Más simple. Pill shape como el original pero sin logo que falla.</p>
+      </div>
+
+    </div>
+
+    <div class="mt-8 bg-blue-50 border border-blue-200 rounded-xl p-4 text-sm text-blue-700">
+      <strong>Resumen de cambios propuestos:</strong>
+      <ul class="list-disc ml-5 mt-2 space-y-1 text-blue-600">
+        <li>Imagen: reemplazar foto de cajas por avión de carga (Opción A recomendada)</li>
+        <li>Badge: quitar logo.png problemático → usar stats dobles con ✈️ y 📦</li>
+        <li>Shape del badge: pill → rounded-2xl para que el texto no se corte en mobile</li>
+      </ul>
+    </div>
+  </div>
+
+</body>
+</html>

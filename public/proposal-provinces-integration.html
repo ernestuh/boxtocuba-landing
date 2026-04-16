@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Provinces Integration Proposal | Box to Cuba</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .annotation {
+      position: relative;
+      outline: 2px dashed #f59e0b;
+      outline-offset: 4px;
+    }
+    .annotation::after {
+      content: attr(data-note);
+      position: absolute;
+      top: -28px; left: 0;
+      background: #f59e0b;
+      color: #1c1917;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+      z-index: 100;
+      font-family: monospace;
+      pointer-events: none;
+    }
+    .province-card { transition: all 0.15s; }
+    .province-card:hover { border-color: #ef4444; background: #fff1f2; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(239,68,68,0.1); }
+    .province-card:hover .card-arrow { opacity: 1; }
+    .card-arrow { opacity: 0; transition: opacity 0.15s; }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans antialiased">
+
+<!-- TOP BAR -->
+<div class="bg-amber-50 border-b-2 border-amber-400 px-6 py-3 flex items-center gap-4 text-sm sticky top-0 z-[200]">
+  <span class="font-bold text-amber-700">📐 Provinces Integration Proposal</span>
+  <div class="flex gap-4 ml-4">
+    <a href="#part-a" class="text-amber-700 font-semibold hover:underline">Part A — Homepage section</a>
+    <span class="text-amber-400">·</span>
+    <a href="#part-b" class="text-amber-700 font-semibold hover:underline">Part B — /provinces index page</a>
+  </div>
+  <span class="ml-auto text-amber-600 text-xs">Phase 3 · 16 provinces × 3 langs = 48 URLs</span>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- PART A — HOMEPAGE SECTION                          -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div id="part-a" class="bg-white border-b-4 border-amber-300">
+
+  <!-- Section label -->
+  <div class="bg-amber-100 px-8 py-4 flex items-center gap-3">
+    <span class="bg-amber-400 text-white text-xs font-bold px-3 py-1 rounded-full">PART A</span>
+    <span class="font-bold text-amber-800">Homepage — Provinces section (updated)</span>
+    <span class="text-amber-600 text-sm ml-2">Currently: plain divs, all show same price · Proposed: links with real per-province price</span>
+  </div>
+
+  <!-- Simulated homepage navbar (context) -->
+  <nav class="bg-white border-b border-gray-200 px-6 h-14 flex items-center justify-between opacity-40">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 bg-red-500 rounded-lg flex items-center justify-center text-white font-bold text-xs">B2C</div>
+      <span class="font-bold text-gray-900">Box to Cuba</span>
+    </div>
+    <div class="flex items-center gap-6 text-sm text-gray-500">
+      <span>Services</span><span>How it Works</span>
+      <span class="text-red-500 font-semibold border-b-2 border-red-500 pb-0.5">Provinces</span>
+      <span>Rates</span><span>FAQ</span><span>Contact</span>
+    </div>
+    <div class="flex gap-2 text-xs text-gray-400"><span>ES</span><span>FR</span></div>
+  </nav>
+
+  <!-- PROVINCES SECTION — BEFORE (greyed) -->
+  <div class="px-6 py-10 bg-gray-50 opacity-40 relative">
+    <div class="absolute top-4 left-1/2 -translate-x-1/2 bg-gray-500 text-white text-xs font-bold px-4 py-1 rounded-full z-10">BEFORE — plain cards, no links, same price for all</div>
+    <div class="max-w-5xl mx-auto text-center mt-4">
+      <div class="text-xs font-bold text-red-500 uppercase tracking-widest mb-2">Coverage</div>
+      <h2 class="text-2xl font-extrabold mb-2">All 16 Cuban provinces</h2>
+      <p class="text-gray-500 text-sm max-w-xl mx-auto">We deliver everywhere in Cuba. Select your destination to see the rate.</p>
+      <div class="grid grid-cols-4 gap-3 mt-6">
+        {['La Habana','Artemisa','Mayabeque','Matanzas','Villa Clara','Cienfuegos','Sancti Spíritus','Ciego de Ávila','Camagüey','Las Tunas','Holguín','Granma','Santiago de Cuba','Guantánamo','Pinar del Río','Isla de la Juventud'].map(p => `
+          <div style="background:#fff;border:1px solid #f3f4f6;border-radius:12px;padding:14px 8px;text-align:center;cursor:pointer;">
+            <div style="font-size:20px;margin-bottom:4px;">📦</div>
+            <div style="font-size:12px;font-weight:600;color:#1f2937;">${p}</div>
+            <div style="font-size:11px;color:#ef4444;font-weight:700;margin-top:4px;">From $6/lb</div>
+          </div>
+        `).join('')}
+      </div>
+      <div class="mt-6 text-sm text-red-500 font-semibold">See full shipping rates by province →</div>
+    </div>
+  </div>
+
+  <!-- ARROW -->
+  <div class="text-center py-4 text-3xl text-amber-500 font-bold">↓</div>
+
+  <!-- PROVINCES SECTION — AFTER (proposed) -->
+  <section class="bg-gray-50 px-6 py-16 annotation" data-note="AFTER — each card is a link, shows real price per province, hover reveals arrow">
+    <div class="max-w-5xl mx-auto text-center">
+      <div class="text-xs font-bold text-red-500 uppercase tracking-widest mb-2">Coverage</div>
+      <h2 class="text-3xl font-extrabold mb-3">All 16 Cuban provinces</h2>
+      <p class="text-gray-500 max-w-xl mx-auto mb-2">We deliver everywhere in Cuba. Click any province to see rates, delivery time and coverage details.</p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mt-8">
+
+        <!-- Group 1: $6 CAD/lb -->
+        <a href="/provinces/la-habana" class="province-card bg-white border border-gray-100 rounded-xl p-4 text-center block no-underline">
+          <div class="text-2xl mb-1">📦</div>
+          <h4 class="text-sm font-semibold text-gray-800">La Habana</h4>
+          <div class="text-xs text-red-500 font-bold mt-1">From $6 CAD/lb</div>
+          <div class="card-arrow text-xs text-gray-400 mt-1">Ver detalles →</div>
+        </a>
+        <a href="/provinces/artemisa" class="province-card bg-white border border-gray-100 rounded-xl p-4 text-center block no-underline">
+          <div class="text-2xl mb-1">📦</div>
+          <h4 class="text-sm font-semibold text-gray-800">Artemisa</h4>
+          <div class="text-xs text-red-500 font-bold mt-1">From $6 CAD/lb</div>
+          <div class="card-arrow text-xs text-gray-400 mt-1">Ver detalles →</div>
+        </a>
+        <a href="/provinces/mayabeque" class="province-card bg-white border border-gray-100 rounded-xl p-4 text-center block no-underline">
+          <div class="text-2xl mb-1">📦</div>
+          <h4 class="text-sm font-semibold text-gray-800">Mayabeque</h4>
+          <div class="text-xs text-red-500 font-bold mt-1">From $6 CAD/lb</div>
+          <div class="card-arrow text-xs text-gray-400 mt-1">Ver detalles →</div>
+        </a>
+        <a href="/provinces/pinar-del-rio" class="province-card bg-white border border-gray-100 rounded-xl p-4 text-center block no-underline">
+          <div class="text-2xl mb-1">📦</div>
+          <h4 class="text-sm font-semibold text-gray-800">Pinar del Río</h4>
+          <div class="text-xs text-red-500 font-bold mt-1">From $6 CAD/lb</div>
+          <div class="card-arrow text-xs text-gray-400 mt-1">Ver detalles →</div>
+        </a>
+
+        <!-- Matanzas: $6.50 -->
+        <a href="/provinces/matanzas" class="province-card bg-white border border-gray-100 rounded-xl p-4 text-center block no-underline">
+          <div class="text-2xl mb-1">📦</div>
+          <h4 class="text-sm font-semibold text-gray-800">Matanzas</h4>
+          <div class="text-xs text-red-500 font-bold mt-1">From $6.50 CAD/lb</div>
+          <div class="card-arrow text-xs text-gray-400 mt-1">Ver detalles →</div>
+        </a>
+
+        <!-- Rest: $6.85 -->
+        <a href="/provinces/villa-clara" class="province-card bg-white border border-gray-100 rounded-xl p-4 text-center block no-underline">
+          <div class="text-2xl mb-1">📦</div>
+          <h4 class="text-sm font-semibold text-gray-800">Villa Clara</h4>
+          <div class="text-xs text-red-500 font-bold mt-1">From $6.85 CAD/lb</div>
+          <div class="card-arrow text-xs text-gray-400 mt-1">Ver detalles →</div>
+        </a>
+        <a href="/provinces/cienfuegos" class="province-card bg-white border border-gray-100 rounded-xl p-4 text-center block no-underline">
+          <div class="text-2xl mb-1">📦</div>
+          <h4 class="text-sm font-semibold text-gray-800">Cienfuegos</h4>
+          <div class="text-xs text-red-500 font-bold mt-1">From $6.85 CAD/lb</div>
+          <div class="card-arrow text-xs text-gray-400 mt-1">Ver detalles →</div>
+        </a>
+        <a href="/provinces/sancti-spiritus" class="province-card bg-white border border-gray-100 rounded-xl p-4 text-center block no-underline">
+          <div class="text-2xl mb-1">📦</div>
+          <h4 class="text-sm font-semibold text-gray-800">Sancti Spíritus</h4>
+          <div class="text-xs text-red-500 font-bold mt-1">From $6.85 CAD/lb</div>
+          <div class="card-arrow text-xs text-gray-400 mt-1">Ver detalles →</div>
+        </a>
+        <a href="/provinces/ciego-de-avila" class="province-card bg-white border border-gray-100 rounded-xl p-4 text-center block no-underline">
+          <div class="text-2xl mb-1">📦</div>
+          <h4 class="text-sm font-semibold text-gray-800">Ciego de Ávila</h4>
+          <div class="text-xs text-red-500 font-bold mt-1">From $6.85 CAD/lb</div>
+          <div class="card-arrow text-xs text-gray-400 mt-1">Ver detalles →</div>
+        </a>
+        <a href="/provinces/camaguey" class="province-card bg-white border border-gray-100 rounded-xl p-4 text-center block no-underline">
+          <div class="text-2xl mb-1">📦</div>
+          <h4 class="text-sm font-semibold text-gray-800">Camagüey</h4>
+          <div class="text-xs text-red-500 font-bold mt-1">From $6.85 CAD/lb</div>
+          <div class="card-arrow text-xs text-gray-400 mt-1">Ver detalles →</div>
+        </a>
+        <a href="/provinces/las-tunas" class="province-card bg-white border border-gray-100 rounded-xl p-4 text-center block no-underline">
+          <div class="text-2xl mb-1">📦</div>
+          <h4 class="text-sm font-semibold text-gray-800">Las Tunas</h4>
+          <div class="text-xs text-red-500 font-bold mt-1">From $6.85 CAD/lb</div>
+          <div class="card-arrow text-xs text-gray-400 mt-1">Ver detalles →</div>
+        </a>
+        <a href="/provinces/holguin" class="province-card bg-white border border-gray-100 rounded-xl p-4 text-center block no-underline">
+          <div class="text-2xl mb-1">📦</div>
+          <h4 class="text-sm font-semibold text-gray-800">Holguín</h4>
+          <div class="text-xs text-red-500 font-bold mt-1">From $6.85 CAD/lb</div>
+          <div class="card-arrow text-xs text-gray-400 mt-1">Ver detalles →</div>
+        </a>
+        <a href="/provinces/granma" class="province-card bg-white border border-gray-100 rounded-xl p-4 text-center block no-underline">
+          <div class="text-2xl mb-1">📦</div>
+          <h4 class="text-sm font-semibold text-gray-800">Granma</h4>
+          <div class="text-xs text-red-500 font-bold mt-1">From $6.85 CAD/lb</div>
+          <div class="card-arrow text-xs text-gray-400 mt-1">Ver detalles →</div>
+        </a>
+        <a href="/provinces/santiago-de-cuba" class="province-card bg-white border border-gray-100 rounded-xl p-4 text-center block no-underline">
+          <div class="text-2xl mb-1">📦</div>
+          <h4 class="text-sm font-semibold text-gray-800">Santiago de Cuba</h4>
+          <div class="text-xs text-red-500 font-bold mt-1">From $6.85 CAD/lb</div>
+          <div class="card-arrow text-xs text-gray-400 mt-1">Ver detalles →</div>
+        </a>
+        <a href="/provinces/guantanamo" class="province-card bg-white border border-gray-100 rounded-xl p-4 text-center block no-underline">
+          <div class="text-2xl mb-1">📦</div>
+          <h4 class="text-sm font-semibold text-gray-800">Guantánamo</h4>
+          <div class="text-xs text-red-500 font-bold mt-1">From $6.85 CAD/lb</div>
+          <div class="card-arrow text-xs text-gray-400 mt-1">Ver detalles →</div>
+        </a>
+        <a href="/provinces/isla-de-la-juventud" class="province-card bg-white border border-gray-100 rounded-xl p-4 text-center block no-underline">
+          <div class="text-2xl mb-1">📦</div>
+          <h4 class="text-sm font-semibold text-gray-800">Isla de la Juventud</h4>
+          <div class="text-xs text-red-500 font-bold mt-1">From $6 CAD/lb</div>
+          <div class="card-arrow text-xs text-gray-400 mt-1">Ver detalles →</div>
+        </a>
+
+      </div>
+
+      <div class="mt-8 flex items-center justify-center gap-6">
+        <a href="/canada-to-cuba-shipping-rates" class="text-sm text-red-500 font-semibold hover:underline">See full rates table →</a>
+        <span class="text-gray-200">|</span>
+        <a href="/provinces" class="text-sm text-red-500 font-semibold hover:underline">Browse all provinces →</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- PART B — /provinces INDEX PAGE                    -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div id="part-b" class="mt-8">
+
+  <div class="bg-amber-100 px-8 py-4 flex items-center gap-3 border-b border-amber-300">
+    <span class="bg-amber-400 text-white text-xs font-bold px-3 py-1 rounded-full">PART B</span>
+    <span class="font-bold text-amber-800">New page: /provinces — province index</span>
+    <span class="text-amber-600 text-sm ml-2">Gateway between homepage and individual province pages · SEO: "Cuba provinces shipping"</span>
+  </div>
+
+  <div class="bg-white">
+
+    <!-- Navbar -->
+    <nav class="sticky top-[49px] z-50 bg-white border-b border-gray-200 shadow-sm">
+      <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-red-500 rounded-lg flex items-center justify-center text-white font-bold text-sm">B2C</div>
+          <span class="font-bold text-gray-900 text-lg">Box to Cuba</span>
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#" class="text-gray-500 text-sm">Services</a>
+          <a href="#" class="text-gray-500 text-sm">How it Works</a>
+          <a href="#" class="text-red-500 font-semibold text-sm border-b-2 border-red-500 pb-0.5">Provinces</a>
+          <a href="#" class="text-gray-500 text-sm">Rates</a>
+          <a href="#" class="text-gray-500 text-sm">FAQ</a>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-xs text-gray-400 px-2">ES</span>
+          <span class="text-xs text-gray-400 px-2">FR</span>
+          <a href="#" class="px-4 py-2 text-sm font-semibold bg-red-500 text-white rounded-lg">Get Quote →</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="bg-gray-50 border-b border-gray-100 px-6 py-3 annotation" data-note="Breadcrumb — Home › Provinces">
+      <div class="max-w-5xl mx-auto text-sm text-gray-400">
+        <a href="#" class="hover:text-red-500">Home</a>
+        <span class="mx-2">›</span>
+        <span class="text-gray-700 font-medium">All Provinces</span>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="bg-gradient-to-br from-white to-red-50 px-6 py-14 annotation" data-note="Index hero — H1 targets 'Cuba provinces shipping from Canada'">
+      <div class="max-w-5xl mx-auto text-center">
+        <div class="inline-flex items-center gap-2 bg-red-50 text-red-500 text-xs font-semibold px-4 py-2 rounded-full mb-5">✈️ Weekly flights to all provinces</div>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
+          Ship to Any Province<br class="hidden md:block"/> in Cuba from Canada
+        </h1>
+        <p class="text-gray-500 text-lg max-w-2xl mx-auto mb-8">
+          We deliver to all 16 Cuban provinces. Select your destination to see rates, delivery times and municipality coverage.
+        </p>
+        <div class="flex gap-3 justify-center flex-wrap">
+          <a href="#" class="px-6 py-3 bg-red-500 text-white font-semibold rounded-xl hover:bg-red-600 transition-colors">Get a quote →</a>
+          <a href="#" class="px-6 py-3 border border-gray-200 font-semibold rounded-xl hover:border-red-400 hover:text-red-500 transition-colors">💬 WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats strip -->
+    <div class="border-y border-gray-100 px-6 py-5 bg-white">
+      <div class="max-w-5xl mx-auto grid grid-cols-3 gap-4 text-center">
+        <div>
+          <div class="text-2xl font-extrabold text-red-500">16</div>
+          <div class="text-xs text-gray-400 mt-0.5">Cuban provinces covered</div>
+        </div>
+        <div>
+          <div class="text-2xl font-extrabold text-gray-900">From $6 CAD/lb</div>
+          <div class="text-xs text-gray-400 mt-0.5">Western provinces</div>
+        </div>
+        <div>
+          <div class="text-2xl font-extrabold text-gray-900">7–20</div>
+          <div class="text-xs text-gray-400 mt-0.5">Business days</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Province cards — detailed -->
+    <section class="px-6 py-16 annotation" data-note="Province cards — richer than homepage: price + delivery time + municipalities count">
+      <div class="max-w-5xl mx-auto">
+
+        <!-- Western group -->
+        <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Western provinces — From $6 CAD/lb</div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+
+          <a href="/provinces/la-habana" class="province-card bg-white border border-gray-100 rounded-2xl p-5 shadow-sm block no-underline">
+            <div class="flex items-start justify-between mb-3">
+              <div>
+                <h3 class="font-bold text-gray-900">La Habana</h3>
+                <div class="text-xs text-gray-400 mt-0.5">15 municipalities</div>
+              </div>
+              <span class="text-xs bg-green-50 text-green-700 font-bold px-2 py-1 rounded-full">Most flights</span>
+            </div>
+            <div class="flex items-center justify-between text-sm">
+              <div>
+                <div class="font-bold text-red-500">From $6 CAD/lb</div>
+                <div class="text-xs text-gray-400">7–12 business days</div>
+              </div>
+              <span class="card-arrow text-red-500 font-bold text-lg">→</span>
+            </div>
+          </a>
+
+          <a href="/provinces/artemisa" class="province-card bg-white border border-gray-100 rounded-2xl p-5 shadow-sm block no-underline">
+            <div class="flex items-start justify-between mb-3">
+              <div>
+                <h3 class="font-bold text-gray-900">Artemisa</h3>
+                <div class="text-xs text-gray-400 mt-0.5">11 municipalities</div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between text-sm">
+              <div>
+                <div class="font-bold text-red-500">From $6 CAD/lb</div>
+                <div class="text-xs text-gray-400">7–14 business days</div>
+              </div>
+              <span class="card-arrow text-red-500 font-bold text-lg">→</span>
+            </div>
+          </a>
+
+          <a href="/provinces/mayabeque" class="province-card bg-white border border-gray-100 rounded-2xl p-5 shadow-sm block no-underline">
+            <div class="flex items-start justify-between mb-3">
+              <div>
+                <h3 class="font-bold text-gray-900">Mayabeque</h3>
+                <div class="text-xs text-gray-400 mt-0.5">11 municipalities</div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between text-sm">
+              <div>
+                <div class="font-bold text-red-500">From $6 CAD/lb</div>
+                <div class="text-xs text-gray-400">7–14 business days</div>
+              </div>
+              <span class="card-arrow text-red-500 font-bold text-lg">→</span>
+            </div>
+          </a>
+
+          <a href="/provinces/pinar-del-rio" class="province-card bg-white border border-gray-100 rounded-2xl p-5 shadow-sm block no-underline">
+            <div class="flex items-start justify-between mb-3">
+              <div>
+                <h3 class="font-bold text-gray-900">Pinar del Río</h3>
+                <div class="text-xs text-gray-400 mt-0.5">14 municipalities</div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between text-sm">
+              <div>
+                <div class="font-bold text-red-500">From $6 CAD/lb</div>
+                <div class="text-xs text-gray-400">7–14 business days</div>
+              </div>
+              <span class="card-arrow text-red-500 font-bold text-lg">→</span>
+            </div>
+          </a>
+
+          <a href="/provinces/isla-de-la-juventud" class="province-card bg-white border border-gray-100 rounded-2xl p-5 shadow-sm block no-underline">
+            <div class="flex items-start justify-between mb-3">
+              <div>
+                <h3 class="font-bold text-gray-900">Isla de la Juventud</h3>
+                <div class="text-xs text-gray-400 mt-0.5">1 municipality</div>
+              </div>
+              <span class="text-xs bg-yellow-50 text-yellow-700 font-bold px-2 py-1 rounded-full">Special</span>
+            </div>
+            <div class="flex items-center justify-between text-sm">
+              <div>
+                <div class="font-bold text-red-500">From $6 CAD/lb</div>
+                <div class="text-xs text-gray-400">Variable</div>
+              </div>
+              <span class="card-arrow text-red-500 font-bold text-lg">→</span>
+            </div>
+          </a>
+
+        </div>
+
+        <!-- Matanzas -->
+        <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Matanzas — From $6.50 CAD/lb</div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+          <a href="/provinces/matanzas" class="province-card bg-white border border-gray-100 rounded-2xl p-5 shadow-sm block no-underline">
+            <div class="flex items-start justify-between mb-3">
+              <div>
+                <h3 class="font-bold text-gray-900">Matanzas</h3>
+                <div class="text-xs text-gray-400 mt-0.5">13 municipalities · Includes Varadero</div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between text-sm">
+              <div>
+                <div class="font-bold text-red-500">From $6.50 CAD/lb</div>
+                <div class="text-xs text-gray-400">10–15 business days</div>
+              </div>
+              <span class="card-arrow text-red-500 font-bold text-lg">→</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Central & Eastern group -->
+        <div class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Central & Eastern provinces — From $6.85 CAD/lb</div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+          <a href="/provinces/villa-clara" class="province-card bg-white border border-gray-100 rounded-2xl p-5 shadow-sm block no-underline">
+            <div class="mb-3"><h3 class="font-bold text-gray-900">Villa Clara</h3><div class="text-xs text-gray-400 mt-0.5">13 municipalities</div></div>
+            <div class="flex items-center justify-between text-sm">
+              <div><div class="font-bold text-red-500">From $6.85 CAD/lb</div><div class="text-xs text-gray-400">10–15 business days</div></div>
+              <span class="card-arrow text-red-500 font-bold text-lg">→</span>
+            </div>
+          </a>
+
+          <a href="/provinces/cienfuegos" class="province-card bg-white border border-gray-100 rounded-2xl p-5 shadow-sm block no-underline">
+            <div class="mb-3"><h3 class="font-bold text-gray-900">Cienfuegos</h3><div class="text-xs text-gray-400 mt-0.5">9 municipalities</div></div>
+            <div class="flex items-center justify-between text-sm">
+              <div><div class="font-bold text-red-500">From $6.85 CAD/lb</div><div class="text-xs text-gray-400">10–16 business days</div></div>
+              <span class="card-arrow text-red-500 font-bold text-lg">→</span>
+            </div>
+          </a>
+
+          <a href="/provinces/sancti-spiritus" class="province-card bg-white border border-gray-100 rounded-2xl p-5 shadow-sm block no-underline">
+            <div class="mb-3"><h3 class="font-bold text-gray-900">Sancti Spíritus</h3><div class="text-xs text-gray-400 mt-0.5">8 municipalities</div></div>
+            <div class="flex items-center justify-between text-sm">
+              <div><div class="font-bold text-red-500">From $6.85 CAD/lb</div><div class="text-xs text-gray-400">10–16 business days</div></div>
+              <span class="card-arrow text-red-500 font-bold text-lg">→</span>
+            </div>
+          </a>
+
+          <a href="/provinces/ciego-de-avila" class="province-card bg-white border border-gray-100 rounded-2xl p-5 shadow-sm block no-underline">
+            <div class="mb-3"><h3 class="font-bold text-gray-900">Ciego de Ávila</h3><div class="text-xs text-gray-400 mt-0.5">10 municipalities</div></div>
+            <div class="flex items-center justify-between text-sm">
+              <div><div class="font-bold text-red-500">From $6.85 CAD/lb</div><div class="text-xs text-gray-400">12–17 business days</div></div>
+              <span class="card-arrow text-red-500 font-bold text-lg">→</span>
+            </div>
+          </a>
+
+          <a href="/provinces/camaguey" class="province-card bg-white border border-gray-100 rounded-2xl p-5 shadow-sm block no-underline">
+            <div class="mb-3"><h3 class="font-bold text-gray-900">Camagüey</h3><div class="text-xs text-gray-400 mt-0.5">13 municipalities</div></div>
+            <div class="flex items-center justify-between text-sm">
+              <div><div class="font-bold text-red-500">From $6.85 CAD/lb</div><div class="text-xs text-gray-400">12–17 business days</div></div>
+              <span class="card-arrow text-red-500 font-bold text-lg">→</span>
+            </div>
+          </a>
+
+          <a href="/provinces/las-tunas" class="province-card bg-white border border-gray-100 rounded-2xl p-5 shadow-sm block no-underline">
+            <div class="mb-3"><h3 class="font-bold text-gray-900">Las Tunas</h3><div class="text-xs text-gray-400 mt-0.5">8 municipalities</div></div>
+            <div class="flex items-center justify-between text-sm">
+              <div><div class="font-bold text-red-500">From $6.85 CAD/lb</div><div class="text-xs text-gray-400">12–18 business days</div></div>
+              <span class="card-arrow text-red-500 font-bold text-lg">→</span>
+            </div>
+          </a>
+
+          <a href="/provinces/holguin" class="province-card bg-white border border-gray-100 rounded-2xl p-5 shadow-sm block no-underline">
+            <div class="mb-3"><h3 class="font-bold text-gray-900">Holguín</h3><div class="text-xs text-gray-400 mt-0.5">14 municipalities</div></div>
+            <div class="flex items-center justify-between text-sm">
+              <div><div class="font-bold text-red-500">From $6.85 CAD/lb</div><div class="text-xs text-gray-400">12–18 business days</div></div>
+              <span class="card-arrow text-red-500 font-bold text-lg">→</span>
+            </div>
+          </a>
+
+          <a href="/provinces/granma" class="province-card bg-white border border-gray-100 rounded-2xl p-5 shadow-sm block no-underline">
+            <div class="mb-3"><h3 class="font-bold text-gray-900">Granma</h3><div class="text-xs text-gray-400 mt-0.5">13 municipalities</div></div>
+            <div class="flex items-center justify-between text-sm">
+              <div><div class="font-bold text-red-500">From $6.85 CAD/lb</div><div class="text-xs text-gray-400">14–20 business days</div></div>
+              <span class="card-arrow text-red-500 font-bold text-lg">→</span>
+            </div>
+          </a>
+
+          <a href="/provinces/santiago-de-cuba" class="province-card bg-white border border-gray-100 rounded-2xl p-5 shadow-sm block no-underline">
+            <div class="flex items-start justify-between mb-3">
+              <div><h3 class="font-bold text-gray-900">Santiago de Cuba</h3><div class="text-xs text-gray-400 mt-0.5">9 municipalities</div></div>
+              <span class="text-xs bg-blue-50 text-blue-700 font-bold px-2 py-1 rounded-full">2nd city</span>
+            </div>
+            <div class="flex items-center justify-between text-sm">
+              <div><div class="font-bold text-red-500">From $6.85 CAD/lb</div><div class="text-xs text-gray-400">14–20 business days</div></div>
+              <span class="card-arrow text-red-500 font-bold text-lg">→</span>
+            </div>
+          </a>
+
+          <a href="/provinces/guantanamo" class="province-card bg-white border border-gray-100 rounded-2xl p-5 shadow-sm block no-underline">
+            <div class="mb-3"><h3 class="font-bold text-gray-900">Guantánamo</h3><div class="text-xs text-gray-400 mt-0.5">10 municipalities</div></div>
+            <div class="flex items-center justify-between text-sm">
+              <div><div class="font-bold text-red-500">From $6.85 CAD/lb</div><div class="text-xs text-gray-400">14–20 business days</div></div>
+              <span class="card-arrow text-red-500 font-bold text-lg">→</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-gradient-to-r from-blue-900 to-blue-700 text-white text-center py-14 px-6">
+      <h2 class="text-3xl font-extrabold mb-3">Not sure which province?</h2>
+      <p class="opacity-80 mb-8 max-w-xl mx-auto">Get an instant quote — enter your destination and weight to see the exact price.</p>
+      <div class="flex gap-4 justify-center flex-wrap">
+        <a href="#" class="px-8 py-4 bg-red-500 text-white font-bold rounded-xl hover:bg-red-600 transition-colors">Get a quote →</a>
+        <a href="#" class="px-8 py-4 bg-white/10 font-bold rounded-xl hover:bg-white/20 transition-colors">💬 WhatsApp</a>
+      </div>
+    </section>
+
+    <!-- Footer (abridged) -->
+    <footer class="bg-gray-900 text-white px-6 py-10">
+      <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
+        <span class="font-bold text-white">Box to Cuba</span>
+        <span>+1 (416) 836-5517 · info@boxtocuba.ca · Toronto & Montreal, Canada</span>
+        <span>© 2026 Box to Cuba. All rights reserved.</span>
+      </div>
+    </footer>
+
+  </div>
+</div>
+
+<!-- WhatsApp float -->
+<a href="https://wa.me/14168365517" target="_blank"
+  style="position:fixed;bottom:28px;right:28px;z-index:999;width:56px;height:56px;background:#22c55e;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 4px 20px rgba(0,0,0,0.2);text-decoration:none;">💬</a>
+
+</body>
+</html>
