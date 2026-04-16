@@ -46,6 +46,37 @@ export async function getNotice(): Promise<Notice> {
   }
 }
 
+// ─── Navbar Config ─────────────────────────────────────────────────────────
+
+export interface NavbarConfig {
+  show_client_portal: boolean;
+}
+
+const DEFAULT_NAVBAR_CONFIG: NavbarConfig = {
+  show_client_portal: true,
+};
+
+/** Fetch navbar feature flags from Supabase. Falls back to defaults if unavailable. */
+export async function getNavbarConfig(): Promise<NavbarConfig> {
+  const supabaseUrl = import.meta.env.SUPABASE_URL;
+  const supabaseKey = import.meta.env.SUPABASE_SERVICE_KEY;
+  if (!supabaseUrl || !supabaseKey) return DEFAULT_NAVBAR_CONFIG;
+
+  try {
+    const supabase = createClient(supabaseUrl, supabaseKey);
+    const { data, error } = await supabase
+      .from('settings')
+      .select('value')
+      .eq('key', 'LANDING_NAVBAR')
+      .single();
+
+    if (error || !data) return DEFAULT_NAVBAR_CONFIG;
+    return { ...DEFAULT_NAVBAR_CONFIG, ...JSON.parse(data.value) } as NavbarConfig;
+  } catch {
+    return DEFAULT_NAVBAR_CONFIG;
+  }
+}
+
 /** Returns the notice type for a given province slug, or null if no active notice. */
 export function getProvinceNoticeType(notice: Notice, slug: string): NoticeType {
   if (!notice.enabled) return null;

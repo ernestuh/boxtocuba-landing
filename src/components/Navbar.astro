@@ -6,6 +6,8 @@
  *   isHome     - true on homepage: anchor links use #section; false: use /#section
  *   langLinks  - language switcher links [{label, href}] — defaults to the other 2 languages' homepages
  */
+import { getNavbarConfig } from '../lib/cms';
+
 interface LangLink { label: string; href: string; }
 
 interface Props {
@@ -15,6 +17,7 @@ interface Props {
 }
 
 const { lang, isHome = false, langLinks } = Astro.props;
+const navbarConfig = await getNavbarConfig();
 
 const p = isHome ? '' : '/';   // prefix for anchor links
 
@@ -70,10 +73,12 @@ const ll = langLinks ?? DEFAULT_LANG_LINKS[lang];
       {ll.map(link => (
         <a href={link.href} class="text-xs text-gray-400 hover:text-red-500 px-2 py-1 rounded transition-colors">{link.label}</a>
       ))}
-      <a href="https://app.boxtocuba.ca/client"
-        class="hidden md:inline-flex px-4 py-2 text-sm font-semibold border border-gray-200 rounded-lg hover:border-red-400 hover:text-red-500 transition-colors">
-        {l.portal}
-      </a>
+      {navbarConfig.show_client_portal && (
+        <a href="https://app.boxtocuba.ca/client"
+          class="hidden md:inline-flex px-4 py-2 text-sm font-semibold border border-gray-200 rounded-lg hover:border-red-400 hover:text-red-500 transition-colors">
+          {l.portal}
+        </a>
+      )}
       <a href="https://app.boxtocuba.ca/shipping-quote"
         class="px-3 py-2 md:px-4 text-sm font-semibold bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">
         {l.quote} →
@@ -97,8 +102,12 @@ const ll = langLinks ?? DEFAULT_LANG_LINKS[lang];
     <a href={ratesUrl}            class="text-red-500 font-semibold text-sm">{l.rates}</a>
     <a href={`${p}#faq`}          class="text-gray-600 hover:text-red-500 text-sm font-medium transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">{l.faq}</a>
     {isHome && <a href="#contact" class="text-gray-600 hover:text-red-500 text-sm font-medium transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">{l.contact}</a>}
-    <hr class="border-gray-100" />
-    <a href="https://app.boxtocuba.ca/client" class="text-gray-600 hover:text-red-500 text-sm font-medium transition-colors">{l.portal}</a>
+    {navbarConfig.show_client_portal && (
+      <>
+        <hr class="border-gray-100" />
+        <a href="https://app.boxtocuba.ca/client" class="text-gray-600 hover:text-red-500 text-sm font-medium transition-colors">{l.portal}</a>
+      </>
+    )}
   </div>
 </nav>
 
