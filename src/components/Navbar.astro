@@ -1,0 +1,109 @@
+---
+/**
+ * Shared navbar for all landing pages.
+ * Props:
+ *   lang       - current language
+ *   isHome     - true on homepage: anchor links use #section; false: use /#section
+ *   langLinks  - language switcher links [{label, href}] — defaults to the other 2 languages' homepages
+ */
+interface LangLink { label: string; href: string; }
+
+interface Props {
+  lang: 'en' | 'es' | 'fr';
+  isHome?: boolean;
+  langLinks?: LangLink[];
+}
+
+const { lang, isHome = false, langLinks } = Astro.props;
+
+const p = isHome ? '' : '/';   // prefix for anchor links
+
+const LABELS = {
+  en: { services: 'Services', how: 'How it Works', destinations: 'Destinations',
+        rates: 'Rates', faq: 'FAQ', contact: 'Contact',
+        portal: 'Client Portal', quote: 'Get Quote' },
+  es: { services: 'Servicios', how: 'Cómo funciona', destinations: 'Destinos',
+        rates: 'Tarifas', faq: 'FAQ', contact: 'Contacto',
+        portal: 'Portal Cliente', quote: 'Cotizar' },
+  fr: { services: 'Services', how: 'Comment ça marche', destinations: 'Destinations',
+        rates: 'Tarifs', faq: 'FAQ', contact: 'Contact',
+        portal: 'Espace Client', quote: 'Devis' },
+};
+
+const RATES = {
+  en: '/canada-to-cuba-shipping-rates',
+  es: '/es/precios-envio-canada-cuba',
+  fr: '/fr/tarifs-envoi-canada-cuba',
+};
+
+const DEFAULT_LANG_LINKS: Record<string, LangLink[]> = {
+  en: [{ label: 'ES', href: '/es/' }, { label: 'FR', href: '/fr/' }],
+  es: [{ label: 'EN', href: '/' },    { label: 'FR', href: '/fr/' }],
+  fr: [{ label: 'EN', href: '/' },    { label: 'ES', href: '/es/' }],
+};
+
+const l = LABELS[lang];
+const ratesUrl = RATES[lang];
+const ll = langLinks ?? DEFAULT_LANG_LINKS[lang];
+---
+
+<nav class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <!-- Logo -->
+    <a href={lang === 'en' ? '/' : `/${lang}/`} class="flex items-center gap-3">
+      <img src="/logo.png" alt="Box to Cuba" class="w-10 h-10 object-contain" />
+      <span class="font-bold text-gray-900 text-lg">Box to Cuba</span>
+    </a>
+
+    <!-- Desktop links -->
+    <div class="hidden md:flex items-center gap-8">
+      <a href={`${p}#services`}      class="text-gray-500 hover:text-red-500 text-sm transition-colors">{l.services}</a>
+      <a href={`${p}#how-it-works`}  class="text-gray-500 hover:text-red-500 text-sm transition-colors">{l.how}</a>
+      <a href={`${p}#destinations`}  class="text-gray-500 hover:text-red-500 text-sm transition-colors">{l.destinations}</a>
+      <a href={ratesUrl}             class="text-red-500 font-semibold text-sm border-b-2 border-red-500 pb-0.5">{l.rates}</a>
+      <a href={`${p}#faq`}           class="text-gray-500 hover:text-red-500 text-sm transition-colors">{l.faq}</a>
+      {isHome && <a href="#contact"  class="text-gray-500 hover:text-red-500 text-sm transition-colors">{l.contact}</a>}
+    </div>
+
+    <!-- Right side -->
+    <div class="flex items-center gap-2">
+      {ll.map(link => (
+        <a href={link.href} class="text-xs text-gray-400 hover:text-red-500 px-2 py-1 rounded transition-colors">{link.label}</a>
+      ))}
+      <a href="https://app.boxtocuba.ca/client"
+        class="hidden md:inline-flex px-4 py-2 text-sm font-semibold border border-gray-200 rounded-lg hover:border-red-400 hover:text-red-500 transition-colors">
+        {l.portal}
+      </a>
+      <a href="https://app.boxtocuba.ca/shipping-quote"
+        class="px-3 py-2 md:px-4 text-sm font-semibold bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">
+        {l.quote} →
+      </a>
+      <!-- Hamburger -->
+      <button id="mobile-menu-btn"
+        class="md:hidden flex flex-col gap-1.5 p-2 rounded-lg hover:bg-gray-100 transition-colors"
+        aria-label="Menu">
+        <span class="w-5 h-0.5 bg-gray-700"></span>
+        <span class="w-5 h-0.5 bg-gray-700"></span>
+        <span class="w-5 h-0.5 bg-gray-700"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 bg-white px-6 py-4 flex flex-col gap-4">
+    <a href={`${p}#services`}     class="text-gray-600 hover:text-red-500 text-sm font-medium transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">{l.services}</a>
+    <a href={`${p}#how-it-works`} class="text-gray-600 hover:text-red-500 text-sm font-medium transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">{l.how}</a>
+    <a href={`${p}#destinations`} class="text-gray-600 hover:text-red-500 text-sm font-medium transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">{l.destinations}</a>
+    <a href={ratesUrl}            class="text-red-500 font-semibold text-sm">{l.rates}</a>
+    <a href={`${p}#faq`}          class="text-gray-600 hover:text-red-500 text-sm font-medium transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">{l.faq}</a>
+    {isHome && <a href="#contact" class="text-gray-600 hover:text-red-500 text-sm font-medium transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">{l.contact}</a>}
+    <hr class="border-gray-100" />
+    <a href="https://app.boxtocuba.ca/client" class="text-gray-600 hover:text-red-500 text-sm font-medium transition-colors">{l.portal}</a>
+  </div>
+</nav>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+</script>

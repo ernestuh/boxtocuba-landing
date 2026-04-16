@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
 
 const faqItems = [
   { q: '¿Puedo enviar un kindle o e-reader a Cuba?', a: 'Sí. Los lectores de libros electrónicos están permitidos como electrónico personal. Solo puedes enviar 1 unidad a la vez.' },
@@ -17,27 +18,7 @@ const faqItems = [
   faqItems={faqItems}
 >
 
-  <!-- NAVBAR -->
-  <nav class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
-    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-      <a href="/es/" class="flex items-center gap-3">
-        <img src="/logo.png" alt="Box to Cuba" class="w-10 h-10 object-contain" />
-        <span class="font-bold text-gray-900 text-lg">Box to Cuba</span>
-      </a>
-      <div class="hidden md:flex items-center gap-8">
-        <a href="/es/#services" class="text-gray-500 hover:text-red-500 text-sm transition-colors">Servicios</a>
-        <a href="/es/#how-it-works" class="text-gray-500 hover:text-red-500 text-sm transition-colors">Cómo funciona</a>
-        <a href="/es/precios-envio-canada-cuba" class="text-gray-500 hover:text-red-500 text-sm transition-colors">Tarifas</a>
-        <a href="/es/#faq" class="text-gray-500 hover:text-red-500 text-sm transition-colors">FAQ</a>
-      </div>
-      <div class="flex items-center gap-2">
-        <a href="/cuba-prohibited-items" class="text-xs text-gray-400 hover:text-red-500 px-2 py-1 rounded transition-colors">EN</a>
-        <a href="/fr/articles-interdits-cuba" class="text-xs text-gray-400 hover:text-red-500 px-2 py-1 rounded transition-colors">FR</a>
-        <a href="https://app.boxtocuba.ca/client" class="px-4 py-2 text-sm font-semibold border border-gray-200 rounded-lg hover:border-red-400 hover:text-red-500 transition-colors">Portal Cliente</a>
-        <a href="https://app.boxtocuba.ca/shipping-quote" class="px-4 py-2 text-sm font-semibold bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">Cotizar →</a>
-      </div>
-    </div>
-  </nav>
+  <Navbar lang="es" />
 
   <!-- BREADCRUMB -->
   <div class="bg-gray-50 border-b border-gray-100 px-6 py-3">
