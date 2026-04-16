@@ -1,17 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCmsContent, t as ct } from '../../lib/cms';
+import { provinces as provinceData } from '../../data/provinces';
 
 const lang = 'fr';
 const content = await getCmsContent(lang);
 const t = (key: string) => ct(content, key);
-
-const provinces = [
-  'La Habana', 'Artemisa', 'Mayabeque', 'Matanzas', 'Villa Clara',
-  'Cienfuegos', 'Sancti Spíritus', 'Ciego de Ávila', 'Camagüey',
-  'Las Tunas', 'Holguín', 'Granma', 'Santiago de Cuba',
-  'Guantánamo', 'Pinar del Río', 'Isla de la Juventud',
-];
 ---
 
 <BaseLayout lang={lang} title={t('meta.title')} description={t('meta.description')} faqItems={t('faq.items')}>
@@ -164,12 +158,12 @@ const provinces = [
       <h2 class="text-3xl font-extrabold mb-3">{t('provinces.title')}</h2>
       <p class="text-gray-500 max-w-xl mx-auto">{t('provinces.subtitle')}</p>
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mt-10">
-        {provinces.map((p) => (
-          <div class="bg-white border border-gray-100 rounded-xl p-4 text-center hover:border-red-400 hover:bg-red-50 transition-all cursor-pointer group">
+        {provinceData.map((p) => (
+          <a href={`/fr/provinces/${p.slug}/`} class="bg-white border border-gray-100 rounded-xl p-4 text-center hover:border-red-400 hover:bg-red-50 transition-all group">
             <div class="text-2xl mb-1">📦</div>
-            <h4 class="text-sm font-semibold text-gray-800 group-hover:text-red-500">{p}</h4>
-            <div class="text-xs text-red-500 font-bold mt-1">{t('provinces.price_from')}</div>
-          </div>
+            <h4 class="text-sm font-semibold text-gray-800 group-hover:text-red-500">{p.name_fr}</h4>
+            <div class="text-xs text-red-500 font-bold mt-1">{p.priceFrom_fr}</div>
+          </a>
         ))}
       </div>
       <div class="mt-8 text-center">

@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { provinces as provinceData } from '../../data/provinces';
+import { getNotice, getProvinceNoticeType } from '../../lib/cms';
 
 const faqItems = [
   { q: 'Les prix sont-ils en dollars canadiens ou américains?', a: 'Tous nos prix sont en dollars canadiens (CAD). Nous acceptons le paiement en espèces et par virement Interac (e-Transfer).' },
@@ -9,30 +11,24 @@ const faqItems = [
   { q: 'Quand dois-je payer?', a: 'Le paiement s\'effectue lors du dépôt ou de la programmation de la collecte de votre colis. Aucun paiement anticipé en ligne requis.' },
 ];
 
-const provinces = [
-  { name: 'La Habana', price: 'Dès $6/lb', time: '7–12 jours ouvrables', note: 'Vols les plus fréquents' },
-  { name: 'Artemisa', price: 'Dès $6/lb', time: '7–14 jours ouvrables', note: '—' },
-  { name: 'Mayabeque', price: 'Dès $6/lb', time: '7–14 jours ouvrables', note: '—' },
-  { name: 'Matanzas', price: 'Dès $6.50/lb', time: '10–15 jours ouvrables', note: 'Inclut Varadero' },
-  { name: 'Villa Clara', price: 'Dès $6.50/lb', time: '10–15 jours ouvrables', note: '—' },
-  { name: 'Cienfuegos', price: 'Dès $7/lb', time: '10–16 jours ouvrables', note: '—' },
-  { name: 'Sancti Spíritus', price: 'Dès $7/lb', time: '10–16 jours ouvrables', note: '—' },
-  { name: 'Ciego de Ávila', price: 'Dès $7/lb', time: '12–17 jours ouvrables', note: '—' },
-  { name: 'Camagüey', price: 'Dès $7.50/lb', time: '12–17 jours ouvrables', note: '—' },
-  { name: 'Las Tunas', price: 'Dès $7.50/lb', time: '12–18 jours ouvrables', note: '—' },
-  { name: 'Holguín', price: 'Dès $7.50/lb', time: '12–18 jours ouvrables', note: '—' },
-  { name: 'Granma', price: 'Dès $8/lb', time: '14–20 jours ouvrables', note: '—' },
-  { name: 'Santiago de Cuba', price: 'Dès $8/lb', time: '14–20 jours ouvrables', note: '2e plus grande ville' },
-  { name: 'Guantánamo', price: 'Dès $8/lb', time: '14–20 jours ouvrables', note: '—' },
-  { name: 'Pinar del Río', price: 'Dès $6.50/lb', time: '10–15 jours ouvrables', note: '—' },
-  { name: 'Isla de la Juventud', price: 'Sur demande', time: 'Variable', note: 'Transport spécial requis' },
-];
+const notice = await getNotice();
+const provinces = provinceData.map((p) => ({
+  slug: p.slug,
+  name: p.name_fr,
+  price: p.priceFrom_fr,
+  time: p.delivery_fr,
+  note: p.note_fr ?? '—',
+  noticeType: getProvinceNoticeType(notice, p.slug),
+}));
+const hasCapitalOnly  = notice.enabled && notice.capital_only.length > 0;
+const hasPickupHavana = notice.enabled && notice.pickup_havana.length > 0;
+const hasPickupSantiago = notice.enabled && notice.pickup_santiago.length > 0;
 ---
 
 <BaseLayout
   lang="fr"
   title="Tarifs d'Envoi Canada-Cuba 2026 | Box to Cuba"
-  description="Tarifs d'envoi vers toutes les provinces cubaines depuis le Canada. Sans frais cachés. Dès $6/lb. Obtenez votre devis en quelques secondes."
+  description="Tarifs d'envoi vers toutes les provinces cubaines depuis le Canada. Sans frais cachés. Dès $75 CAD. Obtenez votre devis en quelques secondes."
   faqItems={faqItems}
 >
 
@@ -103,16 +99,43 @@ const provinces = [
           </thead>
           <tbody>
             {provinces.map((p, i) => (
-              <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                <td class="px-5 py-3 font-semibold text-gray-800">{p.name}</td>
+              <tr class={`${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}${p.noticeType === 'capital_only' ? ' border-l-2 border-amber-400' : p.noticeType === 'pickup_havana' ? ' border-l-2 border-orange-400' : p.noticeType === 'pickup_santiago' ? ' border-l-2 border-red-400' : ''}`}>
+                <td class="px-5 py-3 font-semibold text-gray-800">
+                  <a href={`/fr/provinces/${p.slug}/`} class="hover:text-red-500 transition-colors">{p.name}</a>
+                </td>
                 <td class="px-5 py-3 font-bold text-red-500">{p.price}</td>
                 <td class="px-5 py-3 text-gray-600">{p.time}</td>
-                <td class="px-5 py-3 text-gray-400 text-xs hidden md:table-cell">{p.note}</td>
+                <td class="px-5 py-3 text-xs hidden md:table-cell">
+                  {p.noticeType === 'capital_only' && <span class="inline-flex items-center gap-1 text-amber-700 font-semibold bg-amber-50 border border-amber-200 rounded-full px-2 py-0.5">⚠️ Chef-lieu seulement</span>}
+                  {p.noticeType === 'pickup_havana' && <span class="inline-flex items-center gap-1 text-orange-600 font-semibold bg-orange-50 border border-orange-200 rounded-full px-2 py-0.5">📍 Retrait à La Havane</span>}
+                  {p.noticeType === 'pickup_santiago' && <span class="inline-flex items-center gap-1 text-red-600 font-semibold bg-red-50 border border-red-200 rounded-full px-2 py-0.5">🚫 Retrait à Santiago</span>}
+                  {!p.noticeType && <span class="text-gray-400">{p.note}</span>}
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+
+      {hasCapitalOnly && (
+        <div class="flex items-start gap-3 bg-amber-50 border border-amber-200 rounded-xl p-4 mt-4">
+          <span class="text-base leading-none mt-0.5">⚠️</span>
+          <p class="text-amber-800 text-sm"><strong>Chef-lieu provincial uniquement (temporaire) :</strong> Les provinces marquées ⚠️ ne sont actuellement desservies qu'au niveau de leur chef-lieu provincial — aucun vol direct disponible. Tout le fret transit par La Havane et est transporté par voie terrestre. Les délais peuvent dépasser les estimations. <a href="https://wa.me/14168365517" class="underline font-semibold">Contactez-nous</a> pour les dernières informations.</p>
+        </div>
+      )}
+      {hasPickupHavana && (
+        <div class="flex items-start gap-3 bg-orange-50 border border-orange-200 rounded-xl p-4 mt-3">
+          <span class="text-base leading-none mt-0.5">📍</span>
+          <p class="text-orange-800 text-sm"><strong>Retrait à La Havane :</strong> Artemisa, Mayabeque, Pinar del Río et Isla de la Juventud n'ont actuellement pas de livraison à domicile. Les colis doivent être retirés dans notre bureau de La Havane. <a href="https://wa.me/14168365517" class="underline font-semibold">Contactez-nous</a> pour coordonner.</p>
+        </div>
+      )}
+      {hasPickupSantiago && (
+        <div class="flex items-start gap-3 bg-red-50 border border-red-200 rounded-xl p-4 mt-3">
+          <span class="text-base leading-none mt-0.5">🚫</span>
+          <p class="text-red-800 text-sm"><strong>Pas de livraison à Guantánamo :</strong> Nous ne livrons pas actuellement dans la province de Guantánamo. Les colis peuvent être retirés dans notre bureau de Santiago de Cuba. <a href="https://wa.me/14168365517" class="underline font-semibold">Contactez-nous</a> pour coordonner.</p>
+        </div>
+      )}
+
       <p class="text-xs text-gray-400 mt-3">* Livraison incluse (porte-à-porte ou point de retrait selon la province). Collecte au Canada non incluse — disponible dans le GTA moyennant des frais, hors GTA via votre propre service de messagerie vers notre adresse à Toronto.</p>
     </div>
   </section>

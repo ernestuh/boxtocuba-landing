@@ -3,6 +3,57 @@
  * Falls back to bundled JSON translations if Supabase is unavailable or key is missing.
  */
 import { createClient } from '@supabase/supabase-js';
+
+// ─── Service Notice ────────────────────────────────────────────────────────
+
+export interface Notice {
+  enabled: boolean;
+  /** Provinces with no direct flights — delivery to provincial capital only */
+  capital_only: string[];
+  /** Provinces with no delivery — pickup at La Habana office */
+  pickup_havana: string[];
+  /** Provinces with no delivery — pickup at Santiago de Cuba office */
+  pickup_santiago: string[];
+}
+
+export type NoticeType = 'capital_only' | 'pickup_havana' | 'pickup_santiago' | null;
+
+const DEFAULT_NOTICE: Notice = {
+  enabled: false,
+  capital_only: [],
+  pickup_havana: [],
+  pickup_santiago: [],
+};
+
+/** Fetch the service notice config from Supabase. Returns disabled notice if unavailable. */
+export async function getNotice(): Promise<Notice> {
+  const supabaseUrl = import.meta.env.SUPABASE_URL;
+  const supabaseKey = import.meta.env.SUPABASE_SERVICE_KEY;
+  if (!supabaseUrl || !supabaseKey) return DEFAULT_NOTICE;
+
+  try {
+    const supabase = createClient(supabaseUrl, supabaseKey);
+    const { data, error } = await supabase
+      .from('settings')
+      .select('value')
+      .eq('key', 'LANDING_NOTICE')
+      .single();
+
+    if (error || !data) return DEFAULT_NOTICE;
+    return JSON.parse(data.value) as Notice;
+  } catch {
+    return DEFAULT_NOTICE;
+  }
+}
+
+/** Returns the notice type for a given province slug, or null if no active notice. */
+export function getProvinceNoticeType(notice: Notice, slug: string): NoticeType {
+  if (!notice.enabled) return null;
+  if (notice.capital_only.includes(slug)) return 'capital_only';
+  if (notice.pickup_havana.includes(slug)) return 'pickup_havana';
+  if (notice.pickup_santiago.includes(slug)) return 'pickup_santiago';
+  return null;
+}
 import type { Lang } from '../i18n';
 import en from '../i18n/en.json';
 import es from '../i18n/es.json';

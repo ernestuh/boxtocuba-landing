@@ -1,0 +1,330 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { provinces, priceTiersByGroup } from '../../data/provinces';
+import { getNotice, getProvinceNoticeType } from '../../lib/cms';
+
+export function getStaticPaths() {
+  return provinces.map((p) => ({
+    params: { province: p.slug },
+    props: { province: p },
+  }));
+}
+
+const { province: p } = Astro.props;
+const tiers = priceTiersByGroup[p.priceGroup];
+const notice = await getNotice();
+const noticeType = getProvinceNoticeType(notice, p.slug);
+const capitalCity = p.capital ?? p.name;
+
+const alternates = [
+  { hreflang: 'en', href: `https://boxtocuba.ca/provinces/${p.slug}/` },
+  { hreflang: 'es', href: `https://boxtocuba.ca/es/provincias/${p.slug}/` },
+  { hreflang: 'fr', href: `https://boxtocuba.ca/fr/provinces/${p.slug}/` },
+  { hreflang: 'x-default', href: `https://boxtocuba.ca/provinces/${p.slug}/` },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: `Parcel Shipping from Canada to ${p.name}`,
+  provider: {
+    '@type': 'LocalBusiness',
+    name: 'Box to Cuba',
+    url: 'https://boxtocuba.ca',
+    telephone: '+1-416-836-5517',
+  },
+  areaServed: {
+    '@type': 'Place',
+    name: `${p.name}, Cuba`,
+  },
+  description: p.description_en,
+  offers: {
+    '@type': 'Offer',
+    priceCurrency: 'CAD',
+    price: p.priceGroup === 'western' ? '6.00' : p.priceGroup === 'matanzas' ? '6.50' : '6.85',
+    priceSpecification: {
+      '@type': 'UnitPriceSpecification',
+      price: p.priceGroup === 'western' ? '6.00' : p.priceGroup === 'matanzas' ? '6.50' : '6.85',
+      priceCurrency: 'CAD',
+      unitCode: 'LB',
+    },
+  },
+};
+
+const relatedProvinces = provinces.filter((pr) => p.relatedSlugs.includes(pr.slug));
+---
+
+<BaseLayout
+  lang="en"
+  title={`Ship to ${p.name}, Cuba from Canada | Box to Cuba`}
+  description={`Shipping from Canada to ${p.name}, Cuba — ${p.priceFrom}. Weekly flights, ${p.delivery_en}. Door-to-door delivery. Get a free quote.`}
+  faqItems={p.faq_en}
+  alternates={alternates}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} slot="head-extra" />
+
+  <!-- NAVBAR -->
+  <nav class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <img src="/logo.png" alt="Box to Cuba" class="w-10 h-10 object-contain" />
+        <span class="font-bold text-gray-900 text-lg">Box to Cuba</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/#services" class="text-gray-500 hover:text-red-500 text-sm transition-colors">Services</a>
+        <a href="/#how-it-works" class="text-gray-500 hover:text-red-500 text-sm transition-colors">How it Works</a>
+        <a href="/#destinations" class="text-gray-500 hover:text-red-500 text-sm transition-colors">Destinations</a>
+        <a href="/canada-to-cuba-shipping-rates" class="text-red-500 font-semibold text-sm border-b-2 border-red-500 pb-0.5">Rates</a>
+        <a href="/#faq" class="text-gray-500 hover:text-red-500 text-sm transition-colors">FAQ</a>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href={`/es/provincias/${p.slug}/`} class="text-xs text-gray-400 hover:text-red-500 px-2 py-1 rounded transition-colors">ES</a>
+        <a href={`/fr/provinces/${p.slug}/`} class="text-xs text-gray-400 hover:text-red-500 px-2 py-1 rounded transition-colors">FR</a>
+        <a href="https://app.boxtocuba.ca/client" class="px-4 py-2 text-sm font-semibold border border-gray-200 rounded-lg hover:border-red-400 hover:text-red-500 transition-colors">Client Portal</a>
+        <a href="https://app.boxtocuba.ca/shipping-quote" class="px-4 py-2 text-sm font-semibold bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">Get Quote →</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="bg-gray-50 border-b border-gray-100 px-6 py-3">
+    <div class="max-w-5xl mx-auto text-sm text-gray-400">
+      <a href="/" class="hover:text-red-500 transition-colors">Home</a>
+      <span class="mx-2">›</span>
+      <a href="/#destinations" class="hover:text-red-500 transition-colors">All Provinces</a>
+      <span class="mx-2">›</span>
+      <span class="text-gray-700">{p.name}</span>
+    </div>
+  </div>
+
+  <!-- SERVICE NOTICE (CMS-controlled) -->
+  {noticeType === 'capital_only' && (
+    <div class="bg-amber-50 border-l-4 border-amber-400 px-6 py-4">
+      <div class="max-w-5xl mx-auto flex items-start gap-4">
+        <div class="text-2xl leading-none mt-0.5">⚠️</div>
+        <div class="flex-1">
+          <div class="font-bold text-amber-800 text-sm mb-1">Temporary service change — {p.name}</div>
+          <p class="text-amber-700 text-sm leading-relaxed">
+            There are currently no direct flights to {p.name}. All shipments travel via Havana and are transported overland.
+            <strong>Delivery is temporarily limited to {capitalCity} (provincial capital) only.</strong> Delivery times may exceed estimates. Contact us for the latest updates.
+          </p>
+        </div>
+        <a href="https://wa.me/14168365517" class="flex-shrink-0 text-xs font-semibold text-amber-700 border border-amber-400 rounded-lg px-3 py-2 hover:bg-amber-100 transition-colors whitespace-nowrap">💬 Ask us</a>
+      </div>
+    </div>
+  )}
+  {noticeType === 'pickup_havana' && (
+    <div class="bg-orange-50 border-l-4 border-orange-400 px-6 py-4">
+      <div class="max-w-5xl mx-auto flex items-start gap-4">
+        <div class="text-2xl leading-none mt-0.5">📍</div>
+        <div class="flex-1">
+          <div class="font-bold text-orange-800 text-sm mb-1">No home delivery to {p.name} — Pickup in La Habana</div>
+          <p class="text-orange-700 text-sm leading-relaxed">
+            We currently do not deliver to {p.name}. Your package will be held at our <strong>La Habana office</strong> for pickup.
+            The recipient must travel to La Habana to collect it. Contact us to coordinate pickup details.
+          </p>
+        </div>
+        <a href="https://wa.me/14168365517" class="flex-shrink-0 text-xs font-semibold text-orange-700 border border-orange-400 rounded-lg px-3 py-2 hover:bg-orange-100 transition-colors whitespace-nowrap">💬 Ask us</a>
+      </div>
+    </div>
+  )}
+  {noticeType === 'pickup_santiago' && (
+    <div class="bg-red-50 border-l-4 border-red-400 px-6 py-4">
+      <div class="max-w-5xl mx-auto flex items-start gap-4">
+        <div class="text-2xl leading-none mt-0.5">🚫</div>
+        <div class="flex-1">
+          <div class="font-bold text-red-800 text-sm mb-1">No delivery service to {p.name}</div>
+          <p class="text-red-700 text-sm leading-relaxed">
+            We do not currently deliver to {p.name} province. Your package can be sent to <strong>Santiago de Cuba</strong> and picked up at our Santiago de Cuba location. Contact us to coordinate the shipment and pickup.
+          </p>
+        </div>
+        <a href="https://wa.me/14168365517" class="flex-shrink-0 text-xs font-semibold text-red-700 border border-red-400 rounded-lg px-3 py-2 hover:bg-red-100 transition-colors whitespace-nowrap">💬 Ask us</a>
+      </div>
+    </div>
+  )}
+
+  <!-- HERO -->
+  <section class="bg-gradient-to-br from-white to-red-50 px-6 py-16">
+    <div class="max-w-5xl mx-auto">
+      <div class="inline-flex items-center gap-2 bg-red-50 text-red-500 text-xs font-semibold px-4 py-2 rounded-full mb-5">
+        ✈️ Weekly flights · Canada → Cuba
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
+        Shipping to {p.name}, Cuba
+      </h1>
+      <p class="text-gray-500 text-lg leading-relaxed max-w-2xl mb-8">{p.description_en}</p>
+      <div class="flex gap-3 flex-wrap">
+        <a href="https://app.boxtocuba.ca/shipping-quote" class="px-6 py-3 bg-red-500 text-white font-semibold rounded-xl hover:bg-red-600 transition-colors">Get a free quote →</a>
+        <a href="https://wa.me/14168365517" class="px-6 py-3 border border-gray-200 font-semibold rounded-xl hover:border-red-400 hover:text-red-500 transition-colors">Ask on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK STATS -->
+  <section class="border-b border-gray-100 px-6 py-8">
+    <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="text-center">
+        <div class="text-2xl font-extrabold text-red-500">{p.priceFrom}</div>
+        <div class="text-xs text-gray-400 mt-1">Starting rate</div>
+      </div>
+      <div class="text-center">
+        <div class="text-2xl font-extrabold text-gray-800">{p.delivery_en}</div>
+        <div class="text-xs text-gray-400 mt-1">Estimated delivery</div>
+      </div>
+      <div class="text-center">
+        <div class="text-2xl font-extrabold text-gray-800">Weekly</div>
+        <div class="text-xs text-gray-400 mt-1">Flights to Cuba</div>
+      </div>
+      <div class="text-center">
+        <div class="text-2xl font-extrabold text-gray-800">{p.municipalities.length}</div>
+        <div class="text-xs text-gray-400 mt-1">Municipalities covered</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RATE TABLE -->
+  <section class="px-6 py-16" id="rates">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-xs font-bold text-red-500 uppercase tracking-widest mb-2">Rates</div>
+      <h2 class="text-3xl font-extrabold mb-3">Shipping rates to {p.name}</h2>
+      <p class="text-gray-500 mb-8">All prices in Canadian dollars (CAD). Rates are per pound — the greater of actual or volumetric weight applies.</p>
+
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden mb-6">
+        <div class="bg-gray-900 text-white px-6 py-4 font-semibold text-sm">{tiers.label_en}</div>
+        <ul class="divide-y divide-gray-50">
+          {tiers.tiers.map((tier) => (
+            <li class="px-6 py-4 flex items-center justify-between">
+              <span class="text-gray-700 text-sm">{tier.split(':')[0]}</span>
+              <span class="font-bold text-red-500">{tier.split(':')[1].trim()}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {p.note_en && (
+        <div class="bg-blue-50 border-l-4 border-blue-400 rounded-xl p-4 text-sm text-gray-700">
+          <strong>Note:</strong> {p.note_en}
+        </div>
+      )}
+
+      <p class="text-xs text-gray-400 mt-4">* Delivery in Cuba included (door-to-door or pickup point). Pickup in Canada not included.</p>
+    </div>
+  </section>
+
+  <!-- MUNICIPALITIES -->
+  <section class="bg-gray-50 px-6 py-16">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-xs font-bold text-red-500 uppercase tracking-widest mb-2">Coverage</div>
+      <h2 class="text-3xl font-extrabold mb-3">We deliver across {p.name}</h2>
+      <p class="text-gray-500 mb-8">We serve all municipalities in {p.name} province — from major cities to smaller communities.</p>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+        {p.municipalities.map((m) => (
+          <div class="bg-white border border-gray-100 rounded-xl p-3 text-center text-sm font-medium text-gray-700 hover:border-red-300 hover:text-red-500 transition-all">
+            📍 {m}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="px-6 py-16">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-xs font-bold text-red-500 uppercase tracking-widest mb-2">Process</div>
+      <h2 class="text-3xl font-extrabold mb-10">Send a package to {p.name} in 3 steps</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          ['1', 'Get a free quote', 'Enter your package details and destination in ' + p.name + '. Get an instant price — no registration needed.'],
+          ['2', 'Drop off or schedule pickup', 'Bring your package to our Toronto or Montreal office, or schedule a home pickup in the GTA.'],
+          ['3', 'Delivered in ' + p.name, 'Your package arrives at your family in ' + p.name + ' in ' + p.delivery_en + '. Track every step through our client portal.'],
+        ].map(([num, title, desc]) => (
+          <div class="flex flex-col items-start">
+            <div class="w-10 h-10 rounded-full bg-red-500 text-white font-extrabold flex items-center justify-center mb-4">{num}</div>
+            <h3 class="font-bold text-lg mb-2">{title}</h3>
+            <p class="text-gray-500 text-sm">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-gray-50 px-6 py-16">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-xs font-bold text-red-500 uppercase tracking-widest mb-2">FAQ</div>
+      <h2 class="text-3xl font-extrabold mb-10">Frequently asked questions about shipping to {p.name}</h2>
+      <div class="space-y-4">
+        {p.faq_en.map((item) => (
+          <details class="bg-white rounded-2xl border border-gray-100 shadow-sm">
+            <summary class="px-6 py-4 font-semibold text-gray-800 cursor-pointer hover:text-red-500 transition-colors list-none flex items-center justify-between">
+              {item.q}
+              <span class="text-red-400 text-lg">+</span>
+            </summary>
+            <div class="px-6 pb-4 text-gray-500 text-sm leading-relaxed">{item.a}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED PROVINCES -->
+  {relatedProvinces.length > 0 && (
+    <section class="px-6 py-16">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-xs font-bold text-red-500 uppercase tracking-widest mb-2">Explore</div>
+        <h2 class="text-3xl font-extrabold mb-8">Other provinces we cover</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {relatedProvinces.map((rp) => (
+            <a href={`/provinces/${rp.slug}/`} class="bg-white border border-gray-100 rounded-2xl p-5 hover:border-red-300 hover:shadow-md transition-all group">
+              <div class="text-2xl mb-2">📦</div>
+              <h3 class="font-bold text-gray-800 group-hover:text-red-500 mb-1">{rp.name}</h3>
+              <div class="text-xs text-red-500 font-bold">{rp.priceFrom}</div>
+              <div class="text-xs text-gray-400 mt-1">{rp.delivery_en}</div>
+            </a>
+          ))}
+        </div>
+        <div class="mt-8">
+          <a href="/#destinations" class="text-sm text-red-500 font-semibold hover:underline">← View all 16 Cuban provinces</a>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- CTA BANNER -->
+  <section class="bg-gradient-to-r from-blue-900 to-blue-700 text-white text-center py-20 px-6">
+    <h2 class="text-3xl font-extrabold mb-3">Ready to send a package to {p.name}?</h2>
+    <p class="opacity-80 mb-8">Get an instant quote — no registration required.</p>
+    <a href="https://app.boxtocuba.ca/shipping-quote" class="inline-block px-8 py-4 bg-red-500 text-white font-bold rounded-xl hover:bg-red-600 transition-colors text-lg">Calculate my rate →</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-gray-400 px-6 py-12">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <div class="font-bold text-white text-lg mb-2">Box to Cuba</div>
+        <p class="text-sm">Reliable parcel shipping from Canada to Cuba. Trusted by families since 2020.</p>
+      </div>
+      <div>
+        <div class="font-semibold text-white mb-3">Quick Links</div>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/canada-to-cuba-shipping-rates" class="hover:text-red-400 transition-colors">Shipping Rates</a></li>
+          <li><a href="/cuba-customs-guide" class="hover:text-red-400 transition-colors">Customs Guide</a></li>
+          <li><a href="/#faq" class="hover:text-red-400 transition-colors">FAQ</a></li>
+          <li><a href="/#contact" class="hover:text-red-400 transition-colors">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="font-semibold text-white mb-3">Contact</div>
+        <ul class="space-y-2 text-sm">
+          <li>📞 +1 416-836-5517</li>
+          <li>✉️ info@boxtocuba.ca</li>
+          <li>📍 Toronto & Montreal, Canada</li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-5xl mx-auto mt-10 pt-6 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+      <span>© 2026 Box to Cuba. All rights reserved.</span>
+      <span>Privacy Policy · Terms of Service</span>
+    </div>
+  </footer>
+</BaseLayout>
