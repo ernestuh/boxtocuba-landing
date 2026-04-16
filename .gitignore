@@ -23,3 +23,9 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 .vercel
+
+# Proposal/draft files (never deploy to production)
+proposal-*.html
+public/proposal-*.html
+src/pages/proposal-*.astro
+phase2-*.html
