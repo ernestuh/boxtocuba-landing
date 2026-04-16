@@ -30,14 +30,14 @@ const t = (key: string) => ct(content, key);
         <!-- Language switcher -->
         <a href="/es/" class="text-xs text-gray-400 hover:text-red-500 px-2 py-1 rounded transition-colors">ES</a>
         <a href="/fr/" class="text-xs text-gray-400 hover:text-red-500 px-2 py-1 rounded transition-colors">FR</a>
-        <a href="https://app.boxtocuba.ca/client" class="px-4 py-2 text-sm font-semibold border border-gray-200 rounded-lg hover:border-red-400 hover:text-red-500 transition-colors">{t('nav.client_portal')}</a>
-        <a href="https://app.boxtocuba.ca/shipping-quote" class="px-4 py-2 text-sm font-semibold bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">{t('nav.get_quote')} →</a>
+        <a href="https://app.boxtocuba.ca/client" class="hidden md:inline-flex px-4 py-2 text-sm font-semibold border border-gray-200 rounded-lg hover:border-red-400 hover:text-red-500 transition-colors">{t('nav.client_portal')}</a>
+        <a href="https://app.boxtocuba.ca/shipping-quote" class="px-3 py-2 md:px-4 text-sm font-semibold bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">{t('nav.get_quote')} →</a>
       </div>
     </div>
   </nav>
 
   <!-- HERO -->
-  <section class="bg-gradient-to-br from-white to-red-50 px-6 py-20 flex flex-col md:flex-row items-center justify-center gap-16 flex-wrap">
+  <section class="bg-gradient-to-br from-white to-red-50 px-6 py-12 md:py-20 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 flex-wrap">
     <div class="max-w-lg">
       <div class="inline-flex items-center gap-2 bg-red-50 text-red-500 text-xs font-semibold px-4 py-2 rounded-full mb-5">{t('hero.badge')}</div>
       <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
@@ -61,7 +61,7 @@ const t = (key: string) => ct(content, key);
         class="w-full max-w-md h-72 md:h-80 object-cover rounded-2xl shadow-2xl"
         width="480" height="320" loading="eager"
       />
-      <div class="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-white rounded-2xl px-5 py-2.5 flex items-center gap-4 shadow-lg whitespace-nowrap">
+      <div class="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-white rounded-2xl px-3 py-2 md:px-5 md:py-2.5 flex items-center gap-3 md:gap-4 shadow-lg whitespace-nowrap scale-90 md:scale-100 origin-bottom">
         <div class="flex items-center gap-1.5">
           <span class="text-xl">✈️</span>
           <div>
@@ -241,7 +241,7 @@ const t = (key: string) => ct(content, key);
         </div>
 
         <!-- Right: form card -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 md:p-8">
           <ContactForm
             client:load
             lang="en"
