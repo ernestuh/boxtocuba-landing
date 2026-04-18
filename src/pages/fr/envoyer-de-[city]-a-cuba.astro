@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navbar from '../../components/Navbar.astro';
 import { cities } from '../../data/cities';
-import { priceTiersByGroup } from '../../data/provinces';
+import { priceTiersByGroup, provinces } from '../../data/provinces';
 import { getNotice } from '../../lib/cms';
 
 export function getStaticPaths() {
@@ -210,6 +210,26 @@ const centralTiers = priceTiersByGroup['central-eastern'];
             </summary>
             <div class="px-6 pb-4 text-gray-500 text-sm leading-relaxed">{item.a}</div>
           </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROVINCES -->
+  <section class="px-6 py-16 border-t border-gray-100">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-xs font-bold text-red-500 uppercase tracking-widest mb-2">Destinations de livraison</div>
+      <h2 class="text-2xl font-extrabold mb-8">Nous livrons dans les 16 provinces de Cuba</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+        {provinces.map((p) => (
+          <a href={`/fr/provinces/${p.slug}/`}
+            class="flex items-center justify-between px-4 py-3 bg-white rounded-xl border border-gray-100 shadow-sm hover:border-red-300 hover:shadow-md transition-all group">
+            <div>
+              <div class="font-semibold text-sm text-gray-800 group-hover:text-red-500 transition-colors">{p.name_fr}</div>
+              <div class="text-xs text-red-500 font-bold mt-0.5">{p.priceFrom_fr}</div>
+            </div>
+            <span class="text-gray-300 group-hover:text-red-400 transition-colors">→</span>
+          </a>
         ))}
       </div>
     </div>

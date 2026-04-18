@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Navbar from '../../../components/Navbar.astro';
 import { provinces, priceTiersByGroup } from '../../../data/provinces';
+import { cities } from '../../../data/cities';
 import { getNotice, getProvinceNoticeType } from '../../../lib/cms';
 
 export function getStaticPaths() {
@@ -263,6 +264,23 @@ const relatedProvinces = provinces.filter((pr) => p.relatedSlugs.includes(pr.slu
       </div>
     </section>
   )}
+
+  <!-- CANADIAN CITIES -->
+  <section class="px-6 py-16 border-t border-gray-100">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-xs font-bold text-red-500 uppercase tracking-widest mb-2">Expédier depuis le Canada</div>
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <h2 class="text-2xl font-extrabold">Envoyez vers {p.name_fr} depuis n'importe quelle ville canadienne</h2>
+        <a href="/fr/envoyer-du-canada-a-cuba/" class="text-sm font-semibold text-red-500 hover:underline whitespace-nowrap">Voir toutes les villes →</a>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        {cities.map((c) => (
+          <a href={`/fr/envoyer-de-${c.slug}-a-cuba/`}
+            class="px-4 py-2 bg-white rounded-xl border border-gray-100 shadow-sm text-sm font-medium text-gray-700 hover:border-red-300 hover:text-red-500 transition-all">{c.name}</a>
+        ))}
+      </div>
+    </div>
+  </section>
 
   <!-- CTA BANNER -->
   <section class="bg-gradient-to-r from-blue-900 to-blue-700 text-white text-center py-20 px-6">

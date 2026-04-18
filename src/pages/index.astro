@@ -60,6 +60,34 @@ const t = (key: string) => ct(content, key);
     </div>
   </section>
 
+  <!-- CITIES STRIP -->
+  <section class="border-b border-gray-100 px-6 py-6 bg-white">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+        <div class="text-sm font-semibold text-gray-500 whitespace-nowrap">📍 Ship from your city:</div>
+        <div class="flex flex-wrap gap-2 flex-1">
+          {[
+            { name: 'Toronto', slug: 'toronto' },
+            { name: 'Montreal', slug: 'montreal' },
+            { name: 'Vancouver', slug: 'vancouver' },
+            { name: 'Calgary', slug: 'calgary' },
+            { name: 'Ottawa', slug: 'ottawa' },
+            { name: 'Edmonton', slug: 'edmonton' },
+          ].map(c => (
+            <a href={`/ship-from-${c.slug}-to-cuba/`}
+              class="px-3 py-1.5 text-sm font-medium bg-gray-50 border border-gray-200 rounded-lg hover:border-red-400 hover:text-red-500 transition-colors">
+              {c.name}
+            </a>
+          ))}
+          <a href="/ship-from-canada-to-cuba/"
+            class="px-3 py-1.5 text-sm font-semibold text-red-500 hover:underline">
+            + 13 more →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- DESTINATIONS STRIP -->
   <div class="bg-blue-900 text-white py-3 px-6 flex items-center justify-center gap-2 flex-wrap text-sm">
     <span class="opacity-70">{t('destinations_strip.label')}</span>
