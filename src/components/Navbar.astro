@@ -45,9 +45,18 @@ const DEFAULT_LANG_LINKS: Record<string, LangLink[]> = {
   fr: [{ label: 'EN', href: '/' },    { label: 'ES', href: '/es/' }],
 };
 
+const FLAGS: Record<string, string> = { EN: '🇨🇦', ES: '🇪🇸', FR: '🇫🇷' };
+const CURRENT_LABEL = lang.toUpperCase();
+
+const ALL_LANG_LINKS: Record<string, LangLink[]> = {
+  en: [{ label: 'EN', href: '/' },    { label: 'FR', href: '/fr/' }, { label: 'ES', href: '/es/' }],
+  es: [{ label: 'EN', href: '/' },    { label: 'FR', href: '/fr/' }, { label: 'ES', href: '/es/' }],
+  fr: [{ label: 'EN', href: '/' },    { label: 'FR', href: '/fr/' }, { label: 'ES', href: '/es/' }],
+};
+
 const l = LABELS[lang];
 const ratesUrl = RATES[lang];
-const ll = langLinks ?? DEFAULT_LANG_LINKS[lang];
+const ll = langLinks ?? ALL_LANG_LINKS[lang];
 const quoteUrl = `https://app.boxtocuba.ca/shipping-quote?lang=${lang}`;
 ---
 
@@ -70,9 +79,15 @@ const quoteUrl = `https://app.boxtocuba.ca/shipping-quote?lang=${lang}`;
     </div>
 
     <!-- Right side -->
-    <div class="flex items-center gap-2">
+    <div class="flex items-center gap-1">
       {ll.map(link => (
-        <a href={link.href} class="text-xs text-gray-400 hover:text-red-500 px-2 py-1 rounded transition-colors">{link.label}</a>
+        link.label === CURRENT_LABEL
+          ? <span class="flex items-center gap-1 px-2 py-1 text-xs font-semibold text-gray-800 rounded bg-gray-100">
+              <span>{FLAGS[link.label]}</span><span>{link.label}</span>
+            </span>
+          : <a href={link.href} class="flex items-center gap-1 px-2 py-1 text-xs font-medium text-gray-400 hover:text-red-500 rounded transition-colors">
+              <span>{FLAGS[link.label]}</span><span>{link.label}</span>
+            </a>
       ))}
       {navbarConfig.show_client_portal && (
         <a href="https://app.boxtocuba.ca/client"
@@ -109,6 +124,18 @@ const quoteUrl = `https://app.boxtocuba.ca/shipping-quote?lang=${lang}`;
         <a href="https://app.boxtocuba.ca/client" class="text-gray-600 hover:text-red-500 text-sm font-medium transition-colors">{l.portal}</a>
       </>
     )}
+    <hr class="border-gray-100" />
+    <div class="flex items-center gap-2">
+      {ll.map(link => (
+        link.label === CURRENT_LABEL
+          ? <span class="flex items-center gap-1 px-2 py-1 text-xs font-semibold text-gray-800 rounded bg-gray-100">
+              <span>{FLAGS[link.label]}</span><span>{link.label}</span>
+            </span>
+          : <a href={link.href} class="flex items-center gap-1 px-2 py-1 text-xs font-medium text-gray-500 hover:text-red-500 rounded transition-colors">
+              <span>{FLAGS[link.label]}</span><span>{link.label}</span>
+            </a>
+      ))}
+    </div>
   </div>
 </nav>
 
