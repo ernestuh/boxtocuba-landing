@@ -23,13 +23,13 @@ const p = isHome ? '' : '/';   // prefix for anchor links
 
 const LABELS = {
   en: { services: 'Services', how: 'How it Works', destinations: 'Destinations',
-        rates: 'Rates', faq: 'FAQ', contact: 'Contact',
+        cities: 'Cities', rates: 'Rates', faq: 'FAQ', contact: 'Contact',
         portal: 'Client Portal', quote: 'Get Quote' },
   es: { services: 'Servicios', how: 'Cómo funciona', destinations: 'Destinos',
-        rates: 'Tarifas', faq: 'FAQ', contact: 'Contacto',
+        cities: 'Ciudades', rates: 'Tarifas', faq: 'FAQ', contact: 'Contacto',
         portal: 'Portal Cliente', quote: 'Cotizar' },
   fr: { services: 'Services', how: 'Comment ça marche', destinations: 'Destinations',
-        rates: 'Tarifs', faq: 'FAQ', contact: 'Contact',
+        cities: 'Villes', rates: 'Tarifs', faq: 'FAQ', contact: 'Contact',
         portal: 'Espace Client', quote: 'Devis' },
 };
 
@@ -37,6 +37,12 @@ const RATES = {
   en: '/canada-to-cuba-shipping-rates',
   es: '/es/precios-envio-canada-cuba',
   fr: '/fr/tarifs-envoi-canada-cuba',
+};
+
+const CITIES = {
+  en: '/ship-from-canada-to-cuba/',
+  es: '/es/enviar-desde-canada-a-cuba/',
+  fr: '/fr/envoyer-du-canada-a-cuba/',
 };
 
 const DEFAULT_LANG_LINKS: Record<string, LangLink[]> = {
@@ -56,8 +62,29 @@ const ALL_LANG_LINKS: Record<string, LangLink[]> = {
 
 const l = LABELS[lang];
 const ratesUrl = RATES[lang];
+const citiesUrl = CITIES[lang];
 const ll = langLinks ?? ALL_LANG_LINKS[lang];
 const quoteUrl = `https://app.boxtocuba.ca/shipping-quote?lang=${lang}`;
+
+const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+const isRates =
+  pathname === '/canada-to-cuba-shipping-rates' ||
+  pathname === '/es/precios-envio-canada-cuba' ||
+  pathname === '/fr/tarifs-envoi-canada-cuba';
+
+const isCities =
+  pathname === '/ship-from-canada-to-cuba' ||
+  pathname === '/es/enviar-desde-canada-a-cuba' ||
+  pathname === '/fr/envoyer-du-canada-a-cuba' ||
+  (pathname.startsWith('/ship-from-') && pathname.endsWith('-to-cuba')) ||
+  (pathname.startsWith('/es/enviar-desde-') && pathname.endsWith('-a-cuba')) ||
+  (pathname.startsWith('/fr/envoyer-de-') && pathname.endsWith('-a-cuba'));
+
+const navLinkClass = (active: boolean) =>
+  active
+    ? 'text-red-500 font-semibold text-sm border-b-2 border-red-500 pb-0.5'
+    : 'text-gray-500 hover:text-red-500 text-sm transition-colors';
 ---
 
 <nav class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
@@ -73,7 +100,8 @@ const quoteUrl = `https://app.boxtocuba.ca/shipping-quote?lang=${lang}`;
       <a href={`${p}#services`}      class="text-gray-500 hover:text-red-500 text-sm transition-colors">{l.services}</a>
       <a href={`${p}#how-it-works`}  class="text-gray-500 hover:text-red-500 text-sm transition-colors">{l.how}</a>
       <a href={`${p}#destinations`}  class="text-gray-500 hover:text-red-500 text-sm transition-colors">{l.destinations}</a>
-      <a href={ratesUrl}             class="text-red-500 font-semibold text-sm border-b-2 border-red-500 pb-0.5">{l.rates}</a>
+      <a href={citiesUrl}            class={navLinkClass(isCities)}>{l.cities}</a>
+      <a href={ratesUrl}             class={navLinkClass(isRates)}>{l.rates}</a>
       <a href={`${p}#faq`}           class="text-gray-500 hover:text-red-500 text-sm transition-colors">{l.faq}</a>
       {isHome && <a href="#contact"  class="text-gray-500 hover:text-red-500 text-sm transition-colors">{l.contact}</a>}
     </div>
@@ -115,6 +143,7 @@ const quoteUrl = `https://app.boxtocuba.ca/shipping-quote?lang=${lang}`;
     <a href={`${p}#services`}     class="text-gray-600 hover:text-red-500 text-sm font-medium transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">{l.services}</a>
     <a href={`${p}#how-it-works`} class="text-gray-600 hover:text-red-500 text-sm font-medium transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">{l.how}</a>
     <a href={`${p}#destinations`} class="text-gray-600 hover:text-red-500 text-sm font-medium transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">{l.destinations}</a>
+    <a href={citiesUrl}           class="text-gray-600 hover:text-red-500 text-sm font-medium transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">{l.cities}</a>
     <a href={ratesUrl}            class="text-red-500 font-semibold text-sm">{l.rates}</a>
     <a href={`${p}#faq`}          class="text-gray-600 hover:text-red-500 text-sm font-medium transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">{l.faq}</a>
     {isHome && <a href="#contact" class="text-gray-600 hover:text-red-500 text-sm font-medium transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">{l.contact}</a>}

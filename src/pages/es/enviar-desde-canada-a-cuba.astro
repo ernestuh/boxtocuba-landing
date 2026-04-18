@@ -1,0 +1,177 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import { cities } from '../../data/cities';
+
+const alternates = [
+  { hreflang: 'en', href: 'https://boxtocuba.ca/ship-from-canada-to-cuba/' },
+  { hreflang: 'es', href: 'https://boxtocuba.ca/es/enviar-desde-canada-a-cuba/' },
+  { hreflang: 'fr', href: 'https://boxtocuba.ca/fr/envoyer-du-canada-a-cuba/' },
+  { hreflang: 'x-default', href: 'https://boxtocuba.ca/ship-from-canada-to-cuba/' },
+];
+
+const provinceOrder = [
+  'Ontario',
+  'Quebec',
+  'Columbia Británica',
+  'Alberta',
+  'Manitoba',
+  'Nueva Escocia',
+];
+
+const citiesByProvince = provinceOrder.map((province) => ({
+  province,
+  cities: cities.filter((c) => c.province_es === province),
+})).filter((g) => g.cities.length > 0);
+---
+
+<BaseLayout
+  lang="es"
+  title="Enviar desde Canadá a Cuba | Todas las ciudades | Box to Cuba"
+  description="Envía paquetes desde cualquier ciudad de Canadá a Cuba. Box to Cuba ofrece vuelos semanales, entrega puerta a puerta y las mismas tarifas asequibles desde Toronto, Montreal, Vancouver, Calgary y más."
+  alternates={alternates}
+>
+  <Navbar lang="es" />
+
+  <!-- BREADCRUMB -->
+  <div class="bg-gray-50 border-b border-gray-100 px-6 py-3">
+    <div class="max-w-5xl mx-auto text-sm text-gray-400">
+      <a href="/es/" class="hover:text-red-500 transition-colors">Inicio</a>
+      <span class="mx-2">›</span>
+      <span class="text-gray-700">Enviar desde Canadá a Cuba</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="bg-gradient-to-br from-white to-red-50 px-6 py-16">
+    <div class="max-w-5xl mx-auto">
+      <div class="inline-flex items-center gap-2 bg-red-50 text-red-500 text-xs font-semibold px-4 py-2 rounded-full mb-5">
+        ✈️ Vuelos semanales de Canadá a Cuba
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
+        Enviar desde Canadá a Cuba
+      </h1>
+      <p class="text-gray-500 text-lg leading-relaxed max-w-2xl mb-8">
+        Box to Cuba envía paquetes desde ciudades de todo Canadá a Cuba cada semana. Las mismas tarifas asequibles, la misma entrega puerta a puerta — sin importar dónde estés en Canadá.
+      </p>
+      <div class="flex gap-3 flex-wrap">
+        <a href="https://app.boxtocuba.ca/shipping-quote?lang=es" class="px-6 py-3 bg-red-500 text-white font-semibold rounded-xl hover:bg-red-600 transition-colors">Cotizar ahora →</a>
+        <a href="https://wa.me/14168365517" class="px-6 py-3 border border-gray-200 font-semibold rounded-xl hover:border-red-400 hover:text-red-500 transition-colors">WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK STATS -->
+  <section class="border-b border-gray-100 px-6 py-8">
+    <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="text-center">
+        <div class="text-2xl font-extrabold text-red-500">Desde $6/lb</div>
+        <div class="text-xs text-gray-400 mt-1">Tarifa inicial</div>
+      </div>
+      <div class="text-center">
+        <div class="text-2xl font-extrabold text-gray-800">Semanal</div>
+        <div class="text-xs text-gray-400 mt-1">Vuelos a Cuba</div>
+      </div>
+      <div class="text-center">
+        <div class="text-2xl font-extrabold text-gray-800">{cities.length} ciudades</div>
+        <div class="text-xs text-gray-400 mt-1">En todo Canadá</div>
+      </div>
+      <div class="text-center">
+        <div class="text-2xl font-extrabold text-gray-800">16</div>
+        <div class="text-xs text-gray-400 mt-1">Provincias cubanas</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CITIES BY PROVINCE -->
+  <section class="px-6 py-16">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-xs font-bold text-red-500 uppercase tracking-widest mb-2">Ciudades donde operamos</div>
+      <h2 class="text-3xl font-extrabold mb-10">Selecciona tu ciudad</h2>
+
+      <div class="space-y-10">
+        {citiesByProvince.map(({ province, cities: provinceCities }) => (
+          <div>
+            <h3 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">{province}</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+              {provinceCities.map((c) => (
+                <a
+                  href={`/es/enviar-desde-${c.slug}-a-cuba/`}
+                  class="flex items-center justify-between px-5 py-4 bg-white rounded-xl border border-gray-100 shadow-sm hover:border-red-300 hover:shadow-md transition-all group"
+                >
+                  <div>
+                    <div class="font-semibold text-gray-800 group-hover:text-red-500 transition-colors">{c.name}</div>
+                    <div class="text-xs text-gray-400 mt-0.5">{c.province_es}</div>
+                  </div>
+                  <span class="text-red-400 text-lg">→</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="bg-gray-50 px-6 py-16">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-xs font-bold text-red-500 uppercase tracking-widest mb-2">Cómo funciona</div>
+      <h2 class="text-3xl font-extrabold mb-10">Enviar desde Canadá a Cuba en 4 pasos</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {[
+          ['📦', 'Empaca tus artículos', 'Empaca lo que quieres enviar y obtén una cotización gratuita en app.boxtocuba.ca.'],
+          ['🚚', 'Envía a nuestro hub en Toronto', 'Entrega en nuestra oficina de Scarborough o envía tus cajas por Canada Post, Purolator o cualquier mensajería.'],
+          ['✈️', 'Vuelo semanal a Cuba', 'Consolidamos y volamos tu envío a Cuba cada semana — la aduana la manejamos nosotros.'],
+          ['🏠', 'Entrega puerta a puerta', 'Tu familia recibe el paquete en su casa, en cualquier lugar de las 16 provincias de Cuba.'],
+        ].map(([icon, title, desc]) => (
+          <div class="bg-white rounded-2xl border border-gray-100 p-6 flex gap-4 items-start shadow-sm">
+            <span class="text-3xl">{icon}</span>
+            <div>
+              <div class="font-bold text-gray-800 mb-1">{title}</div>
+              <p class="text-gray-500 text-sm leading-relaxed">{desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-gradient-to-r from-blue-900 to-blue-700 text-white text-center py-20 px-6">
+    <h2 class="text-3xl font-extrabold mb-3">¿Listo para enviar desde Canadá?</h2>
+    <p class="opacity-80 mb-8">Obtén una cotización instantánea — sin registro previo.</p>
+    <a href="https://app.boxtocuba.ca/shipping-quote?lang=es" class="inline-block px-8 py-4 bg-red-500 text-white font-bold rounded-xl hover:bg-red-600 transition-colors text-lg">Calcular mi tarifa →</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-gray-400 px-6 py-12">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <div class="font-bold text-white text-lg mb-2">Box to Cuba</div>
+        <p class="text-sm">Envío confiable de paquetes desde Canadá a Cuba. La confianza de las familias desde 2020.</p>
+      </div>
+      <div>
+        <div class="font-semibold text-white mb-3">Enlaces rápidos</div>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/es/precios-envio-canada-cuba" class="hover:text-red-400 transition-colors">Tarifas</a></li>
+          <li><a href="/es/guia-aduana-cuba" class="hover:text-red-400 transition-colors">Guía de aduana</a></li>
+          <li><a href="/es/#faq" class="hover:text-red-400 transition-colors">FAQ</a></li>
+          <li><a href="/es/#contacto" class="hover:text-red-400 transition-colors">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="font-semibold text-white mb-3">Contacto</div>
+        <ul class="space-y-2 text-sm">
+          <li>📞 +1 416-836-5517</li>
+          <li>✉️ info@boxtocuba.ca</li>
+          <li>📍 Toronto y Montreal, Canadá</li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-5xl mx-auto mt-10 pt-6 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+      <span>© 2026 Box to Cuba. Todos los derechos reservados.</span>
+      <span>Política de privacidad · Términos de servicio</span>
+    </div>
+  </footer>
+</BaseLayout>
