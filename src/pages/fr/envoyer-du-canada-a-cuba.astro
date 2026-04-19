@@ -28,7 +28,7 @@ const citiesByProvince = provinceOrder.map((province) => ({
 <BaseLayout
   lang="fr"
   title="Envoi du Canada vers Cuba | Toutes les villes | Box to Cuba"
-  description="Expédiez des colis depuis n'importe quelle ville du Canada vers Cuba. Box to Cuba offre des vols hebdomadaires, une livraison porte-à-porte et les mêmes tarifs abordables depuis Toronto, Montréal, Vancouver, Calgary et plus."
+  description="Expédiez des colis depuis n'importe quelle ville du Canada vers Cuba. Box to Cuba offre des vols hebdomadaires, livraison porte-à-porte à La Havane, point de retrait dans les autres provinces, et les mêmes tarifs abordables depuis Toronto, Montréal, Vancouver, Calgary et plus."
   alternates={alternates}
 >
   <Navbar lang="fr" />
@@ -52,7 +52,7 @@ const citiesByProvince = provinceOrder.map((province) => ({
         Envoyer du Canada vers Cuba
       </h1>
       <p class="text-gray-500 text-lg leading-relaxed max-w-2xl mb-8">
-        Box to Cuba expédie des colis depuis des villes de tout le Canada vers Cuba chaque semaine. Mêmes tarifs abordables, même livraison porte-à-porte — peu importe où vous êtes au Canada.
+        Box to Cuba expédie des colis depuis des villes de tout le Canada vers Cuba chaque semaine. Mêmes tarifs abordables — livraison porte-à-porte à La Havane, point de retrait dans les autres provinces — peu importe où vous êtes au Canada.
       </p>
       <div class="flex gap-3 flex-wrap">
         <a href="https://app.boxtocuba.ca/shipping-quote?lang=fr" class="px-6 py-3 bg-red-500 text-white font-semibold rounded-xl hover:bg-red-600 transition-colors">Obtenir un devis →</a>
@@ -123,7 +123,7 @@ const citiesByProvince = provinceOrder.map((province) => ({
           ['📦', 'Emballez vos articles', 'Emballez ce que vous souhaitez envoyer et obtenez un devis gratuit sur app.boxtocuba.ca.'],
           ['🚚', 'Envoyez à notre hub de Toronto', 'Déposez à notre bureau de Scarborough ou expédiez vos boîtes via Postes Canada, Purolator ou tout service de messagerie.'],
           ['✈️', 'Vol hebdomadaire vers Cuba', 'Nous consolidons et expédions votre envoi vers Cuba chaque semaine — la douane est gérée par nous.'],
-          ['🏠', 'Livraison porte-à-porte', 'Votre famille reçoit le colis à domicile, partout dans les 16 provinces de Cuba.'],
+          ['🏠', 'Livraison à Cuba incluse', 'Porte-à-porte à La Havane ; point de retrait dans les autres provinces.'],
         ].map(([icon, title, desc]) => (
           <div class="bg-white rounded-2xl border border-gray-100 p-6 flex gap-4 items-start shadow-sm">
             <span class="text-3xl">{icon}</span>

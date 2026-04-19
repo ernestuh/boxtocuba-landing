@@ -28,7 +28,7 @@ const citiesByProvince = provinceOrder.map((province) => ({
 <BaseLayout
   lang="es"
   title="Enviar desde Canadá a Cuba | Todas las ciudades | Box to Cuba"
-  description="Envía paquetes desde cualquier ciudad de Canadá a Cuba. Box to Cuba ofrece vuelos semanales, entrega puerta a puerta y las mismas tarifas asequibles desde Toronto, Montreal, Vancouver, Calgary y más."
+  description="Envía paquetes desde cualquier ciudad de Canadá a Cuba. Box to Cuba ofrece vuelos semanales, entrega puerta a puerta en La Habana, punto de recogida en otras provincias, y tarifas asequibles desde Toronto, Montreal, Vancouver, Calgary y más."
   alternates={alternates}
 >
   <Navbar lang="es" />
@@ -52,7 +52,7 @@ const citiesByProvince = provinceOrder.map((province) => ({
         Enviar desde Canadá a Cuba
       </h1>
       <p class="text-gray-500 text-lg leading-relaxed max-w-2xl mb-8">
-        Box to Cuba envía paquetes desde ciudades de todo Canadá a Cuba cada semana. Las mismas tarifas asequibles, la misma entrega puerta a puerta — sin importar dónde estés en Canadá.
+        Box to Cuba envía paquetes desde ciudades de todo Canadá a Cuba cada semana. Las mismas tarifas asequibles — entrega puerta a puerta en La Habana, punto de recogida en otras provincias — sin importar dónde estés en Canadá.
       </p>
       <div class="flex gap-3 flex-wrap">
         <a href="https://app.boxtocuba.ca/shipping-quote?lang=es" class="px-6 py-3 bg-red-500 text-white font-semibold rounded-xl hover:bg-red-600 transition-colors">Cotizar ahora →</a>
@@ -123,7 +123,7 @@ const citiesByProvince = provinceOrder.map((province) => ({
           ['📦', 'Empaca tus artículos', 'Empaca lo que quieres enviar y obtén una cotización gratuita en app.boxtocuba.ca.'],
           ['🚚', 'Envía a nuestro hub en Toronto', 'Entrega en nuestra oficina de Scarborough o envía tus cajas por Canada Post, Purolator o cualquier mensajería.'],
           ['✈️', 'Vuelo semanal a Cuba', 'Consolidamos y volamos tu envío a Cuba cada semana — la aduana la manejamos nosotros.'],
-          ['🏠', 'Entrega puerta a puerta', 'Tu familia recibe el paquete en su casa, en cualquier lugar de las 16 provincias de Cuba.'],
+          ['🏠', 'Entrega en Cuba incluida', 'Puerta a puerta en La Habana; punto de recogida en el resto de las provincias.'],
         ].map(([icon, title, desc]) => (
           <div class="bg-white rounded-2xl border border-gray-100 p-6 flex gap-4 items-start shadow-sm">
             <span class="text-3xl">{icon}</span>

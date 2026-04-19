@@ -47,7 +47,7 @@ const centralTiers = priceTiersByGroup['central-eastern'];
 <BaseLayout
   lang="fr"
   title={`Envoi de colis depuis ${c.name} vers Cuba | Box to Cuba`}
-  description={`Envoyez des colis depuis ${c.name}, ${c.province_fr} vers Cuba. Vols hebdomadaires, livraison porte-à-porte. À partir de $6 CAD/lb. Collecte à domicile disponible. Obtenez un devis gratuit.`}
+  description={`Envoyez des colis depuis ${c.name}, ${c.province_fr} vers Cuba. Vols hebdomadaires, porte-à-porte à La Havane, point de retrait dans les autres provinces. À partir de $6 CAD/lb. Obtenez un devis gratuit.`}
   faqItems={c.faq_fr}
   alternates={alternates}
 >
@@ -119,7 +119,7 @@ const centralTiers = priceTiersByGroup['central-eastern'];
             ['📦', 'Emballez vos articles et demandez un devis en ligne'],
             ['🚗', 'Déposez à notre bureau ou planifiez une collecte à domicile'],
             ['✈️', 'Vol hebdomadaire vers Cuba — nous gérons les douanes'],
-            ['🏠', 'Livraison porte-à-porte à votre famille'],
+            ['🏠', 'Livraison à votre famille — porte-à-porte à La Havane, point de retrait dans les autres provinces'],
           ].map(([icon, text]) => (
             <div class="flex items-center gap-3 text-sm text-gray-700">
               <span class="text-xl">{icon}</span>
@@ -192,7 +192,7 @@ const centralTiers = priceTiersByGroup['central-eastern'];
           <a href="https://wa.me/14168365517" class="flex-shrink-0 text-xs font-semibold text-amber-700 border border-amber-400 rounded-lg px-3 py-2 hover:bg-amber-100 transition-colors whitespace-nowrap">💬 Nous contacter</a>
         </div>
       )}
-      <p class="text-xs text-gray-400 mt-4">* Livraison à Cuba incluse (porte-à-porte). La collecte au Canada n'est pas incluse dans les tarifs indiqués.</p>
+      <p class="text-xs text-gray-400 mt-4">* Livraison à Cuba incluse (porte-à-porte à La Havane, point de retrait dans les autres provinces). La collecte au Canada n'est pas incluse dans les tarifs indiqués.</p>
     </div>
   </section>
 
