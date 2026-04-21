@@ -1,0 +1,166 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+
+const alternates = [
+  { hreflang: 'en', href: 'https://boxtocuba.ca/privacy-policy/' },
+  { hreflang: 'x-default', href: 'https://boxtocuba.ca/privacy-policy/' },
+];
+
+const lastUpdated = 'April 19, 2025';
+---
+
+<BaseLayout
+  lang="en"
+  title="Privacy Policy"
+  description="Learn how Box to Cuba collects, uses, and protects your personal information when you use our shipping services from Canada to Cuba."
+  alternates={alternates}
+>
+  <Navbar lang="en" />
+
+  <div class="bg-gray-50 border-b border-gray-100 px-6 py-3">
+    <div class="max-w-3xl mx-auto text-sm text-gray-400">
+      <a href="/" class="hover:text-red-500 transition-colors">Home</a>
+      <span class="mx-2">›</span>
+      <span class="text-gray-700">Privacy Policy</span>
+    </div>
+  </div>
+
+  <main class="max-w-3xl mx-auto px-6 py-14">
+
+    <h1 class="text-4xl font-extrabold text-gray-900 mb-2">Privacy Policy</h1>
+    <p class="text-sm text-gray-400 mb-10">Last updated: {lastUpdated}</p>
+
+    <div class="prose prose-gray max-w-none space-y-10 text-gray-600 leading-relaxed">
+
+      <!-- Intro -->
+      <section>
+        <p>
+          Box to Cuba ("we", "us", or "our") is committed to protecting your personal information. This Privacy Policy explains what data we collect, how we use it, and your rights under Canadian federal law (PIPEDA) and Quebec's Law 25.
+        </p>
+        <p class="mt-3">
+          By using our website at <a href="https://boxtocuba.ca" class="text-red-500 hover:underline">boxtocuba.ca</a> or our shipping services, you agree to the practices described in this policy.
+        </p>
+      </section>
+
+      <!-- 1. What we collect -->
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">1. Information We Collect</h2>
+        <p>We collect personal information that you provide directly to us, including:</p>
+        <ul class="list-disc pl-5 mt-3 space-y-1">
+          <li><strong>Sender information:</strong> full name, phone number, email address, and mailing address in Canada.</li>
+          <li><strong>Recipient information:</strong> full name, home address, phone number, and national identity number (carnet) in Cuba — required by Cuban customs authorities.</li>
+          <li><strong>Shipment details:</strong> contents, weight, declared value, and any special instructions.</li>
+          <li><strong>Payment information:</strong> we accept cash and Interac e-Transfer. We do not store credit card or banking details.</li>
+          <li><strong>Website usage data:</strong> anonymous analytics data collected via Google Analytics (pages visited, session duration, device type). This data does not identify you personally.</li>
+        </ul>
+      </section>
+
+      <!-- 2. How we use it -->
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">2. How We Use Your Information</h2>
+        <p>We use the information we collect to:</p>
+        <ul class="list-disc pl-5 mt-3 space-y-1">
+          <li>Process, ship, and deliver your packages to Cuba.</li>
+          <li>Complete Canadian and Cuban customs documentation as required by law.</li>
+          <li>Contact you regarding your shipment status or any issues that arise.</li>
+          <li>Comply with legal and regulatory obligations in Canada and Cuba.</li>
+          <li>Improve our website and services using aggregated, anonymous analytics data.</li>
+        </ul>
+        <p class="mt-3">We only collect information that is necessary to provide our services. We do not use your data for advertising or sell it to any third party.</p>
+      </section>
+
+      <!-- 3. Sharing -->
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">3. Who We Share Your Information With</h2>
+        <p>To complete your shipment, we may share your information with:</p>
+        <ul class="list-disc pl-5 mt-3 space-y-1">
+          <li><strong>Carriers and logistics partners</strong> involved in transporting your package from Canada to Cuba.</li>
+          <li><strong>Customs authorities</strong> in Canada (CBSA) and Cuba, as required by law.</li>
+          <li><strong>Delivery agents in Cuba</strong> responsible for last-mile delivery to your recipient.</li>
+          <li><strong>Google LLC</strong> for website analytics purposes. Google Analytics collects anonymous usage data. For more information, see <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" class="text-red-500 hover:underline">Google's Privacy Policy</a>.</li>
+        </ul>
+        <p class="mt-3">We do not sell, rent, or trade your personal information to any other third parties.</p>
+      </section>
+
+      <!-- 4. International transfers -->
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">4. International Transfer of Data</h2>
+        <p>
+          To deliver your package, recipient information (name, address, phone number, and identity number) must be transmitted to our delivery partners in Cuba. By using our services, you acknowledge and consent to this transfer, which is necessary to complete your shipment.
+        </p>
+        <p class="mt-3">
+          Cuba may not have privacy laws equivalent to Canadian standards. We take reasonable contractual measures to protect your data with our partners, but we cannot guarantee the same level of protection once data is in Cuba.
+        </p>
+      </section>
+
+      <!-- 5. Retention -->
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">5. How Long We Keep Your Data</h2>
+        <ul class="list-disc pl-5 mt-3 space-y-1">
+          <li><strong>Shipping records:</strong> retained for 7 years to comply with Canadian tax and customs regulations.</li>
+          <li><strong>Analytics data:</strong> retained according to Google Analytics' default retention policy (up to 14 months).</li>
+          <li>Once retention periods expire, your data is securely deleted or anonymized.</li>
+        </ul>
+      </section>
+
+      <!-- 6. Cookies -->
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">6. Cookies and Analytics</h2>
+        <p>
+          Our website uses Google Analytics to understand how visitors interact with our site. Google Analytics uses cookies — small text files stored in your browser — to collect anonymous usage data such as pages visited, time spent on site, and device type.
+        </p>
+        <p class="mt-3">
+          This data does not identify you personally. If you wish to opt out of Google Analytics tracking, you can install the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener" class="text-red-500 hover:underline">Google Analytics Opt-out Browser Add-on</a>.
+        </p>
+      </section>
+
+      <!-- 7. Security -->
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">7. Data Security</h2>
+        <p>
+          We take reasonable steps to protect your personal information from unauthorized access, use, or disclosure. Our customer portal uses encrypted tokens for authentication, and sensitive data is stored in secured databases with restricted access.
+        </p>
+        <p class="mt-3">
+          In the event of a data breach that poses a real risk of significant harm, we will notify affected individuals and the relevant authorities within 30 days of becoming aware of the breach, as required by PIPEDA and Quebec's Law 25.
+        </p>
+      </section>
+
+      <!-- 8. Your rights -->
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">8. Your Rights</h2>
+        <p>Under PIPEDA and Quebec's Law 25, you have the right to:</p>
+        <ul class="list-disc pl-5 mt-3 space-y-1">
+          <li><strong>Access</strong> the personal information we hold about you.</li>
+          <li><strong>Correct</strong> any inaccurate or incomplete information.</li>
+          <li><strong>Request deletion</strong> of your data, subject to our legal retention obligations.</li>
+          <li><strong>Withdraw consent</strong> for processing that is not strictly necessary to deliver your shipment.</li>
+          <li><strong>File a complaint</strong> with the Office of the Privacy Commissioner of Canada (<a href="https://www.priv.gc.ca" target="_blank" rel="noopener" class="text-red-500 hover:underline">priv.gc.ca</a>) or the Commission d'accès à l'information du Québec if you believe your rights have been violated.</li>
+        </ul>
+        <p class="mt-3">To exercise any of these rights, contact us at the details below.</p>
+      </section>
+
+      <!-- 9. Privacy officer -->
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">9. Privacy Officer</h2>
+        <p>As required by Quebec's Law 25, we have designated a Privacy Officer responsible for ensuring compliance with this policy:</p>
+        <ul class="list-none mt-3 space-y-1">
+          <li><strong>Box to Cuba</strong></li>
+          <li>Toronto, Ontario, Canada</li>
+          <li>Email: <a href="mailto:info@boxtocuba.ca" class="text-red-500 hover:underline">info@boxtocuba.ca</a></li>
+          <li>Phone: <a href="tel:+14168365517" class="text-red-500 hover:underline">+1 (416) 836-5517</a></li>
+        </ul>
+      </section>
+
+      <!-- 10. Changes -->
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">10. Changes to This Policy</h2>
+        <p>
+          We may update this Privacy Policy from time to time. When we do, we will revise the "Last updated" date at the top of this page. We encourage you to review this policy periodically. Continued use of our services after any changes constitutes your acceptance of the updated policy.
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+</BaseLayout>

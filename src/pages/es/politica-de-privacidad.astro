@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+
+const alternates = [
+  { hreflang: 'en', href: 'https://boxtocuba.ca/privacy-policy/' },
+  { hreflang: 'es', href: 'https://boxtocuba.ca/es/politica-de-privacidad/' },
+  { hreflang: 'fr', href: 'https://boxtocuba.ca/fr/politique-de-confidentialite/' },
+  { hreflang: 'x-default', href: 'https://boxtocuba.ca/privacy-policy/' },
+];
+
+const lastUpdated = '19 de abril de 2025';
+---
+
+<BaseLayout
+  lang="es"
+  title="Política de Privacidad"
+  description="Conoce cómo Box to Cuba recopila, usa y protege tu información personal cuando utilizas nuestros servicios de envío de Canadá a Cuba."
+  alternates={alternates}
+>
+  <Navbar lang="es" />
+
+  <div class="bg-gray-50 border-b border-gray-100 px-6 py-3">
+    <div class="max-w-3xl mx-auto text-sm text-gray-400">
+      <a href="/es/" class="hover:text-red-500 transition-colors">Inicio</a>
+      <span class="mx-2">›</span>
+      <span class="text-gray-700">Política de Privacidad</span>
+    </div>
+  </div>
+
+  <main class="max-w-3xl mx-auto px-6 py-14">
+
+    <h1 class="text-4xl font-extrabold text-gray-900 mb-2">Política de Privacidad</h1>
+    <p class="text-sm text-gray-400 mb-10">Última actualización: {lastUpdated}</p>
+
+    <div class="prose prose-gray max-w-none space-y-10 text-gray-600 leading-relaxed">
+
+      <section>
+        <p>
+          Box to Cuba ("nosotros" o "nuestro") se compromete a proteger tu información personal. Esta Política de Privacidad explica qué datos recopilamos, cómo los usamos y tus derechos bajo la ley federal canadiense (PIPEDA) y la Ley 25 de Quebec.
+        </p>
+        <p class="mt-3">
+          Al usar nuestro sitio web en <a href="https://boxtocuba.ca" class="text-red-500 hover:underline">boxtocuba.ca</a> o nuestros servicios de envío, aceptas las prácticas descritas en esta política.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">1. Información que recopilamos</h2>
+        <p>Recopilamos la información personal que nos proporcionas directamente, incluyendo:</p>
+        <ul class="list-disc pl-5 mt-3 space-y-1">
+          <li><strong>Datos del remitente:</strong> nombre completo, teléfono, correo electrónico y dirección en Canadá.</li>
+          <li><strong>Datos del destinatario:</strong> nombre completo, dirección, teléfono y número de carnet de identidad en Cuba — requerido por las autoridades aduaneras cubanas.</li>
+          <li><strong>Detalles del envío:</strong> contenido, peso, valor declarado e instrucciones especiales.</li>
+          <li><strong>Información de pago:</strong> aceptamos efectivo y Interac e-Transfer. No almacenamos datos bancarios ni de tarjetas de crédito.</li>
+          <li><strong>Datos de navegación:</strong> datos anónimos de analíticas recopilados mediante Google Analytics (páginas visitadas, duración de sesión, tipo de dispositivo). Estos datos no te identifican personalmente.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">2. Cómo usamos tu información</h2>
+        <p>Usamos la información recopilada para:</p>
+        <ul class="list-disc pl-5 mt-3 space-y-1">
+          <li>Procesar, enviar y entregar tus paquetes a Cuba.</li>
+          <li>Completar la documentación aduanera canadiense y cubana según lo exige la ley.</li>
+          <li>Contactarte sobre el estado de tu envío o cualquier incidencia.</li>
+          <li>Cumplir con las obligaciones legales y regulatorias en Canadá y Cuba.</li>
+          <li>Mejorar nuestro sitio web y servicios usando datos anónimos de analíticas.</li>
+        </ul>
+        <p class="mt-3">Solo recopilamos la información necesaria para prestar nuestros servicios. No usamos tus datos para publicidad ni los vendemos a terceros.</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">3. Con quién compartimos tu información</h2>
+        <p>Para completar tu envío, podemos compartir tu información con:</p>
+        <ul class="list-disc pl-5 mt-3 space-y-1">
+          <li><strong>Transportistas y socios logísticos</strong> involucrados en el traslado de tu paquete de Canadá a Cuba.</li>
+          <li><strong>Autoridades aduaneras</strong> de Canadá (CBSA) y Cuba, según lo exige la ley.</li>
+          <li><strong>Agentes de entrega en Cuba</strong> responsables de la entrega de última milla.</li>
+          <li><strong>Google LLC</strong> para analíticas del sitio web. Google Analytics recopila datos anónimos de uso. Para más información, consulta la <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" class="text-red-500 hover:underline">Política de Privacidad de Google</a>.</li>
+        </ul>
+        <p class="mt-3">No vendemos, alquilamos ni cedemos tu información personal a ningún otro tercero.</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">4. Transferencia internacional de datos</h2>
+        <p>
+          Para entregar tu paquete, los datos del destinatario (nombre, dirección, teléfono y número de identidad) deben transmitirse a nuestros socios de entrega en Cuba. Al usar nuestros servicios, reconoces y consientes esta transferencia, necesaria para completar tu envío.
+        </p>
+        <p class="mt-3">
+          Cuba puede no contar con leyes de privacidad equivalentes a los estándares canadienses. Tomamos medidas contractuales razonables para proteger tus datos con nuestros socios, pero no podemos garantizar el mismo nivel de protección una vez que los datos estén en Cuba.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">5. Por cuánto tiempo conservamos tus datos</h2>
+        <ul class="list-disc pl-5 mt-3 space-y-1">
+          <li><strong>Registros de envío:</strong> conservados durante 7 años para cumplir con las regulaciones fiscales y aduaneras canadienses.</li>
+          <li><strong>Datos de analíticas:</strong> conservados según la política de retención predeterminada de Google Analytics (hasta 14 meses).</li>
+          <li>Una vez vencidos los plazos de retención, tus datos se eliminan de forma segura o se anonimiza.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">6. Cookies y analíticas</h2>
+        <p>
+          Nuestro sitio web utiliza Google Analytics para entender cómo los visitantes interactúan con él. Google Analytics usa cookies — pequeños archivos de texto almacenados en tu navegador — para recopilar datos anónimos de uso como páginas visitadas, tiempo en el sitio y tipo de dispositivo.
+        </p>
+        <p class="mt-3">
+          Estos datos no te identifican personalmente. Si deseas desactivar el seguimiento de Google Analytics, puedes instalar el <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener" class="text-red-500 hover:underline">complemento de inhabilitación de Google Analytics</a>.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">7. Seguridad de los datos</h2>
+        <p>
+          Tomamos medidas razonables para proteger tu información personal contra accesos, usos o divulgaciones no autorizados. Nuestro portal de clientes usa tokens cifrados para la autenticación, y los datos sensibles se almacenan en bases de datos seguras con acceso restringido.
+        </p>
+        <p class="mt-3">
+          En caso de una violación de datos que represente un riesgo real de daño significativo, notificaremos a las personas afectadas y a las autoridades competentes dentro de los 30 días siguientes al descubrimiento, según lo exigen PIPEDA y la Ley 25 de Quebec.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">8. Tus derechos</h2>
+        <p>Bajo PIPEDA y la Ley 25 de Quebec, tienes derecho a:</p>
+        <ul class="list-disc pl-5 mt-3 space-y-1">
+          <li><strong>Acceder</strong> a la información personal que tenemos sobre ti.</li>
+          <li><strong>Corregir</strong> cualquier información inexacta o incompleta.</li>
+          <li><strong>Solicitar la eliminación</strong> de tus datos, sujeto a nuestras obligaciones de retención legal.</li>
+          <li><strong>Retirar tu consentimiento</strong> para el procesamiento que no sea estrictamente necesario para completar tu envío.</li>
+          <li><strong>Presentar una queja</strong> ante la Oficina del Comisionado de Privacidad de Canadá (<a href="https://www.priv.gc.ca" target="_blank" rel="noopener" class="text-red-500 hover:underline">priv.gc.ca</a>) o la Commission d'accès à l'information du Québec si consideras que tus derechos han sido vulnerados.</li>
+        </ul>
+        <p class="mt-3">Para ejercer cualquiera de estos derechos, contáctanos en los datos que aparecen a continuación.</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">9. Responsable de privacidad</h2>
+        <p>Según lo exige la Ley 25 de Quebec, hemos designado un Responsable de Privacidad encargado de garantizar el cumplimiento de esta política:</p>
+        <ul class="list-none mt-3 space-y-1">
+          <li><strong>Box to Cuba</strong></li>
+          <li>Toronto, Ontario, Canadá</li>
+          <li>Correo: <a href="mailto:info@boxtocuba.ca" class="text-red-500 hover:underline">info@boxtocuba.ca</a></li>
+          <li>Teléfono: <a href="tel:+14168365517" class="text-red-500 hover:underline">+1 (416) 836-5517</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">10. Cambios a esta política</h2>
+        <p>
+          Podemos actualizar esta Política de Privacidad periódicamente. Cuando lo hagamos, revisaremos la fecha de "Última actualización" en la parte superior de esta página. Te recomendamos revisar esta política regularmente. El uso continuado de nuestros servicios después de cualquier cambio constituye tu aceptación de la política actualizada.
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+</BaseLayout>

@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+
+const alternates = [
+  { hreflang: 'en', href: 'https://boxtocuba.ca/privacy-policy/' },
+  { hreflang: 'es', href: 'https://boxtocuba.ca/es/politica-de-privacidad/' },
+  { hreflang: 'fr', href: 'https://boxtocuba.ca/fr/politique-de-confidentialite/' },
+  { hreflang: 'x-default', href: 'https://boxtocuba.ca/privacy-policy/' },
+];
+
+const lastUpdated = '19 avril 2025';
+---
+
+<BaseLayout
+  lang="fr"
+  title="Politique de confidentialité"
+  description="Découvrez comment Box to Cuba collecte, utilise et protège vos informations personnelles lorsque vous utilisez nos services d'expédition du Canada vers Cuba."
+  alternates={alternates}
+>
+  <Navbar lang="fr" />
+
+  <div class="bg-gray-50 border-b border-gray-100 px-6 py-3">
+    <div class="max-w-3xl mx-auto text-sm text-gray-400">
+      <a href="/fr/" class="hover:text-red-500 transition-colors">Accueil</a>
+      <span class="mx-2">›</span>
+      <span class="text-gray-700">Politique de confidentialité</span>
+    </div>
+  </div>
+
+  <main class="max-w-3xl mx-auto px-6 py-14">
+
+    <h1 class="text-4xl font-extrabold text-gray-900 mb-2">Politique de confidentialité</h1>
+    <p class="text-sm text-gray-400 mb-10">Dernière mise à jour : {lastUpdated}</p>
+
+    <div class="prose prose-gray max-w-none space-y-10 text-gray-600 leading-relaxed">
+
+      <section>
+        <p>
+          Box to Cuba (« nous » ou « notre ») s'engage à protéger vos informations personnelles. Cette politique de confidentialité explique quelles données nous collectons, comment nous les utilisons et vos droits en vertu de la loi fédérale canadienne (LPRPDE) et de la Loi 25 du Québec.
+        </p>
+        <p class="mt-3">
+          En utilisant notre site web à l'adresse <a href="https://boxtocuba.ca" class="text-red-500 hover:underline">boxtocuba.ca</a> ou nos services d'expédition, vous acceptez les pratiques décrites dans cette politique.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">1. Informations que nous collectons</h2>
+        <p>Nous collectons les informations personnelles que vous nous fournissez directement, notamment :</p>
+        <ul class="list-disc pl-5 mt-3 space-y-1">
+          <li><strong>Informations sur l'expéditeur :</strong> nom complet, numéro de téléphone, adresse e-mail et adresse postale au Canada.</li>
+          <li><strong>Informations sur le destinataire :</strong> nom complet, adresse, numéro de téléphone et numéro de carte d'identité nationale à Cuba — requis par les autorités douanières cubaines.</li>
+          <li><strong>Détails de l'envoi :</strong> contenu, poids, valeur déclarée et instructions particulières.</li>
+          <li><strong>Informations de paiement :</strong> nous acceptons les espèces et les virements Interac. Nous ne stockons pas de données bancaires ni de carte de crédit.</li>
+          <li><strong>Données de navigation :</strong> données analytiques anonymes collectées via Google Analytics (pages visitées, durée de session, type d'appareil). Ces données ne vous identifient pas personnellement.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">2. Comment nous utilisons vos informations</h2>
+        <p>Nous utilisons les informations collectées pour :</p>
+        <ul class="list-disc pl-5 mt-3 space-y-1">
+          <li>Traiter, expédier et livrer vos colis à Cuba.</li>
+          <li>Compléter la documentation douanière canadienne et cubaine requise par la loi.</li>
+          <li>Vous contacter concernant l'état de votre envoi ou tout problème éventuel.</li>
+          <li>Respecter les obligations légales et réglementaires au Canada et à Cuba.</li>
+          <li>Améliorer notre site web et nos services grâce à des données analytiques agrégées et anonymes.</li>
+        </ul>
+        <p class="mt-3">Nous ne collectons que les informations nécessaires à la prestation de nos services. Nous n'utilisons pas vos données à des fins publicitaires et ne les vendons à aucun tiers.</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">3. Avec qui nous partageons vos informations</h2>
+        <p>Pour compléter votre envoi, nous pouvons partager vos informations avec :</p>
+        <ul class="list-disc pl-5 mt-3 space-y-1">
+          <li><strong>Les transporteurs et partenaires logistiques</strong> impliqués dans le transport de votre colis du Canada vers Cuba.</li>
+          <li><strong>Les autorités douanières</strong> du Canada (ASFC) et de Cuba, conformément à la loi.</li>
+          <li><strong>Les agents de livraison à Cuba</strong> responsables de la livraison du dernier kilomètre.</li>
+          <li><strong>Google LLC</strong> à des fins d'analyse du site web. Google Analytics collecte des données d'utilisation anonymes. Pour plus d'informations, consultez la <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" class="text-red-500 hover:underline">Politique de confidentialité de Google</a>.</li>
+        </ul>
+        <p class="mt-3">Nous ne vendons, ne louons ni ne cédons vos informations personnelles à aucun autre tiers.</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">4. Transfert international de données</h2>
+        <p>
+          Pour livrer votre colis, les informations du destinataire (nom, adresse, numéro de téléphone et numéro d'identité) doivent être transmises à nos partenaires de livraison à Cuba. En utilisant nos services, vous reconnaissez et consentez à ce transfert, nécessaire pour compléter votre envoi.
+        </p>
+        <p class="mt-3">
+          Cuba peut ne pas disposer de lois sur la protection de la vie privée équivalentes aux normes canadiennes. Nous prenons des mesures contractuelles raisonnables pour protéger vos données auprès de nos partenaires, mais nous ne pouvons pas garantir le même niveau de protection une fois les données à Cuba.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">5. Durée de conservation de vos données</h2>
+        <ul class="list-disc pl-5 mt-3 space-y-1">
+          <li><strong>Dossiers d'expédition :</strong> conservés pendant 7 ans pour respecter les réglementations fiscales et douanières canadiennes.</li>
+          <li><strong>Données analytiques :</strong> conservées selon la politique de rétention par défaut de Google Analytics (jusqu'à 14 mois).</li>
+          <li>Une fois les délais de conservation expirés, vos données sont supprimées de manière sécurisée ou anonymisées.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">6. Cookies et données analytiques</h2>
+        <p>
+          Notre site web utilise Google Analytics pour comprendre comment les visiteurs interagissent avec lui. Google Analytics utilise des cookies — de petits fichiers texte stockés dans votre navigateur — pour collecter des données d'utilisation anonymes telles que les pages visitées, le temps passé sur le site et le type d'appareil.
+        </p>
+        <p class="mt-3">
+          Ces données ne vous identifient pas personnellement. Si vous souhaitez désactiver le suivi Google Analytics, vous pouvez installer le <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener" class="text-red-500 hover:underline">module complémentaire de désactivation de Google Analytics</a>.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">7. Sécurité des données</h2>
+        <p>
+          Nous prenons des mesures raisonnables pour protéger vos informations personnelles contre tout accès, utilisation ou divulgation non autorisés. Notre portail client utilise des jetons chiffrés pour l'authentification, et les données sensibles sont stockées dans des bases de données sécurisées à accès restreint.
+        </p>
+        <p class="mt-3">
+          En cas de violation de données présentant un risque réel de préjudice important, nous notifierons les personnes concernées et les autorités compétentes dans les 30 jours suivant la découverte de la violation, conformément à la LPRPDE et à la Loi 25 du Québec.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">8. Vos droits</h2>
+        <p>En vertu de la LPRPDE et de la Loi 25 du Québec, vous avez le droit de :</p>
+        <ul class="list-disc pl-5 mt-3 space-y-1">
+          <li><strong>Accéder</strong> aux informations personnelles que nous détenons sur vous.</li>
+          <li><strong>Corriger</strong> toute information inexacte ou incomplète.</li>
+          <li><strong>Demander la suppression</strong> de vos données, sous réserve de nos obligations légales de conservation.</li>
+          <li><strong>Retirer votre consentement</strong> pour tout traitement qui n'est pas strictement nécessaire à la livraison de votre envoi.</li>
+          <li><strong>Déposer une plainte</strong> auprès du Commissariat à la protection de la vie privée du Canada (<a href="https://www.priv.gc.ca" target="_blank" rel="noopener" class="text-red-500 hover:underline">priv.gc.ca</a>) ou de la Commission d'accès à l'information du Québec si vous estimez que vos droits ont été violés.</li>
+        </ul>
+        <p class="mt-3">Pour exercer l'un de ces droits, contactez-nous aux coordonnées ci-dessous.</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">9. Responsable de la protection des données</h2>
+        <p>Conformément aux exigences de la Loi 25 du Québec, nous avons désigné un responsable de la protection des données chargé d'assurer le respect de cette politique :</p>
+        <ul class="list-none mt-3 space-y-1">
+          <li><strong>Box to Cuba</strong></li>
+          <li>Toronto, Ontario, Canada</li>
+          <li>Courriel : <a href="mailto:info@boxtocuba.ca" class="text-red-500 hover:underline">info@boxtocuba.ca</a></li>
+          <li>Téléphone : <a href="tel:+14168365517" class="text-red-500 hover:underline">+1 (416) 836-5517</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-gray-900 mb-3">10. Modifications de cette politique</h2>
+        <p>
+          Nous pouvons mettre à jour cette politique de confidentialité de temps à autre. Lorsque nous le ferons, nous réviserons la date de « Dernière mise à jour » en haut de cette page. Nous vous encourageons à consulter cette politique régulièrement. L'utilisation continue de nos services après toute modification constitue votre acceptation de la politique mise à jour.
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+</BaseLayout>

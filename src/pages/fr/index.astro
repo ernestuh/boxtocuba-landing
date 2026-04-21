@@ -229,20 +229,34 @@ const t = (key: string) => ct(content, key);
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
         <div class="flex flex-col gap-4">
-          {[
-            ['📞', t('contact.phone_label'), t('contact.phone_value')],
-            ['✉️', t('contact.email_label'), t('contact.email_value')],
-            ['📍', t('contact.location_label'), t('contact.location_value')],
-            ['💬', t('contact.whatsapp_label'), t('contact.whatsapp_value')],
-          ].map(([icon, label, value]) => (
-            <div class="flex items-center gap-4 bg-white rounded-xl px-5 py-4 shadow-sm border border-gray-100">
-              <div class="w-10 h-10 bg-red-50 rounded-lg flex items-center justify-center text-lg flex-shrink-0">{icon}</div>
-              <div>
-                <div class="text-xs font-semibold text-gray-400 uppercase tracking-wide">{label}</div>
-                <div class="font-semibold text-gray-800 text-sm mt-0.5">{value}</div>
-              </div>
+          <a href="tel:+14168365517" class="flex items-center gap-4 bg-white rounded-xl px-5 py-4 shadow-sm border border-gray-100 hover:border-red-200 transition-colors">
+            <div class="w-10 h-10 bg-red-50 rounded-lg flex items-center justify-center text-lg flex-shrink-0">📞</div>
+            <div>
+              <div class="text-xs font-semibold text-gray-400 uppercase tracking-wide">{t('contact.phone_label')}</div>
+              <div class="font-semibold text-red-500 text-sm mt-0.5">{t('contact.phone_value')}</div>
             </div>
-          ))}
+          </a>
+          <a href="mailto:info@boxtocuba.ca" class="flex items-center gap-4 bg-white rounded-xl px-5 py-4 shadow-sm border border-gray-100 hover:border-red-200 transition-colors">
+            <div class="w-10 h-10 bg-red-50 rounded-lg flex items-center justify-center text-lg flex-shrink-0">✉️</div>
+            <div>
+              <div class="text-xs font-semibold text-gray-400 uppercase tracking-wide">{t('contact.email_label')}</div>
+              <div class="font-semibold text-red-500 text-sm mt-0.5">{t('contact.email_value')}</div>
+            </div>
+          </a>
+          <div class="flex items-center gap-4 bg-white rounded-xl px-5 py-4 shadow-sm border border-gray-100">
+            <div class="w-10 h-10 bg-red-50 rounded-lg flex items-center justify-center text-lg flex-shrink-0">📍</div>
+            <div>
+              <div class="text-xs font-semibold text-gray-400 uppercase tracking-wide">{t('contact.location_label')}</div>
+              <div class="font-semibold text-gray-800 text-sm mt-0.5">{t('contact.location_value')}</div>
+            </div>
+          </div>
+          <a href="https://wa.me/14168365517" target="_blank" rel="noopener" class="flex items-center gap-4 bg-white rounded-xl px-5 py-4 shadow-sm border border-gray-100 hover:border-green-200 transition-colors">
+            <div class="w-10 h-10 bg-green-50 rounded-lg flex items-center justify-center text-lg flex-shrink-0">💬</div>
+            <div>
+              <div class="text-xs font-semibold text-gray-400 uppercase tracking-wide">{t('contact.whatsapp_label')}</div>
+              <div class="font-semibold text-green-600 text-sm mt-0.5">{t('contact.whatsapp_value')}</div>
+            </div>
+          </a>
         </div>
         <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 md:p-8">
           <ContactForm
@@ -292,7 +306,9 @@ const t = (key: string) => ct(content, key);
     </div>
     <div class="border-t border-gray-700 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-gray-500">
       <span>{t('footer.rights')}</span>
-      <span>{t('footer.legal')}</span>
+      <div class="flex items-center gap-4">
+        <a href="/fr/politique-de-confidentialite/" class="hover:text-gray-300 transition-colors">Politique de confidentialité</a>
+      </div>
     </div>
   </footer>
 

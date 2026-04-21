@@ -108,6 +108,41 @@ const localBusiness = {
   </head>
   <body>
     <slot />
+    <!-- Cookie consent banner -->
+    <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-50 bg-gray-900 border-t-4 border-red-500 text-white px-6 py-5 shadow-2xl">
+      <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <p class="text-sm text-gray-300 leading-relaxed">
+          {lang === 'es'
+            ? <span>En nuestro sitio web <strong class="text-white">boxtocuba.ca</strong> usamos cookies para garantizar el correcto funcionamiento de la página y mejorar tu experiencia. Si decides continuar navegando, entendemos que aceptas nuestra política de cookies incluida en nuestra <a href="/es/politica-de-privacidad/" class="text-red-400 hover:text-red-300 underline transition-colors">Política de Privacidad</a>.</span>
+            : lang === 'fr'
+            ? <span>Sur notre site <strong class="text-white">boxtocuba.ca</strong>, nous utilisons des cookies pour assurer le bon fonctionnement de la page et améliorer votre expérience. En continuant à naviguer, vous acceptez notre politique de cookies incluse dans notre <a href="/fr/politique-de-confidentialite/" class="text-red-400 hover:text-red-300 underline transition-colors">Politique de confidentialité</a>.</span>
+            : <span>On our website <strong class="text-white">boxtocuba.ca</strong>, we use cookies to ensure the correct functioning of this page and to improve your experience. If you decide to continue browsing, we understand that you accept the cookies policy included in our <a href="/privacy-policy/" class="text-red-400 hover:text-red-300 underline transition-colors">Privacy Policy</a>.</span>
+          }
+        </p>
+        <button id="cookie-close" aria-label="Close"
+          class="shrink-0 px-5 py-2 text-sm font-semibold bg-red-500 hover:bg-red-600 text-white rounded-lg transition-colors whitespace-nowrap">
+          {lang === 'es' ? 'Entendido' : lang === 'fr' ? 'Compris' : 'Got it'}
+        </button>
+      </div>
+    </div>
+
+    <script is:inline>
+      (function() {
+        var banner = document.getElementById('cookie-banner');
+        if (!banner) return;
+        if (localStorage.getItem('btc_cookie_consent')) {
+          banner.style.display = 'none';
+        }
+        var btn = document.getElementById('cookie-close');
+        if (btn) {
+          btn.addEventListener('click', function() {
+            localStorage.setItem('btc_cookie_consent', 'accepted');
+            banner.style.display = 'none';
+          });
+        }
+      })();
+    </script>
+
     <!-- Floating WhatsApp button -->
     <a href="https://wa.me/14168365517" target="_blank" rel="noopener noreferrer"
       aria-label="Contact us on WhatsApp"

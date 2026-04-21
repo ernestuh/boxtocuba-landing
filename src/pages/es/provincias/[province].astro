@@ -308,15 +308,16 @@ const relatedProvinces = provinces.filter((pr) => p.relatedSlugs.includes(pr.slu
       <div>
         <div class="font-semibold text-white mb-3">Contacto</div>
         <ul class="space-y-2 text-sm">
-          <li>📞 +1 416-836-5517</li>
-          <li>✉️ info@boxtocuba.ca</li>
+          <li><a href="tel:+14168365517" class="hover:text-red-400 transition-colors">📞 +1 416-836-5517</a></li>
+          <li><a href="mailto:info@boxtocuba.ca" class="hover:text-red-400 transition-colors">✉️ info@boxtocuba.ca</a></li>
+          <li><a href="https://wa.me/14168365517" target="_blank" rel="noopener" class="hover:text-green-400 transition-colors">💬 WhatsApp</a></li>
           <li>📍 Toronto y Montreal, Canadá</li>
         </ul>
       </div>
     </div>
     <div class="max-w-5xl mx-auto mt-10 pt-6 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
       <span>© 2026 Box to Cuba. Todos los derechos reservados.</span>
-      <span>Política de privacidad · Términos de servicio</span>
+      <a href="/es/politica-de-privacidad/" class="hover:text-gray-300 transition-colors">Política de Privacidad</a>
     </div>
   </footer>
 </BaseLayout>
