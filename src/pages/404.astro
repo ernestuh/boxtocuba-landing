@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+---
+
+<BaseLayout
+  lang="en"
+  title="Page Not Found"
+  description="The page you were looking for doesn't exist. Find shipping rates, get a quote, or return to the Box to Cuba homepage."
+>
+  <Navbar lang="en" />
+
+  <main class="min-h-[70vh] flex flex-col items-center justify-center px-6 py-20 text-center">
+    <div class="max-w-lg mx-auto">
+
+      <!-- Icon -->
+      <div class="text-7xl mb-6">📦</div>
+
+      <!-- EN -->
+      <h1 class="text-4xl font-extrabold text-gray-900 mb-2">Page not found</h1>
+      <p class="text-gray-500 mb-1">This page doesn't exist or has been moved.</p>
+
+      <!-- ES -->
+      <p class="text-gray-400 text-sm mt-4">Página no encontrada — Esta página no existe o fue movida.</p>
+
+      <!-- FR -->
+      <p class="text-gray-400 text-sm mb-10">Page introuvable — Cette page n'existe pas ou a été déplacée.</p>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="/"
+          class="px-5 py-3 text-sm font-semibold bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">
+          ← Go to Homepage
+        </a>
+        <a href="/canada-to-cuba-shipping-rates"
+          class="px-5 py-3 text-sm font-semibold border border-gray-200 text-gray-700 rounded-lg hover:border-red-400 hover:text-red-500 transition-colors">
+          Shipping Rates
+        </a>
+        <a href="https://app.boxtocuba.ca/shipping-quote"
+          class="px-5 py-3 text-sm font-semibold border border-gray-200 text-gray-700 rounded-lg hover:border-red-400 hover:text-red-500 transition-colors">
+          Get a Quote
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+</BaseLayout>
