@@ -56,7 +56,7 @@
     "subtitle": "Getting your package to Cuba has never been easier.",
     "steps": [
       { "title": "Get a Quote", "desc": "Enter your package details and destination. Get an instant price estimate — no registration needed." },
-      { "title": "Drop Off or Schedule Pickup", "desc": "Bring your package to our Toronto or Montreal location, or schedule a pickup at your door." },
+      { "title": "Drop Off or Schedule Pickup", "desc": "Bring your package to our Toronto office (Scarborough), or schedule a pickup at your door in the GTA. From other cities, ship your boxes to us via Canada Post or Purolator." },
       { "title": "Delivered in Cuba", "desc": "Your package is delivered to your family in Cuba — door-to-door or at a nearby pickup point, depending on the province. Track every step through our client portal." }
     ]
   },
@@ -91,8 +91,8 @@
     "phone_value": "+1 416-836-5517",
     "email_label": "Email",
     "email_value": "info@boxtocuba.ca",
-    "location_label": "Locations",
-    "location_value": "Toronto & Montreal, Canada",
+    "location_label": "Location",
+    "location_value": "Toronto, Canada (Scarborough)",
     "whatsapp_label": "WhatsApp",
     "whatsapp_value": "+1 416-836-5517",
     "form": {
@@ -112,8 +112,7 @@
     "contact": "Contact",
     "phone": "+1 416-836-5517",
     "email": "info@boxtocuba.ca",
-    "location_1": "Toronto, Canada",
-    "location_2": "Montreal, Canada",
+    "location_1": "Toronto, Canada (Scarborough)",
     "rights": "© 2026 Box to Cuba. All rights reserved.",
     "legal": "Privacy Policy · Terms of Service"
   }

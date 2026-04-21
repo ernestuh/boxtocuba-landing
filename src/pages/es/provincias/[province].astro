@@ -212,7 +212,7 @@ const relatedProvinces = provinces.filter((pr) => p.relatedSlugs.includes(pr.slu
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         {[
           ['1', 'Cotiza tu envío', 'Ingresa los detalles de tu paquete y tu destino en ' + p.name_es + '. Obtén un precio al instante — sin registro.'],
-          ['2', 'Entrega o recogida a domicilio', 'Trae tu paquete a nuestra ubicación en Toronto o Montreal, o programa una recogida en tu puerta.'],
+          ['2', 'Entrega o recogida a domicilio', 'Trae tu paquete a nuestra oficina de Toronto (Scarborough), o programa una recogida en tu puerta si estás en el GTA. Desde otras ciudades, envíanos tus cajas por Canada Post o Purolator.'],
           ['3', 'Entregado en ' + p.name_es, 'Tu paquete llega a tu familia en ' + p.name_es + ' en ' + p.delivery_es + '. Rastréalo en todo momento desde el portal.'],
         ].map(([num, title, desc]) => (
           <div class="flex flex-col items-start">
@@ -314,7 +314,7 @@ const relatedProvinces = provinces.filter((pr) => p.relatedSlugs.includes(pr.slu
           <li><a href="mailto:info@boxtocuba.ca" class="hover:text-red-400 transition-colors">✉️ info@boxtocuba.ca</a></li>
           <li><a href="https://wa.me/14168365517" target="_blank" rel="noopener" class="hover:text-green-400 transition-colors">💬 WhatsApp</a></li>
           <li><a href="https://facebook.com/boxtocuba" target="_blank" rel="noopener" class="hover:text-blue-400 transition-colors">📘 Facebook</a></li>
-          <li>📍 Toronto y Montreal, Canadá</li>
+          <li>📍 Toronto, Canadá</li>
         </ul>
       </div>
     </div>

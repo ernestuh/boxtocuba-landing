@@ -218,7 +218,7 @@ const relatedProvinces = provinces.filter((pr) => p.relatedSlugs.includes(pr.slu
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         {[
           ['1', 'Get a free quote', 'Enter your package details and destination in ' + p.name + '. Get an instant price — no registration needed.'],
-          ['2', 'Drop off or schedule pickup', 'Bring your package to our Toronto or Montreal office, or schedule a home pickup in the GTA.'],
+          ['2', 'Drop off or schedule pickup', 'Bring your package to our Toronto office (Scarborough), or schedule a home pickup in the GTA. From other cities, ship your boxes via Canada Post or Purolator.'],
           ['3', 'Delivered in ' + p.name, 'Your package arrives at your family in ' + p.name + ' in ' + p.delivery_en + '. Track every step through our client portal.'],
         ].map(([num, title, desc]) => (
           <div class="flex flex-col items-start">
@@ -322,7 +322,7 @@ const relatedProvinces = provinces.filter((pr) => p.relatedSlugs.includes(pr.slu
           <li><a href="mailto:info@boxtocuba.ca" class="hover:text-red-400 transition-colors">✉️ info@boxtocuba.ca</a></li>
           <li><a href="https://wa.me/14168365517" target="_blank" rel="noopener" class="hover:text-green-400 transition-colors">💬 WhatsApp</a></li>
           <li><a href="https://facebook.com/boxtocuba" target="_blank" rel="noopener" class="hover:text-blue-400 transition-colors">📘 Facebook</a></li>
-          <li>📍 Toronto & Montreal, Canada</li>
+          <li>📍 Toronto, Canada</li>
         </ul>
       </div>
     </div>

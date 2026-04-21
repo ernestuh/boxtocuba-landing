@@ -56,7 +56,7 @@
     "subtitle": "Enviar tu paquete a Cuba nunca fue tan fácil.",
     "steps": [
       { "title": "Cotiza tu envío", "desc": "Ingresa los detalles de tu paquete y destino. Obtén un precio al instante — sin registro." },
-      { "title": "Entrega o recogida a domicilio", "desc": "Trae tu paquete a nuestra ubicación en Toronto o Montreal, o programa una recogida en tu puerta." },
+      { "title": "Entrega o recogida a domicilio", "desc": "Trae tu paquete a nuestra oficina de Toronto (Scarborough), o programa una recogida en tu puerta si estás en el GTA. Desde otras ciudades, envíanos tus cajas por Canada Post o Purolator." },
       { "title": "Entregado en Cuba", "desc": "Tu paquete llega a tu familia en Cuba — puerta a puerta o en un punto de recogida cercano, según la provincia. Rastréalo en todo momento desde el portal." }
     ]
   },
@@ -91,8 +91,8 @@
     "phone_value": "+1 416-836-5517",
     "email_label": "Correo",
     "email_value": "info@boxtocuba.ca",
-    "location_label": "Ubicaciones",
-    "location_value": "Toronto y Montreal, Canadá",
+    "location_label": "Ubicación",
+    "location_value": "Toronto, Canadá (Scarborough)",
     "whatsapp_label": "WhatsApp",
     "whatsapp_value": "+1 416-836-5517",
     "form": {
@@ -112,8 +112,7 @@
     "contact": "Contacto",
     "phone": "+1 416-836-5517",
     "email": "info@boxtocuba.ca",
-    "location_1": "Toronto, Canadá",
-    "location_2": "Montreal, Canadá",
+    "location_1": "Toronto, Canadá (Scarborough)",
     "rights": "© 2026 Box to Cuba. Todos los derechos reservados.",
     "legal": "Política de privacidad · Términos de servicio"
   }

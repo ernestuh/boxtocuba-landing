@@ -56,7 +56,7 @@
     "subtitle": "Envoyer votre colis à Cuba n'a jamais été aussi facile.",
     "steps": [
       { "title": "Obtenir un devis", "desc": "Entrez les détails de votre colis et votre destination. Obtenez une estimation instantanée — sans inscription." },
-      { "title": "Déposer ou planifier une collecte", "desc": "Apportez votre colis à notre bureau de Toronto ou Montréal, ou planifiez une collecte à domicile." },
+      { "title": "Déposer ou planifier une collecte", "desc": "Apportez votre colis à notre bureau de Toronto (Scarborough), ou planifiez une collecte à domicile dans le Grand Toronto. Depuis d'autres villes, expédiez vos boîtes via Postes Canada ou Purolator." },
       { "title": "Livré à Cuba", "desc": "Votre colis est livré à votre famille à Cuba — porte-à-porte ou en point de retrait, selon la province. Suivez chaque étape via le portail." }
     ]
   },
@@ -91,8 +91,8 @@
     "phone_value": "+1 416-836-5517",
     "email_label": "Email",
     "email_value": "info@boxtocuba.ca",
-    "location_label": "Emplacements",
-    "location_value": "Toronto et Montréal, Canada",
+    "location_label": "Emplacement",
+    "location_value": "Toronto, Canada (Scarborough)",
     "whatsapp_label": "WhatsApp",
     "whatsapp_value": "+1 416-836-5517",
     "form": {
@@ -112,8 +112,7 @@
     "contact": "Contact",
     "phone": "+1 416-836-5517",
     "email": "info@boxtocuba.ca",
-    "location_1": "Toronto, Canada",
-    "location_2": "Montréal, Canada",
+    "location_1": "Toronto, Canada (Scarborough)",
     "rights": "© 2026 Box to Cuba. Tous droits réservés.",
     "legal": "Politique de confidentialité · Conditions d'utilisation"
   }
