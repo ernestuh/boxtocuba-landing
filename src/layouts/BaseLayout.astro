@@ -10,7 +10,7 @@ interface Props {
   alternates?: { hreflang: string; href: string }[];
 }
 
-const { lang, title, description, ogImage = '/logo.png', faqItems, alternates } = Astro.props;
+const { lang, title, description, ogImage = '/og-image.jpg', faqItems, alternates } = Astro.props;
 const canonicalURL = `https://boxtocuba.ca${Astro.url.pathname}`;
 const locales = ['en', 'es', 'fr'];
 
@@ -70,7 +70,8 @@ const localBusiness = {
     <meta property="og:title" content={`${title} | Box to Cuba`} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={`https://boxtocuba.ca${ogImage}`} />
-    <meta property="og:locale" content={lang} />
+    <meta property="og:locale" content={lang === 'en' ? 'en_US' : lang === 'es' ? 'es_ES' : 'fr_FR'} />
+    <meta property="og:site_name" content="Box to Cuba" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
