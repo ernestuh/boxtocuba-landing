@@ -46,6 +46,35 @@ export async function getNotice(): Promise<Notice> {
   }
 }
 
+// ─── Share Buttons Config ──────────────────────────────────────────────────
+
+export interface ShareButtonsConfig {
+  enabled: boolean;
+}
+
+const DEFAULT_SHARE_BUTTONS_CONFIG: ShareButtonsConfig = { enabled: false };
+
+/** Fetch share buttons feature flag from Supabase. Falls back to disabled if unavailable. */
+export async function getShareButtonsConfig(): Promise<ShareButtonsConfig> {
+  const supabaseUrl = import.meta.env.SUPABASE_URL;
+  const supabaseKey = import.meta.env.SUPABASE_SERVICE_KEY;
+  if (!supabaseUrl || !supabaseKey) return DEFAULT_SHARE_BUTTONS_CONFIG;
+
+  try {
+    const supabase = createClient(supabaseUrl, supabaseKey);
+    const { data, error } = await supabase
+      .from('settings')
+      .select('value')
+      .eq('key', 'LANDING_SHARE_BUTTONS')
+      .single();
+
+    if (error || !data) return DEFAULT_SHARE_BUTTONS_CONFIG;
+    return { ...DEFAULT_SHARE_BUTTONS_CONFIG, ...JSON.parse(data.value) } as ShareButtonsConfig;
+  } catch {
+    return DEFAULT_SHARE_BUTTONS_CONFIG;
+  }
+}
+
 // ─── Navbar Config ─────────────────────────────────────────────────────────
 
 export interface NavbarConfig {
