@@ -103,7 +103,7 @@ const navLinkClass = (active: boolean) =>
       <a href={citiesUrl}            class={navLinkClass(isCities)}>{l.cities}</a>
       <a href={ratesUrl}             class={navLinkClass(isRates)}>{l.rates}</a>
       <a href={`${p}#faq`}           class="text-gray-500 hover:text-red-500 text-sm transition-colors">{l.faq}</a>
-      {isHome && <a href="#contact"  class="text-gray-500 hover:text-red-500 text-sm transition-colors">{l.contact}</a>}
+      <a href={isHome ? '#contact' : `${lang === 'en' ? '' : `/${lang}`}/#contact`} class="text-gray-500 hover:text-red-500 text-sm transition-colors">{l.contact}</a>
     </div>
 
     <!-- Right side -->
@@ -146,7 +146,7 @@ const navLinkClass = (active: boolean) =>
     <a href={citiesUrl}           class="text-gray-600 hover:text-red-500 text-sm font-medium transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">{l.cities}</a>
     <a href={ratesUrl}            class="text-red-500 font-semibold text-sm">{l.rates}</a>
     <a href={`${p}#faq`}          class="text-gray-600 hover:text-red-500 text-sm font-medium transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">{l.faq}</a>
-    {isHome && <a href="#contact" class="text-gray-600 hover:text-red-500 text-sm font-medium transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">{l.contact}</a>}
+    <a href={isHome ? '#contact' : `${lang === 'en' ? '' : `/${lang}`}/#contact`} class="text-gray-600 hover:text-red-500 text-sm font-medium transition-colors" onclick="document.getElementById('mobile-menu').classList.add('hidden')">{l.contact}</a>
     {navbarConfig.show_client_portal && (
       <>
         <hr class="border-gray-100" />

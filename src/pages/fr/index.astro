@@ -257,6 +257,15 @@ const t = (key: string) => ct(content, key);
               <div class="font-semibold text-green-600 text-sm mt-0.5">{t('contact.whatsapp_value')}</div>
             </div>
           </a>
+          <a href="https://facebook.com/boxtocuba" target="_blank" rel="noopener" class="flex items-center gap-4 bg-white rounded-xl px-5 py-4 shadow-sm border border-gray-100 hover:border-blue-200 transition-colors">
+            <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+            </div>
+            <div>
+              <div class="text-xs font-semibold text-gray-400 uppercase tracking-wide">Facebook</div>
+              <div class="font-semibold text-blue-600 text-sm mt-0.5">facebook.com/boxtocuba</div>
+            </div>
+          </a>
         </div>
         <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 md:p-8">
           <ContactForm
@@ -301,6 +310,8 @@ const t = (key: string) => ct(content, key);
           <a href={`mailto:${t('footer.email')}`} class="block text-sm text-gray-400 hover:text-red-400 transition-colors">{t('footer.email')}</a>
           <span class="block text-sm text-gray-400">{t('footer.location_1')}</span>
           <span class="block text-sm text-gray-400">{t('footer.location_2')}</span>
+          <a href="https://wa.me/14168365517" target="_blank" rel="noopener" class="block text-sm text-gray-400 hover:text-green-400 transition-colors">💬 WhatsApp</a>
+          <a href="https://facebook.com/boxtocuba" target="_blank" rel="noopener" class="block text-sm text-gray-400 hover:text-blue-400 transition-colors">📘 Facebook</a>
         </div>
       </div>
     </div>
