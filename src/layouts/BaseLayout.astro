@@ -11,7 +11,7 @@ interface Props {
 }
 
 const { lang, title, description, ogImage = '/logo.png', faqItems, alternates } = Astro.props;
-const canonicalURL = Astro.url.href;
+const canonicalURL = `https://boxtocuba.ca${Astro.url.pathname}`;
 const locales = ['en', 'es', 'fr'];
 
 const localBusiness = {
