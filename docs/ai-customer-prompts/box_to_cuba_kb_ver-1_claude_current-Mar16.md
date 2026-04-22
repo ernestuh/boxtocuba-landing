@@ -20,6 +20,23 @@ BOX TO CUBA offers package shipping services from Canada to Cuba. We currently s
 - **Main Offices**: Located in Toronto, Canada
 - **Coverage**: Can receive cargo from any city or country for shipment to Cuba
 
+### Pickup Service & Shipping from Outside Toronto
+
+**Home Pickup (GTA only):**
+- Home pickup is available within the Greater Toronto Area (GTA)
+- Subject to availability — contact customer support to schedule
+- Additional pickup fee may apply
+
+**Outside the GTA — How to Send Your Package:**
+- Customers outside the GTA ship their packages to our Toronto warehouse using Canada Post or Purolator
+- We can help! We have preferential rates with several couriers and can provide a prepaid shipping label to send your package directly to our Toronto address
+- Contact customer support to arrange this service
+- Once we receive your package in Toronto, we process it for shipment to Cuba as normal
+
+**Important:**
+- We only have one office, located in Toronto (Scarborough)
+- We do not have offices or pickup points in Montreal, Vancouver, or other Canadian cities
+
 ---
 
 ## 3. Cargo Tracking
@@ -374,13 +391,18 @@ Customs tariffs are taxes charged to nationalize products and permit entry into 
 **Estimated Timeline:**
 
 **Customs Processing:**
-- Normal review and nationalization: 5-7 days
+- Normal review and nationalization: 5–7 days
 
-**Distribution:**
-- Completion of delivery: 14-21 days
+**Distribution & Delivery (after customs clearance):**
 
-**Total Average:**
-- Recipient should receive package within 21-40 days after arrival in Cuba
+| Zone | Provinces | Estimated time |
+|------|-----------|---------------|
+| Western Cuba | La Habana, Artemisa, Mayabeque, Pinar del Río, Isla de la Juventud | 2–4 weeks |
+| Matanzas | Matanzas | 3–4 weeks |
+| Central & Eastern Cuba | Villa Clara, Cienfuegos, Sancti Spíritus, Ciego de Ávila, Camagüey, Las Tunas, Holguín, Granma, Santiago de Cuba | 5–7 weeks |
+| Guantánamo | — | ❌ No service |
+
+**Note:** Times are estimates after arrival in Cuba and may vary due to flight schedules, customs volume, and local logistics.
 
 **Tracking:** https://avsup.info/app/trackingawb.php
 
