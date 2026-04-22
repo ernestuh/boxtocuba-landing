@@ -12,6 +12,10 @@ Astro (SSG) + Tailwind CSS. Sitio multilingüe EN/ES/FR.
 
 ## Reglas de trabajo
 
+### Confirmar antes de ejecutar cualquier tarea
+
+Antes de tocar cualquier archivo o ejecutar cualquier comando, describir exactamente los cambios planeados (qué archivos se crean, modifican o borran) y terminar siempre con la pregunta explícita **"¿Procedo?"**. No ejecutar nada hasta recibir confirmación. Sin excepción, aunque parezca obvio.
+
 ### NUNCA commitear ni pushear sin orden explícita del usuario
 
 **NUNCA** hacer `git commit` ni `git push` de forma autónoma. Sin excepción. Aunque el build pase, aunque los cambios sean pequeños, aunque parezca obvio. Esperar siempre que el usuario diga explícitamente "commit", "pushea", "dale" o similar. El flujo es: hacer cambios → build → avisar "listo para probar en local" → esperar confirmación del usuario → esperar orden de commit.
