@@ -12,6 +12,17 @@ Astro (SSG) + Tailwind CSS. Sitio multilingüe EN/ES/FR.
 
 ## Reglas de trabajo
 
+### NUNCA commitear ni pushear sin orden explícita del usuario
+
+**NUNCA** hacer `git commit` ni `git push` de forma autónoma. Sin excepción. Aunque el build pase, aunque los cambios sean pequeños, aunque parezca obvio. Esperar siempre que el usuario diga explícitamente "commit", "pushea", "dale" o similar. El flujo es: hacer cambios → build → avisar "listo para probar en local" → esperar confirmación del usuario → esperar orden de commit.
+
+### Páginas de test y proposal — nunca se indexan
+
+Las páginas con prefijo `test-` o `proposal-` en `src/pages/` **nunca deben aparecer en el sitemap ni ser indexadas por Google**:
+- `astro.config.mjs` ya las filtra del sitemap con `filter: (page) => !page.includes('/proposal-') && !page.includes('/test-')`
+- Toda página `test-*` debe incluir `<meta name="robots" content="noindex, nofollow" />` en el `<head>`
+- Borrar estas páginas cuando ya no sean necesarias — no dejarlas acumularse
+
 ### Build obligatorio antes de commitear
 
 **Siempre** correr el build y verificar que pasa sin errores antes de cualquier `git commit` o `git push`:
