@@ -233,14 +233,9 @@ export default function ContactForm({ lang, apiUrl }: Props) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, phone, caProvince, caCity, cuProvince, cuCity, weight: Number(weight), message, lang, turnstileToken }),
       });
-      if (!res.ok) {
-        const errBody = await res.text();
-        console.error('contact-form error:', res.status, errBody);
-        throw new Error(errBody);
-      }
+      if (!res.ok) throw new Error();
       setStatus('success');
-    } catch (err) {
-      console.error('contact-form catch:', err);
+    } catch {
       setStatus('error');
     }
   };
