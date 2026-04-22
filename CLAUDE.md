@@ -23,6 +23,10 @@ Las páginas con prefijo `test-` o `proposal-` en `src/pages/` **nunca deben apa
 - Toda página `test-*` debe incluir `<meta name="robots" content="noindex, nofollow" />` en el `<head>`
 - Borrar estas páginas cuando ya no sean necesarias — no dejarlas acumularse
 
+### Actualizar docs al final de cada sesión
+
+Antes de cerrar la sesión, revisar `git log` de ambos proyectos y actualizar los archivos afectados en `docs/` del dashboard (`docs/architecture.md`, `docs/landing-cms.md`). Proponer los cambios al usuario antes de escribirlos.
+
 ### Build obligatorio antes de commitear
 
 **Siempre** correr el build y verificar que pasa sin errores antes de cualquier `git commit` o `git push`:
