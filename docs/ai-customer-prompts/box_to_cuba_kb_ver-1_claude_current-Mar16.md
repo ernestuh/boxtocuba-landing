@@ -9,7 +9,7 @@
 ## 2. BOX TO CUBA Services
 
 ### Service Overview
-BOX TO CUBA offers package shipping services from Canada to all provinces in Cuba. However, due to the current suspension of commercial flights between Canada and Cuba, we are temporarily limiting our service to deliveries in Havana and Matanzas only.
+BOX TO CUBA offers package shipping services from Canada to Cuba. We currently ship to all Cuban provinces except Guantánamo, organized in three rate zones: Western Cuba, Matanzas, and Central & Eastern Cuba. Contact us to confirm details for your specific destination.
 
 ### Third-Party Agency Services
 - BOX TO CUBA provides logistics services to third-party agencies
@@ -262,23 +262,57 @@ Customs tariffs are taxes charged to nationalize products and permit entry into 
 
 ### Standard Pricing (Non-battery items, no fuel generators)
 
-**Weight-Based Tiers:**
-- For Havana
-- **Minimum 10 lbs**: $75 CAD flat rate
-- **11-44 lbs**: $6.50 CAD per lb
-- **44 lbs or more**: $6 CAD per lb
+**1. Western Cuba** — La Habana, Artemisa, Mayabeque, Pinar del Río, Isla de la Juventud
+- **0.5–10 lbs**: $75 CAD flat rate
+- **10.01–44 lbs**: $6.50 CAD/lb
+- **44.01+ lbs**: $6.00 CAD/lb
 
-- For Matanzas
-- **Minimum 10 lbs**: $75 CAD flat rat
-- **11-44 lbs**: $7 CAD per lb
-- **44 lbs or more**: $6.50 CAD per lb
+**2. Matanzas**
+- **0.5–10 lbs**: $80 CAD flat rate
+- **10.01–44 lbs**: $7.00 CAD/lb
+- **44.01+ lbs**: $6.50 CAD/lb
 
-- Other provinces we are looking to establish new routes not available now.
+**3. Central & Eastern Cuba** — Villa Clara, Cienfuegos, Sancti Spíritus, Ciego de Ávila, Camagüey, Las Tunas, Holguín, Granma, Santiago de Cuba
+- **0.5–10 lbs**: $80 CAD flat rate
+- **10.01–44 lbs**: $7.50 CAD/lb
+- **44.01–100 lbs**: $7.00 CAD/lb
+- **100.01+ lbs**: $6.85 CAD/lb
 
-**Weight-Based Tiers for power generators Electric or Gas powered (ecoflow, anker, bluetii, champion):**
-- **Up to 100lbs**: 7 CAD per lb (to Havana province) and the rest of provinces 8 CAD per lb
-- **More than 100lbs**: 6 CAD per lb (to Havana province) and the rest of provinces 7 CAD per lb
-- **Disclaimer**: The shipment of batteries or battery/gas-powered electric plants is limited and may take 8-12 weeks to reach its final destination.
+### Delivery Method by Zone
+
+**La Habana**
+- Door-to-door included, except:
+  - Habana Vieja (Lanchita Regla area)
+  - San Miguel del Padrón (beside the police station)
+- Delivery within 2–4 weeks after arrival in Cuba
+- Recipient pays customs duties in Cuban Pesos (varies by weight and items)
+- ⚠️ Rates subject to change at any time
+
+**Matanzas**
+- Door-to-door available in Matanzas city and Cárdenas only — +$30 CAD extra
+- All other Matanzas municipalities: pick up at provincial capital
+- Delivery within 3–4 weeks after arrival in Cuba
+- Recipient pays customs duties in Cuban Pesos (varies by weight and items)
+- ⚠️ Rates subject to change at any time
+
+**Western Cuba periphery** (Artemisa, Mayabeque, Pinar del Río, Isla de la Juventud)
+- Pick up at the La Habana warehouse
+- Pick up available within 2–4 weeks after arrival in Cuba
+- Recipient pays customs duties in Cuban Pesos (varies by weight and items)
+- ⚠️ Rates subject to change at any time
+
+**Central & Eastern Cuba** (Villa Clara, Cienfuegos, Sancti Spíritus, Ciego de Ávila, Camagüey, Las Tunas, Holguín, Granma, Santiago de Cuba)
+- Pick up at a designated pickup point in the provincial capital, except:
+  - Ciego de Ávila: pickup points in provincial capital and also in Morón
+- Pick up available within 5–7 weeks after arrival in Cuba
+- Guantánamo: ❌ no service available
+- Recipient pays customs duties in Cuban Pesos (varies by weight and items)
+- ⚠️ Rates subject to change at any time
+
+**Weight-Based Tiers for power generators (electric or gas powered — EcoFlow, Anker, Bluetti, Champion):**
+- ⚠️ We are **not currently accepting** generator shipments.
+- Join our waitlist to be notified when this service resumes:
+  https://app.boxtocuba.ca/join/9b44d326-cc1d-407f-b9ba-9bb26bfdd827
 
 
 **Volume Discounts:**
