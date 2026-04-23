@@ -18,7 +18,7 @@ Antes de tocar cualquier archivo o ejecutar cualquier comando, describir exactam
 
 ### NUNCA commitear ni pushear sin orden explícita del usuario
 
-**NUNCA** hacer `git commit` ni `git push` de forma autónoma. Sin excepción. Aunque el build pase, aunque los cambios sean pequeños, aunque parezca obvio. Esperar siempre que el usuario diga explícitamente "commit", "pushea", "dale" o similar. El flujo es: hacer cambios → build → avisar "listo para probar en local" → esperar confirmación del usuario → esperar orden de commit.
+**NUNCA** hacer `git commit` ni `git push` de forma autónoma. Sin excepción. Aunque `npm run verify` pase, aunque los cambios sean pequeños, aunque parezca obvio. Esperar siempre que el usuario diga explícitamente "commit", "pushea", "dale" o similar. El flujo es: hacer cambios → `npm run verify` → avisar "listo para probar en local" → esperar confirmación del usuario → esperar orden de commit.
 
 ### Páginas de test y proposal — nunca se indexan
 
@@ -31,18 +31,22 @@ Las páginas con prefijo `test-` o `proposal-` en `src/pages/` **nunca deben apa
 
 Antes de cerrar la sesión, revisar `git log` de ambos proyectos y actualizar los archivos afectados en `docs/` del dashboard (`docs/architecture.md`, `docs/landing-cms.md`). Proponer los cambios al usuario antes de escribirlos.
 
-### Build obligatorio antes de commitear
+### Verify obligatorio antes de commitear
 
-**Siempre** correr el build y verificar que pasa sin errores antes de cualquier `git commit` o `git push`:
+**Siempre** correr `npm run verify` (build + tests Playwright) y verificar que pasa sin errores antes de cualquier `git commit` o `git push`:
 
 ```bash
 cd /Users/ernestoperezalonso/projects/boxtocuba-landing
-npm run build
+npm run verify
 ```
 
-El build debe terminar con `Build complete` sin errores. Si falla, arreglar el error y volver a correr el build antes de continuar.
+El comando encadena `npm run build && npm test`. Debe terminar con el build completo y los ~62 tests Playwright en verde (2 skipped por diseño: desktop-only en mobile project y viceversa). Si falla, arreglar el error y volver a correr `npm run verify` antes de continuar.
 
-**Por qué:** Caracteres especiales (apostrofes en francés, etc.) dentro de strings JS pueden romper el parser de esbuild sin que se note en el dev server.
+**Por qué:**
+- **Build:** caracteres especiales (apostrofes en francés, etc.) dentro de strings JS pueden romper el parser de esbuild sin que se note en el dev server.
+- **Tests:** Playwright detecta regresiones de smoke/SEO/i18n/network — links rotos, meta tags duplicados, traducciones faltantes, assets 404 — que el build no atrapa.
+
+Para un chequeo más profundo (reporte humano del estado del sitio, verificación explícita de sitemap/robots leaks), invocar el subagente `landing-tester`.
 
 ---
 
@@ -52,8 +56,8 @@ El build debe terminar con `Build complete` sin errores. Si falla, arreglar el e
 # Servidor local
 npm run dev -- --port 4321
 
-# Build de verificación (obligatorio antes de commit)
-npm run build
+# Verify (obligatorio antes de commit: build + tests Playwright)
+npm run verify
 ```
 
 ---

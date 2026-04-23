@@ -29,3 +29,9 @@ proposal-*.html
 public/proposal-*.html
 src/pages/proposal-*.astro
 phase2-*.html
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
