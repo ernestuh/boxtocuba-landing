@@ -121,7 +121,7 @@ El sitio genera **~60 páginas estáticas** en build time.
 Crear un archivo `.env` en la raíz (no se commitea):
 
 ```env
-SUPABASE_URL=https://qgdrcznhuguyegpxaapk.supabase.co
+SUPABASE_URL=https://lnfsqlxfzkhvptnczprc.supabase.co
 SUPABASE_SERVICE_KEY=<service_role_key>
 ```
 
