@@ -30,6 +30,9 @@ public/proposal-*.html
 src/pages/proposal-*.astro
 phase2-*.html
 
+# Supabase CLI
+supabase/.temp/
+
 # Playwright
 /test-results/
 /playwright-report/
