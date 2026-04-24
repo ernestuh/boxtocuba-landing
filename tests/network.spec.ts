@@ -25,6 +25,10 @@ const CONSOLE_NOISE_PATTERNS = [
   /Permissions policy violation/i,
   /%c%d font-size:0/i, // Google Analytics canary
   /Failed to load resource:.*status of 401/i, // Turnstile handshake
+  /TrustedHTML/i,
+  /TrustedScript/i,
+  /TrustedScriptURL/i,
+  /Content Security Policy/i,
 ];
 
 function isFirstParty(url: string, origin: string): boolean {
