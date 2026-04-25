@@ -201,6 +201,23 @@ const localBusiness = {
       </script>
     )}
 
+    <!-- Chatwoot live chat -->
+    <script is:inline>
+      (function(d,t) {
+        var BASE_URL="https://chat.boxtocuba.ca";
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=BASE_URL+"/packs/js/sdk.js";
+        g.async = true;
+        s.parentNode.insertBefore(g,s);
+        g.onload=function(){
+          window.chatwootSDK.run({
+            websiteToken: '31dZipL6dtPna9EcwgMMwQaP',
+            baseUrl: BASE_URL
+          })
+        }
+      })(document,"script");
+    </script>
+
     <!-- Floating WhatsApp button -->
     <a href="https://wa.me/14168365517" target="_blank" rel="noopener noreferrer"
       aria-label="Contact us on WhatsApp"

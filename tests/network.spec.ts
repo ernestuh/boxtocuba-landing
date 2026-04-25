@@ -15,6 +15,7 @@ const THIRD_PARTY_DOMAINS = [
   'doubleclick.net',
   'gstatic.com',
   'googleapis.com',
+  'chat.boxtocuba.ca',
 ];
 
 const CONSOLE_NOISE_PATTERNS = [
@@ -29,6 +30,8 @@ const CONSOLE_NOISE_PATTERNS = [
   /TrustedScript/i,
   /TrustedScriptURL/i,
   /Content Security Policy/i,
+  /status of 429/i,
+  /chatwoot/i,
 ];
 
 function isFirstParty(url: string, origin: string): boolean {
