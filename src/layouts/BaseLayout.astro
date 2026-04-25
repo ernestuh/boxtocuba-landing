@@ -202,6 +202,9 @@ const localBusiness = {
     )}
 
     <!-- Chatwoot live chat -->
+    <style is:global>
+      .woot-widget-bubble, .woot--bubble-holder { bottom: 80px !important; }
+    </style>
     <script is:inline>
       window.chatwootSettings = {"position":"right","type":"standard","launcherTitle":""};
       (function(d,t) {
